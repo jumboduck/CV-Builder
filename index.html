@@ -16,10 +16,11 @@
         <title>CV Builder</title>
     </head>
     <body>
-        <header>
+        <!-- HEADER -->
+        <header class="custom-header">
             <nav class="navbar navbar-expand-lg static-top">
                 <div class="container">
-                    <a class="navbar-brand" href="#">CV Builder</a>
+                    <h1>CV Builder</h1>
                     <button
                         class="navbar-toggler"
                         type="button"
@@ -31,13 +32,17 @@
                     >
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    <!-- NAVIGATION -->
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">
-                                    Theme 1
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">
+                                    Default
                                     <span class="sr-only">(current)</span>
                                 </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Theme 1</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Theme 2</a>
@@ -45,112 +50,242 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Theme 3</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Theme 4</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-        <div class="printable container">
-            <section>
-                <h3 contenteditable="true">Professional Experience</h3>
-                <div class="table-responsive-m">
-                    <table class="table table-hover table-borderless w-auto">
-                        <tbody>
-                            <tr>
-                                <td class="narrow">
-                                    <h5 contenteditable="true">2019 - 2020</h5>
-                                </td>
-                                <td class="narrow">
-                                    <h5 contenteditable="true">
-                                        Bigstore Management
-                                    </h5>
-                                </td>
-                                <td>
-                                    <h5 contenteditable="true">
-                                        Director of sales
-                                    </h5>
-                                    <span contenteditable="true">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Recusandae aspernatur
-                                        repellat quis hic sunt harum deleniti
-                                        perferendis necessitatibus reprehenderit
-                                        minima vero unde assumenda id adipisci
-                                        consequuntur consectetur, sint
-                                        dignissimos omnis voluptates ratione
-                                        eaque eos? Iste repellendus facere,
-                                        eveniet tempora unde laboriosam
-                                        adipisci, illo obcaecati blanditiis
-                                        quibusdam assumenda, beatae soluta
-                                        temporibus?
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="narrow">
-                                    <h5 contenteditable="true">2017 - 2019</h5>
-                                </td>
-                                <td class="narrow">
-                                    <h5 contenteditable="true">
-                                        Elephant Inc.
-                                    </h5>
-                                </td>
-                                <td>
-                                    <h5 contenteditable="true">
-                                        Communication Strategist
-                                    </h5>
-                                    <span contenteditable="true">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Recusandae aspernatur
-                                        repellat quis hic sunt harum deleniti
-                                        perferendis necessitatibus reprehenderit
-                                        minima vero unde assumenda id adipisci
-                                        consequuntur consectetur, sint
-                                        dignissimos omnis voluptates ratione
-                                        eaque eos?
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="narrow">
-                                    <h5 contenteditable="true">2015 - 2017</h5>
-                                </td>
-                                <td class="narrow">
-                                    <h5 contenteditable="true">
-                                        Elephant Inc.
-                                    </h5>
-                                </td>
-                                <td>
-                                    <h5 contenteditable="true">
-                                        Sales Assistant
-                                    </h5>
-                                    <span contenteditable="true">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Recusandae aspernatur
-                                        repellat quis hic sunt harum deleniti
-                                        perferendis necessitatibus reprehenderit
-                                        minima vero unde assumenda id adipisci
-                                        consequuntur consectetur, sint
-                                        dignissimos omnis voluptates ratione
-                                        eaque eos? Iste repellendus facere,
-                                        eveniet tempora unde laboriosam
-                                        adipisci, illo obcaecati blanditiis
-                                        quibusdam assumenda, beatae soluta
-                                        temporibus?
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+        <div class="container">
+            <!-- PRINTABLE HTML-->
+            <div class="printable ml-auto mr-auto">
+                <!-- PERSONAL INFO -->
+
+                <section>
+                    <h2 contenteditable="true" class="text-center">John Doe</h2>
+                    <div class="row">
+                        <div class="col-md-3 text-right">
+                            <strong>
+                                <p contenteditable="true">Address:</p>
+                            </strong>
+                        </div>
+                        <div class="col-md-3">
+                            <p contenteditable="true">
+                                123 State St.
+                                <br />
+                                Oslo, Norway
+                            </p>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <strong>
+                                <p contenteditable="true">Website:</p>
+                            </strong>
+                        </div>
+                        <div class="col-md-3">
+                            <p contenteditable="true">
+                                https://www.johndoe.doe
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 text-right">
+                            <strong>
+                                <p contenteditable="true">Phone:</p>
+                            </strong>
+                        </div>
+                        <div class="col-md-3">
+                            <p contenteditable="true">555-123-4567</p>
+                        </div>
+
+                        <div class="col-md-3 text-right">
+                            <strong>
+                                <p contenteditable="true">Twitter:</p>
+                            </strong>
+                        </div>
+                        <div class="col-md-3">
+                            <p contenteditable="true">
+                                @johndoe
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 text-right">
+                            <strong>
+                                <p contenteditable="true">Email:</p>
+                            </strong>
+                        </div>
+                        <div class="col-md-3">
+                            <p contenteditable="true">johndoe@email.io</p>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </section>
+
+                <!-- DEFAULT SECTION 1: EXPERIENCE -->
+                <section>
+                    <h3 contenteditable="true" class="section-heading">
+                        Professional Experience
+                    </h3>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h5 contenteditable="true">2019 - 2020</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <h5 contenteditable="true">Bigstore Management</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <h5 contenteditable="true">
+                                Director of sales
+                            </h5>
+                            <p contenteditable="true">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Recusandae aspernatur repellat
+                                quis hic sunt harum deleniti perferendis
+                                necessitatibus reprehenderit minima vero unde
+                                assumenda id adipisci consequuntur consectetur,
+                                sint dignissimos omnis voluptates ratione eaque
+                                eos? Iste repellendus facere, eveniet tempora
+                                unde laboriosam adipisci, illo obcaecati
+                                blanditiis quibusdam assumenda, beatae soluta
+                                temporibus?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h5 contenteditable="true">2017 - 2019</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <h5 contenteditable="true">Elephant Inc.</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <h5 contenteditable="true">
+                                Communication Strategist
+                            </h5>
+                            <p contenteditable="true">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Recusandae aspernatur repellat
+                                quis hic sunt harum deleniti perferendis
+                                necessitatibus reprehenderit minima vero unde
+                                assumenda id adipisci consequuntur consectetur,
+                                sint dignissimos omnis voluptates ratione eaque
+                                eos?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h5 contenteditable="true">2015 - 2017</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <h5 contenteditable="true">Elephant Inc.</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <h5 contenteditable="true">
+                                Sales Assistant
+                            </h5>
+                            <p contenteditable="true">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Recusandae aspernatur repellat
+                                quis hic sunt harum deleniti perferendis
+                                necessitatibus reprehenderit minima vero unde
+                                assumenda id adipisci consequuntur consectetur,
+                                sint dignissimos omnis voluptates ratione eaque
+                                eos? Iste repellendus facere, eveniet tempora
+                                unde laboriosam adipisci, illo obcaecati
+                                blanditiis quibusdam assumenda, beatae soluta
+                                temporibus?
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr />
+                </section>
+                <!-- DEFAULT SECTION 2: EDUCATION -->
+                <section>
+                    <h3 contenteditable="true" class="section-heading">
+                        Education
+                    </h3>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h5 contenteditable="true">2011 - 2015</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <h5 contenteditable="true">University of Oslo</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <h5 contenteditable="true">
+                                Masters in Business
+                            </h5>
+                            <p contenteditable="true">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Recusandae aspernatur repellat
+                                quis hic sunt harum deleniti perferendis
+                                necessitatibus
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h5 contenteditable="true">2010 - 2011</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <h5 contenteditable="true">University of Bergen</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <h5 contenteditable="true">
+                                Bachelor in Communications
+                            </h5>
+                            <p contenteditable="true">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Recusandae aspernatur repellat
+                                quis hic sunt harum deleniti perferendis
+                                necessitatibus
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr />
+                </section>
+                <!-- DEFAULT SECTION 3: SKILLS -->
+                <section>
+                    <h3 contenteditable="true" class="section-heading">
+                        Skills
+                    </h3>
+                    <div class="row">
+                        <div class="col">
+                            <p contenteditable="true">Skill 1</p>
+                        </div>
+                        <div class="col">
+                            <p contenteditable="true">Skill 2</p>
+                        </div>
+                        <div class="col">
+                            <p contenteditable="true">Skill 3</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <p contenteditable="true">Skill 4</p>
+                        </div>
+                        <div class="col">
+                            <p contenteditable="true">Skill 5</p>
+                        </div>
+                        <div class="col">
+                            <p contenteditable="true">Skill 6</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="actions text-center">
+                <a href="#" class="btn btn-primary">RESET</a>
+                <a href="#" class="btn btn-primary">SAVE</a>
+                <a href="#" class="btn btn-primary">DOWNLOAD AS PDF</a>
+            </div>
         </div>
 
-        <footer class="container-fluid bg-light">
-            <div class="container">
-                footer information
+        <footer class="container-fluid custom-footer">
+            <div class="container text-right">
+                CV Builder by Simon Castagna - 2020
             </div>
         </footer>
 
