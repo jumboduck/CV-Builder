@@ -8,18 +8,25 @@ body {
 }
 
 /* PRINTABLE CONTENT STYLING*/
+
 .printable {
     border: solid 1px #aaa;
     padding: 2rem;
     margin-top: 2rem;
+    background-color: #fff;
+}
+
+.printable h2 {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
 *[contenteditable="true"]:hover {
     background-color: rgba(238, 118, 238, 0.2);
 }
 
-.section-heading {
-    margin-bottom: 2rem;
+.printable .section-heading {
+    margin: 2rem 0;
 }
 
 /* HEADER STYLES */
