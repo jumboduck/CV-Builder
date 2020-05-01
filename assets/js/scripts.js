@@ -232,9 +232,10 @@ window.addEventListener("load", function () {
     }
 });
 
-//Set default content when reset button is clicked and clear saved data
+//Set default content when reset button is clicked
 document.getElementById("reset-btn").addEventListener("click", function () {
     setContent(defaultCv);
+    localStorage.clear();
 });
 
 //Save to local storage when save button is clicked
