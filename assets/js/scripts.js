@@ -1,5 +1,39 @@
-//default content first loaded, and loaded when reset
+var savedCv = localStorage.getItem("CV");
 
+function setContent(cvContent) {
+    document.getElementById("printable").innerHTML = cvContent;
+    console.log("content updated");
+}
+
+// Load default or saved content when page loads
+window.addEventListener("load", function () {
+    if (!savedCv) {
+        setContent(defaultCv);
+    } else {
+        setContent(savedCv);
+    }
+});
+
+//Set default content when reset button is clicked
+document.getElementById("reset-btn").addEventListener("click", function () {
+    setContent(defaultCv);
+    localStorage.clear();
+});
+
+//Save to local storage when save button is clicked
+document.getElementById("save-btn").addEventListener("click", function () {
+    let currentCv = document.getElementById("printable").innerHTML;
+    localStorage.setItem("CV", currentCv);
+});
+
+//Save to PDF with html2pdf when download pdf button is clicked
+
+function toPDF() {
+    html2pdf(document.getElementById("printable"));
+}
+document.getElementById("download-btn").addEventListener("click", toPDF);
+
+//default content first loaded, and loaded when reset
 var defaultCv = `<section>
 <h2 contenteditable="true" class="text-center">John Doe</h2>
 <div class="row">
@@ -215,31 +249,3 @@ var defaultCv = `<section>
     </div>
 </div>
 </section>`;
-
-var savedCv = localStorage.getItem("CV");
-
-function setContent(cvContent) {
-    document.getElementById("printable").innerHTML = cvContent;
-    console.log("content updated");
-}
-
-// Load default content when page loads
-window.addEventListener("load", function () {
-    if (!savedCv) {
-        setContent(defaultCv);
-    } else {
-        setContent(savedCv);
-    }
-});
-
-//Set default content when reset button is clicked
-document.getElementById("reset-btn").addEventListener("click", function () {
-    setContent(defaultCv);
-    localStorage.clear();
-});
-
-//Save to local storage when save button is clicked
-document.getElementById("save-btn").addEventListener("click", function () {
-    let currentCv = document.getElementById("printable").innerHTML;
-    localStorage.setItem("CV", currentCv);
-});
