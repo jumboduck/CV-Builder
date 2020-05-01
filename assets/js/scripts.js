@@ -27,9 +27,13 @@ document.getElementById("save-btn").addEventListener("click", function () {
 });
 
 //Save to PDF with html2pdf when download pdf button is clicked
-
+var toBePrinted = document.getElementById("printable");
+var printOptions = {
+    filename: "cv.pdf",
+    pagebreak: { mode: "avoid-all" },
+};
 function toPDF() {
-    html2pdf(document.getElementById("printable"));
+    html2pdf(toBePrinted, printOptions);
 }
 document.getElementById("download-btn").addEventListener("click", toPDF);
 
