@@ -9,14 +9,14 @@ body {
 
 /* PRINTABLE CONTENT STYLING*/
 
-.printable {
+#printable {
     border: solid 1px #aaa;
     padding: 2rem;
     margin-top: 2rem;
     background-color: #fff;
 }
 
-.printable h2 {
+#printable h2 {
     margin-top: 2rem;
     margin-bottom: 3rem;
 }
@@ -25,7 +25,7 @@ body {
     background-color: rgba(238, 118, 238, 0.2);
 }
 
-.printable .section-heading {
+#printable .section-heading {
     margin: 2rem 0;
 }
 
@@ -61,18 +61,15 @@ td.narrow {
     padding: 2rem;
 }
 
-.actions a {
+.actions button.btn-primary,
+.actions button.btn-primary:active {
     background-color: #998c7f;
     border: 0;
     border-radius: 0;
 }
 
-.actions a:hover {
+.actions button:hover {
     background-color: #ccbfb2;
-}
-
-.table-hover tbody tr:hover {
-    background-color: rgba(238, 118, 238, 0.2);
 }
 
 /* CUSTOM FOOTER */
