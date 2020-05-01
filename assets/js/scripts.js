@@ -216,7 +216,7 @@ var defaultCv = `<section>
 </div>
 </section>`;
 
-var savedCv;
+var savedCv = localStorage.getItem("CV");
 
 function setContent(cvContent) {
     document.getElementById("printable").innerHTML = cvContent;
@@ -232,7 +232,13 @@ window.addEventListener("load", function () {
     }
 });
 
-//Set default content when reset button is clicked
+//Set default content when reset button is clicked and clear saved data
 document.getElementById("reset-btn").addEventListener("click", function () {
     setContent(defaultCv);
+});
+
+//Save to local storage when save button is clicked
+document.getElementById("save-btn").addEventListener("click", function () {
+    let currentCv = document.getElementById("printable").innerHTML;
+    localStorage.setItem("CV", currentCv);
 });
