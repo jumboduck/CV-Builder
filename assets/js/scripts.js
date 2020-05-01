@@ -1,7 +1,9 @@
 var savedCv = localStorage.getItem("CV");
+var printable = document.getElementById("printable");
 
+//Define content to be displayed
 function setContent(cvContent) {
-    document.getElementById("printable").innerHTML = cvContent;
+    printable.innerHTML = cvContent;
     console.log("content updated");
 }
 
@@ -14,7 +16,7 @@ window.addEventListener("load", function () {
     }
 });
 
-//Set default content when reset button is clicked
+//Set default content when reset button is clicked and delete local storage
 document.getElementById("reset-btn").addEventListener("click", function () {
     setContent(defaultCv);
     localStorage.clear();
@@ -37,7 +39,62 @@ function toPDF() {
 }
 document.getElementById("download-btn").addEventListener("click", toPDF);
 
-//default content first loaded, and loaded when reset
+//Testing loading content to page from JSON
+
+document.getElementById("test-btn").addEventListener("click", function () {
+    convertSavedData(skills);
+});
+
+function convertSavedData(jsonInput) {
+    var type = jsonInput.type;
+    var title = jsonInput.title;
+    var list = [];
+    for (let i = 0; i < jsonInput.list.length; i++) {
+        list[i] = jsonInput.list[i];
+    }
+
+    var convertedList = "";
+
+    for (let i = 0; i < list.length; i++) {
+        if (i % 3 === 0) {
+            convertedList += `<div class="row">
+            <div class="col">
+                <p contenteditable="true">${list[i]}</p>
+            </div>`;
+        } else if (i % 3 === 2) {
+            convertedList += `
+            <div class="col">
+                <p contenteditable="true">${list[i]}</p>
+            </div></div>`;
+        } else {
+            convertedList += `
+            <div class="col">
+                <p contenteditable="true">${list[i]}</p>
+            </div>`;
+        }
+    }
+
+    var convertedData = `<section class="${type}">
+        <h3 contenteditable="true" class="section-heading">${title}</h3>
+    ${convertedList}</section>`;
+    printable.innerHTML = convertedData;
+}
+
+//Skills section
+var skills = {
+    type: "3-column",
+    title: "Skills",
+    list: [
+        "-Salesforce",
+        "-Teamwork",
+        "-Fashion Sense",
+        "-Martial Arts",
+        "-Advanced Gymnastics",
+        "-Fishing",
+    ],
+};
+
+//default content that is first loaded, and loaded when reset
 var defaultCv = `<section>
 <h2 contenteditable="true" class="text-center">John Doe</h2>
 <div class="row">
@@ -97,6 +154,8 @@ var defaultCv = `<section>
     <div class="col"></div>
 </div>
 </section>
+
+
 
 <!-- DEFAULT SECTION 1: EXPERIENCE -->
 <section>
@@ -178,6 +237,11 @@ var defaultCv = `<section>
 
 <hr />
 </section>
+
+
+
+
+
 <!-- DEFAULT SECTION 2: EDUCATION -->
 <section>
 <h3 contenteditable="true" class="section-heading">
@@ -221,9 +285,12 @@ var defaultCv = `<section>
         </p>
     </div>
 </div>
-
 <hr />
 </section>
+
+
+
+
 <!-- DEFAULT SECTION 3: SKILLS -->
 <section>
 <h3 contenteditable="true" class="section-heading">
