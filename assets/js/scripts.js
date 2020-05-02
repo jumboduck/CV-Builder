@@ -10,15 +10,15 @@ function setContent(cvContent) {
 // Load default or saved content when page loads
 window.addEventListener("load", function () {
     if (!savedCv) {
-        setContent(defaultCv);
+        setContent(defaultHtml);
     } else {
-        setContent(savedCv);
+        setContent(savedHtml);
     }
 });
 
 //Set default content when reset button is clicked and delete local storage
 document.getElementById("reset-btn").addEventListener("click", function () {
-    setContent(defaultCv);
+    setContent(defaultHtml);
     localStorage.clear();
 });
 
@@ -42,7 +42,7 @@ document.getElementById("download-btn").addEventListener("click", toPDF);
 //Testing loading content to page from JSON
 
 document.getElementById("test-btn").addEventListener("click", function () {
-    convertSavedData(skills);
+    convertSavedData(defaultCv);
 });
 
 //Traversing JSON data, returns an array of HTML sections
@@ -57,12 +57,29 @@ function convertSavedData(savedCV) {
         for (j in savedCV[i].list) {
             itemList[j] = savedCV[i].list[j];
         }
-        //debugger;
+
         //Formatting if section is a list with dates, such as experience
         if (type === "listing") {
+            for (j in itemList) {
+                convertedList += `<div class="row">
+                <div class="col-md-2">
+                    <h5 contenteditable="true">${itemList[j].date}</h5>
+                </div>
+                <div class="col-md-2">
+                    <h5 contenteditable="true">${itemList[j].location}</h5>
+                </div>
+                <div class="col-md-8">
+                    <h5 contenteditable="true">
+                    ${itemList[j].position}
+                    </h5>
+                    <p contenteditable="true">
+                    ${itemList[j].description}
+                    </p>
+                </div>
+            </div>`;
+            }
             var convertedData = `<section class="${type}">
-                <h3 contenteditable="true" class="section-heading">${title}</h3>${convertedList}</section>`;
-
+            <h3 contenteditable="true" class="section-heading">${title}</h3>${convertedList}</section><hr>`;
             sectionsArray.push(convertedData);
         }
 
@@ -90,7 +107,7 @@ function convertSavedData(savedCV) {
             }
             var convertedData = `<section class="${type}">
                 <h3 contenteditable="true" class="section-heading">${title}</h3>
-                ${convertedList}</section>`;
+                ${convertedList}</section><hr>`;
             sectionsArray.push(convertedData);
         }
     }
@@ -99,7 +116,7 @@ function convertSavedData(savedCV) {
 }
 
 //Content of page in JSON Format
-var skills = [
+var defaultCv = [
     {
         type: "listing",
         title: "Professional Experience",
@@ -128,6 +145,26 @@ var skills = [
         ],
     },
     {
+        type: "listing",
+        title: "Education",
+        list: [
+            {
+                date: "2011-2015",
+                location: "University of Oslo",
+                position: "Masters in Business",
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae aspernatur repellat quis hic sunt harum deleniti perferendis necessitatibus",
+            },
+            {
+                date: "2010-2011",
+                location: "University of Bergen",
+                position: "Bachelor in Communications",
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae aspernatur repellat quis hic sunt harum deleniti perferendis necessitatibus",
+            },
+        ],
+    },
+    {
         type: "3-column",
         title: "Skills",
         list: [
@@ -147,7 +184,7 @@ var skills = [
 ];
 
 //default content that is first loaded, and loaded when reset
-var defaultCv = `<section>
+var defaultHtml = `<section>
 <h2 contenteditable="true" class="text-center">John Doe</h2>
 <div class="row">
     <div class="col-md-3 text-right">
