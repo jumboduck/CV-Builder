@@ -47,51 +47,51 @@ document.getElementById("test-btn").addEventListener("click", function () {
 
 //Traversing JSON data, returns an array of HTML sections
 function convertSavedData(savedCV) {
-    debugger;
-
     var sectionsArray = [];
-    var sectionKeys = Object.keys(savedCV);
+
     for (i in savedCV) {
-        var type = savedCV.sectionKeys[i].type;
-        var title = savedCV.sectionKeys[i].title;
-        var list = [];
-        for (let j = 0; j < savedCV.sectionKeys[i].list.length; j++) {
-            list[j] = savedCV.sectionKeys[i].list[j];
+        var convertedList = "";
+        var type = savedCV[i].type;
+        var title = savedCV[i].title;
+        var itemList = [];
+        for (let j = 0; j < savedCV[i].list.length; j++) {
+            itemList[j] = savedCV[i].list[j];
         }
 
-        for (let j = 0; j < list.length; j++) {
+        for (j in itemList) {
+            //first row of items
             if (j % 3 === 0) {
                 convertedList += `<div class="row">
                 <div class="col">
-                    <p contenteditable="true">${list[j]}</p>
+                    <p contenteditable="true">${itemList[j]}</p>
                 </div>`;
+                //lastrow of items
             } else if (j % 3 === 2) {
                 convertedList += `
                 <div class="col">
-                    <p contenteditable="true">${list[j]}</p>
+                    <p contenteditable="true">${itemList[j]}</p>
                 </div></div>`;
+                //all other rows of items
             } else {
                 convertedList += `
                 <div class="col">
-                    <p contenteditable="true">${list[j]}</p>
+                    <p contenteditable="true">${itemList[j]}</p>
                 </div>`;
             }
-            var convertedList = "";
 
             var convertedData = `<section class="${type}">
                 <h3 contenteditable="true" class="section-heading">${title}</h3>
                 ${convertedList}</section>`;
-
-            sectionsArray.push(convertedData);
         }
+        sectionsArray.push(convertedData);
     }
 
-    printable.innerHTML = convertedData.join();
+    printable.innerHTML = sectionsArray.join();
 }
 
 //Content of page in JSON Format
-var skills = {
-    section1: {
+var skills = [
+    {
         type: "3-column",
         title: "Skills",
         list: [
@@ -103,12 +103,12 @@ var skills = {
             "-Fishing",
         ],
     },
-    section2: {
+    {
         type: "3-column",
         title: "Interests",
         list: ["-Books", "-Video Games", "-Baking", "-Fruit Juice"],
     },
-};
+];
 
 //default content that is first loaded, and loaded when reset
 var defaultCv = `<section>
