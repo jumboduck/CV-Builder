@@ -54,8 +54,47 @@ function convertSavedData(savedCV) {
         var type = savedCV[i].type;
         var title = savedCV[i].title;
         var itemList = [];
+        var name = savedCV[i].name;
+        var table1 = savedCV[i].table1;
+        var table2 = savedCV[i].table2;
         for (j in savedCV[i].list) {
             itemList[j] = savedCV[i].list[j];
+        }
+
+        //Formatting if section is the main info content
+        if (type === "info") {
+            //debugger;
+            var dataTable1 = "";
+            var dataTable2 = "";
+            for (var j = 0; j < table1.label.length; j++) {
+                if (j === 0) {
+                    dataTable1 += `<div class="col"><table class="table table-borderless"><tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr>`;
+                } else if (j === table1.label.length - 1) {
+                    dataTable1 += `<tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr></table></div>`;
+                } else if (table1.label.length === 1) {
+                    dataTable1 += `<div class="col"><table class="table table-borderless"><tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr></table></div>`;
+                } else {
+                    dataTable1 += `<tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr>`;
+                }
+            }
+
+            for (var j = 0; j < table2.label.length; j++) {
+                if (j === 0) {
+                    dataTable2 += `<div class="col"><table class="table table-borderless"><tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr>`;
+                } else if (j === table2.label.length - 1) {
+                    dataTable2 += `<tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr></table></div>`;
+                } else if (table2.label.length === 1) {
+                    dataTable2 += `<div class="col"><table class="table table-borderless"><tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr></table></div>`;
+                } else {
+                    dataTable2 += `<tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr>`;
+                }
+            }
+
+            var convertedData = `<section class="${type}">
+            <h2 contenteditable="true" class="text-center">${name}</h2><div class="row">${
+                dataTable1 + dataTable2
+            }</div></section>`;
+            sectionsArray.push(convertedData);
         }
 
         //Formatting if section is a list with dates, such as experience
@@ -95,7 +134,7 @@ function convertSavedData(savedCV) {
 
         //Formatting if section is a list of items, such as skills/interests
         if (type === "3-column") {
-            //Add empty columns if number of items is not divisable by 3
+            //Add empty columns if number of items is not divisible by 3
             while (itemList.length % 3 != 0) {
                 itemList.push("");
             }
@@ -130,6 +169,22 @@ function convertSavedData(savedCV) {
 
 //Content of page in JSON Format
 var defaultCv = [
+    {
+        type: "info",
+        name: "John Doe",
+        table1: {
+            label: ["Address:", "Phone:", "Email"],
+            content: [
+                "123 State St.<br /> Oslo, Norway",
+                "555-123-4567",
+                "john@doe.io",
+            ],
+        },
+        table2: {
+            label: ["Website:", "Twitter:"],
+            content: ["htttps://johndoe.com", "@johndoe"],
+        },
+    },
     {
         type: "listing",
         title: "Professional Experience",
