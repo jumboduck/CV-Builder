@@ -212,61 +212,21 @@ var defaultCv = [
 //default content that is first loaded, and loaded when reset
 var defaultHtml = `<section>
 <h2 contenteditable="true" class="text-center">John Doe</h2>
-<div class="row">
-    <div class="col-md-3 text-right">
-        <strong>
-            <p contenteditable="true">Address:</p>
-        </strong>
-    </div>
-    <div class="col-md-3">
-        <p contenteditable="true">
-            123 State St.
-            <br />
-            Oslo, Norway
-        </p>
-    </div>
-    <div class="col-md-3 text-right">
-        <strong>
-            <p contenteditable="true">Website:</p>
-        </strong>
-    </div>
-    <div class="col-md-3">
-        <p contenteditable="true">
-            https://www.johndoe.doe
-        </p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-3 text-right">
-        <strong>
-            <p contenteditable="true">Phone:</p>
-        </strong>
-    </div>
-    <div class="col-md-3">
-        <p contenteditable="true">555-123-4567</p>
-    </div>
 
-    <div class="col-md-3 text-right">
-        <strong>
-            <p contenteditable="true">Twitter:</p>
-        </strong>
-    </div>
-    <div class="col-md-3">
-        <p contenteditable="true">
-            @johndoe
-        </p>
-    </div>
-</div>
 <div class="row">
-    <div class="col-md-3 text-right">
-        <strong>
-            <p contenteditable="true">Email:</p>
-        </strong>
+    <div class="col">
+        <table class="table table-borderless"><tbody>
+            <tr><th class="text-right" contenteditable="true">Address:</th><td contenteditable="true">123 State St.<br /> Oslo, Norway</td></tr>
+            <tr><th class="text-right" contenteditable="true">Phone:</th><td contenteditable="true">555-123-4567</td></tr>
+            <tr><th class="text-right" contenteditable="true">Email:</th><td contenteditable="true">john@johndoe.io</td></tr>
+        </tbody></table></div>
+    <div class="col">
+        <table class="table table-borderless"><tbody>
+            <tr><th class="text-right" contenteditable="true">Website:</th><td contenteditable="true">https://johndoe.com</td></tr>
+            <tr><th class="text-right" contenteditable="true">Twitter:</th><td contenteditable="true">@johndoe</td></tr>
+        </tbody></table>
     </div>
-    <div class="col-md-3">
-        <p contenteditable="true">johndoe@email.io</p>
-    </div>
-    <div class="col"></div>
+        
 </div>
 </section>
 

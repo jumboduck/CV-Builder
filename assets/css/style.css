@@ -24,10 +24,10 @@ body {
 *[contenteditable="true"]:hover {
     background: linear-gradient(-45deg, #fff, #ececec);
     background-size: 400% 400%;
-    animation: gradient 1s ease infinite;
+    animation: blink 1s ease infinite;
 }
 
-@keyframes gradient {
+@keyframes blink {
     0% {
         background-position: 0% 50%;
     }
