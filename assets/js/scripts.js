@@ -79,7 +79,17 @@ function convertSavedData(savedCV) {
             </div>`;
             }
             var convertedData = `<section class="${type}">
-            <h3 contenteditable="true" class="section-heading">${title}</h3>${convertedList}</section><hr>`;
+            <h3 contenteditable="true" class="section-heading">${title}</h3>${convertedList}</section>`;
+            sectionsArray.push(convertedData);
+        }
+        //Formatting if section is a single block of content
+        if (type === "single-block") {
+            for (j in itemList) {
+                convertedList += `<div class="row"><div class="col">${itemList[j]}</div></div>
+            </div>`;
+            }
+            var convertedData = `<section class="${type}">
+            <h3 contenteditable="true" class="section-heading">${title}</h3>${convertedList}</section>`;
             sectionsArray.push(convertedData);
         }
 
@@ -110,12 +120,12 @@ function convertSavedData(savedCV) {
             }
             var convertedData = `<section class="${type}">
                 <h3 contenteditable="true" class="section-heading">${title}</h3>
-                ${convertedList}</section><hr>`;
+                ${convertedList}</section>`;
             sectionsArray.push(convertedData);
         }
     }
 
-    printable.innerHTML = sectionsArray.join(" ");
+    printable.innerHTML = sectionsArray.join("<hr>");
 }
 
 //Content of page in JSON Format
@@ -166,6 +176,11 @@ var defaultCv = [
                     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae aspernatur repellat quis hic sunt harum deleniti perferendis necessitatibus",
             },
         ],
+    },
+    {
+        type: "single-block",
+        title: "About",
+        list: ["I'm a self made man who enjoys the good things in life."],
     },
     {
         type: "3-column",
