@@ -85,7 +85,7 @@ function convertSavedData(savedCV) {
         //Formatting if section is a single block of content
         if (type === "single-block") {
             for (j in itemList) {
-                convertedList += `<div class="row"><div class="col">${itemList[j]}</div></div>
+                convertedList += `<div class="row"><div class="col"><p contenteditable="true">${itemList[j]}</p></div></div>
             </div>`;
             }
             var convertedData = `<section class="${type}">
