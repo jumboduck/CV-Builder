@@ -54,43 +54,79 @@ function convertSavedData(savedCV) {
         var type = savedCV[i].type;
         var title = savedCV[i].title;
         var itemList = [];
-        for (let j = 0; j < savedCV[i].list.length; j++) {
+        for (j in savedCV[i].list) {
             itemList[j] = savedCV[i].list[j];
         }
+        //debugger;
+        //Formatting if section is a list with dates, such as experience
+        if (type === "listing") {
+            var convertedData = `<section class="${type}">
+                <h3 contenteditable="true" class="section-heading">${title}</h3>${convertedList}</section>`;
 
-        for (j in itemList) {
-            //first row of items
-            if (j % 3 === 0) {
-                convertedList += `<div class="row">
-                <div class="col">
-                    <p contenteditable="true">${itemList[j]}</p>
-                </div>`;
-                //lastrow of items
-            } else if (j % 3 === 2) {
-                convertedList += `
-                <div class="col">
+            sectionsArray.push(convertedData);
+        }
+
+        //Formatting if section is a list of items, such as skills/interests
+        if (type === "3-column") {
+            for (j in itemList) {
+                //first row of items
+                if (j % 3 === 0) {
+                    convertedList += `<div class="row">
+                                    <div class="col">
+                                    <p contenteditable="true">${itemList[j]}</p>
+                                    </div>`;
+                    //last row of items
+                } else if (j % 3 === 2) {
+                    convertedList += `<div class="col">
                     <p contenteditable="true">${itemList[j]}</p>
                 </div></div>`;
-                //all other rows of items
-            } else {
-                convertedList += `
+                    //all other rows of items
+                } else {
+                    convertedList += `
                 <div class="col">
                     <p contenteditable="true">${itemList[j]}</p>
                 </div>`;
+                }
             }
-
             var convertedData = `<section class="${type}">
                 <h3 contenteditable="true" class="section-heading">${title}</h3>
                 ${convertedList}</section>`;
+            sectionsArray.push(convertedData);
         }
-        sectionsArray.push(convertedData);
     }
 
-    printable.innerHTML = sectionsArray.join();
+    printable.innerHTML = sectionsArray.join(" ");
 }
 
 //Content of page in JSON Format
 var skills = [
+    {
+        type: "listing",
+        title: "Professional Experience",
+        list: [
+            {
+                date: "2019-2020",
+                location: "Bigstore Management",
+                position: "Director of Sales",
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae aspernatur repellat quis hic sunt harum deleniti perferendis necessitatibus reprehenderit minima vero unde assumenda id adipisci consequuntur consectetur, sint dignissimos omnis voluptates ratione eaque eos? Iste repellendus facere, eveniet tempora unde laboriosam adipisci, illo obcaecati blanditiis quibusdam assumenda, beatae soluta temporibus?",
+            },
+            {
+                date: "2017-2019",
+                location: "Elephant Inc.",
+                position: "Communication Strategist",
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae aspernatur repellat quis hic sunt harum deleniti perferendis necessitatibus reprehenderit minima vero unde assumenda id adipisci consequuntur consectetur, sint dignissimos omnis voluptates ratione eaque eos? Iste repellendus facere, eveniet tempora unde laboriosam adipisci, illo obcaecati blanditiis quibusdam assumenda, beatae soluta temporibus?",
+            },
+            {
+                date: "2015-2017",
+                location: "Elephant Inc.",
+                position: "Sales Assistant",
+                description:
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae aspernatur repellat quis hic sunt harum deleniti perferendis necessitatibus reprehenderit minima vero unde assumenda id adipisci consequuntur consectetur, sint dignissimos omnis voluptates ratione eaque eos? Iste repellendus facere, eveniet tempora unde laboriosam adipisci, illo obcaecati blanditiis quibusdam assumenda, beatae soluta temporibus?",
+            },
+        ],
+    },
     {
         type: "3-column",
         title: "Skills",
@@ -106,7 +142,7 @@ var skills = [
     {
         type: "3-column",
         title: "Interests",
-        list: ["-Books", "-Video Games", "-Baking", "-Fruit Juice"],
+        list: ["-Books", "-Video Games", "-Baking", "-Fruit Juice", "-Flexing"],
     },
 ];
 
