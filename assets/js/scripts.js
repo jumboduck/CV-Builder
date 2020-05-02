@@ -45,53 +45,69 @@ document.getElementById("test-btn").addEventListener("click", function () {
     convertSavedData(skills);
 });
 
-function convertSavedData(jsonInput) {
-    var type = jsonInput.type;
-    var title = jsonInput.title;
-    var list = [];
-    for (let i = 0; i < jsonInput.list.length; i++) {
-        list[i] = jsonInput.list[i];
-    }
+//Traversing JSON data, returns an array of HTML sections
+function convertSavedData(savedCV) {
+    debugger;
 
-    var convertedList = "";
+    var sectionsArray = [];
+    var sectionKeys = Object.keys(savedCV);
+    for (i in savedCV) {
+        var type = savedCV.sectionKeys[i].type;
+        var title = savedCV.sectionKeys[i].title;
+        var list = [];
+        for (let j = 0; j < savedCV.sectionKeys[i].list.length; j++) {
+            list[j] = savedCV.sectionKeys[i].list[j];
+        }
 
-    for (let i = 0; i < list.length; i++) {
-        if (i % 3 === 0) {
-            convertedList += `<div class="row">
-            <div class="col">
-                <p contenteditable="true">${list[i]}</p>
-            </div>`;
-        } else if (i % 3 === 2) {
-            convertedList += `
-            <div class="col">
-                <p contenteditable="true">${list[i]}</p>
-            </div></div>`;
-        } else {
-            convertedList += `
-            <div class="col">
-                <p contenteditable="true">${list[i]}</p>
-            </div>`;
+        for (let j = 0; j < list.length; j++) {
+            if (j % 3 === 0) {
+                convertedList += `<div class="row">
+                <div class="col">
+                    <p contenteditable="true">${list[j]}</p>
+                </div>`;
+            } else if (j % 3 === 2) {
+                convertedList += `
+                <div class="col">
+                    <p contenteditable="true">${list[j]}</p>
+                </div></div>`;
+            } else {
+                convertedList += `
+                <div class="col">
+                    <p contenteditable="true">${list[j]}</p>
+                </div>`;
+            }
+            var convertedList = "";
+
+            var convertedData = `<section class="${type}">
+                <h3 contenteditable="true" class="section-heading">${title}</h3>
+                ${convertedList}</section>`;
+
+            sectionsArray.push(convertedData);
         }
     }
 
-    var convertedData = `<section class="${type}">
-        <h3 contenteditable="true" class="section-heading">${title}</h3>
-    ${convertedList}</section>`;
-    printable.innerHTML = convertedData;
+    printable.innerHTML = convertedData.join();
 }
 
-//Skills section
+//Content of page in JSON Format
 var skills = {
-    type: "3-column",
-    title: "Skills",
-    list: [
-        "-Salesforce",
-        "-Teamwork",
-        "-Fashion Sense",
-        "-Martial Arts",
-        "-Advanced Gymnastics",
-        "-Fishing",
-    ],
+    section1: {
+        type: "3-column",
+        title: "Skills",
+        list: [
+            "-Salesforce",
+            "-Teamwork",
+            "-Fashion Sense",
+            "-Martial Arts",
+            "-Advanced Gymnastics",
+            "-Fishing",
+        ],
+    },
+    section2: {
+        type: "3-column",
+        title: "Interests",
+        list: ["-Books", "-Video Games", "-Baking", "-Fruit Juice"],
+    },
 };
 
 //default content that is first loaded, and loaded when reset
