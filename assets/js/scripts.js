@@ -85,24 +85,27 @@ function convertSavedData(savedCV) {
 
         //Formatting if section is a list of items, such as skills/interests
         if (type === "3-column") {
+            //Add empty columns if number of items is not divisable by 3
+            while (itemList.length % 3 != 0) {
+                itemList.push("");
+            }
             for (j in itemList) {
-                //first row of items
+                //first row of listed items
                 if (j % 3 === 0) {
                     convertedList += `<div class="row">
                                     <div class="col">
                                     <p contenteditable="true">${itemList[j]}</p>
                                     </div>`;
-                    //last row of items
+                    //last row of listed items
                 } else if (j % 3 === 2) {
                     convertedList += `<div class="col">
-                    <p contenteditable="true">${itemList[j]}</p>
-                </div></div>`;
-                    //all other rows of items
+                                    <p contenteditable="true">${itemList[j]}</p>
+                                    </div></div>`;
+                    //all other rows of listed items
                 } else {
-                    convertedList += `
-                <div class="col">
-                    <p contenteditable="true">${itemList[j]}</p>
-                </div>`;
+                    convertedList += `<div class="col">
+                                    <p contenteditable="true">${itemList[j]}</p>
+                                    </div>`;
                 }
             }
             var convertedData = `<section class="${type}">
@@ -179,7 +182,15 @@ var defaultCv = [
     {
         type: "3-column",
         title: "Interests",
-        list: ["-Books", "-Video Games", "-Baking", "-Fruit Juice", "-Flexing"],
+        list: [
+            "-Books",
+            "-Video Games",
+            "-Baking",
+            "-Fruit Juice",
+            "-Flexing",
+            "-Brewing",
+            "-Cruising",
+        ],
     },
 ];
 
