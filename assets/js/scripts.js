@@ -65,7 +65,6 @@ function convertSavedData(savedCV) {
 
         //Formatting if section is the main info content
         if (type === "info") {
-            //debugger;
             var dataTable1 = "";
             var dataTable2 = "";
             for (var j = 0; j < table1.label.length; j++) {
@@ -109,13 +108,13 @@ function convertSavedData(savedCV) {
                 <div class="col-md-2">
                     <h5 contenteditable="true" class="listing-location">${itemList[j].location}</h5>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 pb-4">
                     <h5 contenteditable="true" class="listing-position">
                     ${itemList[j].position}
                     </h5>
-                    <p contenteditable="true" class="listing-description">
+                    <div contenteditable="true" class="listing-description">
                     ${itemList[j].description}
-                    </p>
+                    </div>
                 </div>
             </div>`;
             }
@@ -126,7 +125,7 @@ function convertSavedData(savedCV) {
         //Formatting if section is a single block of content
         if (type === "single-block") {
             for (j in itemList) {
-                convertedList += `<div class="row"><div class="col"><p contenteditable="true" class="single-block-content">${itemList[j]}</p></div></div>
+                convertedList += `<div class="row"><div class="col"><div contenteditable="true" class="single-block-content">${itemList[j]}</div></div></div>
             </div>`;
             }
             var convertedData = `<section class="${type}" id="section${i}">
