@@ -70,7 +70,7 @@ function convertSavedData(savedCV) {
             var dataTable2 = "";
             for (var j = 0; j < table1.label.length; j++) {
                 if (j === 0) {
-                    dataTable1 += `<div class="col"><table class="table table-borderless"><tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr>`;
+                    dataTable1 += `<div class="col"><table class="table table-borderless info-table1"><tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr>`;
                 } else if (j === table1.label.length - 1) {
                     dataTable1 += `<tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr></table></div>`;
                 } else if (table1.label.length === 1) {
@@ -82,7 +82,7 @@ function convertSavedData(savedCV) {
 
             for (var j = 0; j < table2.label.length; j++) {
                 if (j === 0) {
-                    dataTable2 += `<div class="col"><table class="table table-borderless"><tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr>`;
+                    dataTable2 += `<div class="col"><table class="table table-borderless info-table2"><tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr>`;
                 } else if (j === table2.label.length - 1) {
                     dataTable2 += `<tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr></table></div>`;
                 } else if (table2.label.length === 1) {
@@ -93,7 +93,7 @@ function convertSavedData(savedCV) {
             }
 
             var convertedData = `<section class="${type}">
-            <h2 contenteditable="true" class="text-center">${name}</h2><div class="row">${
+            <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
                 dataTable1 + dataTable2
             }</div></section>`;
             sectionsArray.push(convertedData);
@@ -175,7 +175,11 @@ function saveCvToStorage() {
     var sections = $("#printable section");
     for (i in sections) {
         if (sections.eq(i).hasClass("info")) {
-            savedArray.push("info");
+            var infoSection = {};
+            infoSection.type = "info";
+            infoSection.name = $(".info-name").text();
+
+            savedArray.push(infoSection);
         } else if (sections.eq(i).hasClass("3-column")) {
             savedArray.push("3-column");
         } else if (sections.eq(i).hasClass("listing")) {
