@@ -13,7 +13,7 @@ window.addEventListener("load", function () {
     if (!savedCv) {
         setContent(defaultCv);
     } else {
-        setContent(savedHtml);
+        setContent(savedCv);
     }
 });
 
@@ -47,7 +47,7 @@ document.getElementById("test-btn").addEventListener("click", function () {
     setContent(loadedCv);
 });
 
-//Traversing JSON data, returns CV as HTML
+//Traversing JSON data, returns CV data as formatted HTML
 function convertSavedData(savedCV) {
     var sectionsArray = [];
 
@@ -169,7 +169,25 @@ function convertSavedData(savedCV) {
     return sectionsArray.join("<hr>");
 }
 
-//Content of page in JSON Format
+//Saving Content on page to an array in local storage
+function saveCvToStorage() {
+    var savedArray = [];
+    var sections = $("#printable section");
+    for (i in sections) {
+        if (sections.eq(i).hasClass("info")) {
+            savedArray.push("info");
+        } else if (sections.eq(i).hasClass("3-column")) {
+            savedArray.push("3-column");
+        } else if (sections.eq(i).hasClass("listing")) {
+            savedArray.push("listing");
+        } else if (sections.eq(i).hasClass("single-block")) {
+            savedArray.push("single-block");
+        }
+    }
+    return savedArray;
+}
+
+//Default CV loaded on page
 var defaultCv = [
     {
         type: "info",
@@ -177,7 +195,7 @@ var defaultCv = [
         table1: {
             label: ["Address:", "Phone:", "Email"],
             content: [
-                "123 State St.<br /> Oslo, Norway",
+                "123 State St.<br>Oslo, Norway",
                 "555-123-4567",
                 "john@doe.io",
             ],
