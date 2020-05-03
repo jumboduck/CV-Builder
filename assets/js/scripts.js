@@ -102,25 +102,25 @@ function convertSavedData(savedCV) {
         //Formatting if section is a list with dates, such as experience
         if (type === "listing") {
             for (j in itemList) {
-                convertedList += `<div class="row">
+                convertedList += `<div class="row listing-row">
                 <div class="col-md-2">
-                    <h5 contenteditable="true">${itemList[j].date}</h5>
+                    <h5 contenteditable="true" class="listing-date">${itemList[j].date}</h5>
                 </div>
                 <div class="col-md-2">
-                    <h5 contenteditable="true">${itemList[j].location}</h5>
+                    <h5 contenteditable="true" class="listing-location">${itemList[j].location}</h5>
                 </div>
                 <div class="col-md-8">
-                    <h5 contenteditable="true">
+                    <h5 contenteditable="true" class="listing-position">
                     ${itemList[j].position}
                     </h5>
-                    <p contenteditable="true">
+                    <p contenteditable="true" class="listing-description">
                     ${itemList[j].description}
                     </p>
                 </div>
             </div>`;
             }
             var convertedData = `<section class="${type}" id="section${i}">
-            <h3 contenteditable="true" class="section-heading">${title}</h3>${convertedList}</section>`;
+            <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${convertedList}</section>`;
             sectionsArray.push(convertedData);
         }
         //Formatting if section is a single block of content
@@ -195,10 +195,8 @@ function saveCvToArray() {
             $("#" + sectionId + " .info-table2 td").each(function () {
                 savedArray[i].table2.content.push($(this).html());
             });
-            //Send Object to array
-            //savedArray.push(infoSection);
 
-            //Converts 3-column Section into Object
+            //Converts 3-column section into object
         } else if (sections.eq(i).hasClass("3-column")) {
             savedArray[i] = {};
             savedArray[i].type = "3-column";
@@ -207,9 +205,24 @@ function saveCvToArray() {
             $("#" + sectionId + " .3-col-item").each(function () {
                 savedArray[i].list.push($(this).html());
             });
-            //savedArray.push(threeColSection);
+
+            // Converts listing section into an object
         } else if (sections.eq(i).hasClass("listing")) {
-            savedArray.push("listing");
+            savedArray[i] = {};
+            savedArray[i].type = "listing";
+            savedArray[i].title = $("#" + sectionId + " .listing-title").html();
+            savedArray[i].list = [];
+            $("#" + sectionId + " .listing-row").each(function () {
+                var listingRow = {};
+                listingRow.date = $(this).find(".listing-date").html();
+                listingRow.location = $(this).find(".listing-location").html();
+                listingRow.position = $(this).find(".listing-position").html();
+                listingRow.description = $(this)
+                    .find(".listing-description")
+                    .html();
+
+                savedArray[i].list.push(listingRow);
+            });
         } else if (sections.eq(i).hasClass("single-block")) {
             savedArray.push("single-block");
         }
