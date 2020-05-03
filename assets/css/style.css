@@ -27,6 +27,21 @@ body {
     animation: blink 1s ease infinite;
 }
 
+.info-table1,
+.info-table2 {
+    table-layout: fixed;
+}
+
+.info-table1 th,
+.info-table2 th {
+    width: 30%;
+}
+
+.info-table1 td,
+.info-table2 td {
+    width: 70%;
+}
+
 @keyframes blink {
     0% {
         background-position: 0% 50%;
