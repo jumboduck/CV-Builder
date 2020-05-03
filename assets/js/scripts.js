@@ -92,7 +92,7 @@ function convertSavedData(savedCV) {
                 }
             }
 
-            var convertedData = `<section class="${type}">
+            var convertedData = `<section id="section${i}" class="${type}">
             <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
                 dataTable1 + dataTable2
             }</div></section>`;
@@ -119,7 +119,7 @@ function convertSavedData(savedCV) {
                 </div>
             </div>`;
             }
-            var convertedData = `<section class="${type}">
+            var convertedData = `<section class="${type}" id="section${i}">
             <h3 contenteditable="true" class="section-heading">${title}</h3>${convertedList}</section>`;
             sectionsArray.push(convertedData);
         }
@@ -129,7 +129,7 @@ function convertSavedData(savedCV) {
                 convertedList += `<div class="row"><div class="col"><p contenteditable="true">${itemList[j]}</p></div></div>
             </div>`;
             }
-            var convertedData = `<section class="${type}">
+            var convertedData = `<section class="${type}" id="section${i}">
             <h3 contenteditable="true" class="section-heading">${title}</h3>${convertedList}</section>`;
             sectionsArray.push(convertedData);
         }
@@ -145,22 +145,22 @@ function convertSavedData(savedCV) {
                 if (j % 3 === 0) {
                     convertedList += `<div class="row">
                                     <div class="col">
-                                    <p contenteditable="true">${itemList[j]}</p>
+                                    <p contenteditable="true" class="3-col-item">${itemList[j]}</p>
                                     </div>`;
                     //last row of listed items
                 } else if (j % 3 === 2) {
                     convertedList += `<div class="col">
-                                    <p contenteditable="true">${itemList[j]}</p>
+                                    <p contenteditable="true" class="3-col-item">${itemList[j]}</p>
                                     </div></div>`;
                     //all other rows of listed items
                 } else {
                     convertedList += `<div class="col">
-                                    <p contenteditable="true">${itemList[j]}</p>
+                                    <p contenteditable="true" class="3-col-item">${itemList[j]}</p>
                                     </div>`;
                 }
             }
-            var convertedData = `<section class="${type}">
-                <h3 contenteditable="true" class="section-heading">${title}</h3>
+            var convertedData = `<section class="${type}" id="section${i}">
+                <h3 contenteditable="true" class="section-heading 3-col-title">${title}</h3>
                 ${convertedList}</section>`;
             sectionsArray.push(convertedData);
         }
@@ -169,33 +169,45 @@ function convertSavedData(savedCV) {
     return sectionsArray.join("<hr>");
 }
 
-//Saving Content on page to an array in local storage
-function saveCvToStorage() {
+//Saving Content on page to an array
+function saveCvToArray() {
     var savedArray = [];
     var sections = $("#printable section");
     for (i in sections) {
+        //debugger;
+        var sectionId = "section" + i;
+        //Converts Info section into an object
         if (sections.eq(i).hasClass("info")) {
-            var infoSection = {};
-            infoSection.type = "info";
-            infoSection.name = $(".info-name").text();
-            infoSection.table1 = { label: [], content: [] };
-            infoSection.table2 = { label: [], content: [] };
-            $(".info-table1 th").each(function () {
-                infoSection.table1.label.push($(this).html());
+            savedArray[i] = {};
+            savedArray[i].type = "info";
+            savedArray[i].name = $("#" + sectionId + " .info-name").html();
+            savedArray[i].table1 = { label: [], content: [] };
+            savedArray[i].table2 = { label: [], content: [] };
+            $("#" + sectionId + " .info-table1 th").each(function () {
+                savedArray[i].table1.label.push($(this).html());
             });
-            $(".info-table1 td").each(function () {
-                infoSection.table1.content.push($(this).html());
+            $("#" + sectionId + " .info-table1 td").each(function () {
+                savedArray[i].table1.content.push($(this).html());
             });
-            $(".info-table2 th").each(function () {
-                infoSection.table2.label.push($(this).html());
+            $("#" + sectionId + " .info-table2 th").each(function () {
+                savedArray[i].table2.label.push($(this).html());
             });
-            $(".info-table2 td").each(function () {
-                infoSection.table2.content.push($(this).html());
+            $("#" + sectionId + " .info-table2 td").each(function () {
+                savedArray[i].table2.content.push($(this).html());
             });
+            //Send Object to array
+            //savedArray.push(infoSection);
 
-            savedArray.push(infoSection);
+            //Converts 3-column Section into Object
         } else if (sections.eq(i).hasClass("3-column")) {
-            savedArray.push("3-column");
+            savedArray[i] = {};
+            savedArray[i].type = "3-column";
+            savedArray[i].title = $("#" + sectionId + " .3-col-title").html();
+            savedArray[i].list = [];
+            $("#" + sectionId + " .3-col-item").each(function () {
+                savedArray[i].list.push($(this).html());
+            });
+            //savedArray.push(threeColSection);
         } else if (sections.eq(i).hasClass("listing")) {
             savedArray.push("listing");
         } else if (sections.eq(i).hasClass("single-block")) {
