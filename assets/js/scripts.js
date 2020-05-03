@@ -126,11 +126,11 @@ function convertSavedData(savedCV) {
         //Formatting if section is a single block of content
         if (type === "single-block") {
             for (j in itemList) {
-                convertedList += `<div class="row"><div class="col"><p contenteditable="true">${itemList[j]}</p></div></div>
+                convertedList += `<div class="row"><div class="col"><p contenteditable="true" class="single-block-content">${itemList[j]}</p></div></div>
             </div>`;
             }
             var convertedData = `<section class="${type}" id="section${i}">
-            <h3 contenteditable="true" class="section-heading">${title}</h3>${convertedList}</section>`;
+            <h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${convertedList}</section>`;
             sectionsArray.push(convertedData);
         }
 
@@ -224,7 +224,15 @@ function saveCvToArray() {
                 savedArray[i].list.push(listingRow);
             });
         } else if (sections.eq(i).hasClass("single-block")) {
-            savedArray.push("single-block");
+            savedArray[i] = {};
+            savedArray[i].type = "single-block";
+            savedArray[i].title = $(
+                "#" + sectionId + " .single-block-title"
+            ).html();
+            savedArray[i].list = [];
+            $("#" + sectionId + " .single-block-content").each(function () {
+                savedArray[i].list.push($(this).html());
+            });
         }
     }
     return savedArray;
