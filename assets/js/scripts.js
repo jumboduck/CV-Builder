@@ -178,6 +178,20 @@ function saveCvToStorage() {
             var infoSection = {};
             infoSection.type = "info";
             infoSection.name = $(".info-name").text();
+            infoSection.table1 = { label: [], content: [] };
+            infoSection.table2 = { label: [], content: [] };
+            $(".info-table1 th").each(function () {
+                infoSection.table1.label.push($(this).html());
+            });
+            $(".info-table1 td").each(function () {
+                infoSection.table1.content.push($(this).html());
+            });
+            $(".info-table2 th").each(function () {
+                infoSection.table2.label.push($(this).html());
+            });
+            $(".info-table2 td").each(function () {
+                infoSection.table2.content.push($(this).html());
+            });
 
             savedArray.push(infoSection);
         } else if (sections.eq(i).hasClass("3-column")) {
@@ -197,7 +211,7 @@ var defaultCv = [
         type: "info",
         name: "John Doe",
         table1: {
-            label: ["Address:", "Phone:", "Email"],
+            label: ["Address:", "Phone:", "Email:"],
             content: [
                 "123 State St.<br>Oslo, Norway",
                 "555-123-4567",
