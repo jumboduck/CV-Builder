@@ -13,7 +13,7 @@ window.addEventListener("load", function () {
     if (!savedCv) {
         setContent(defaultCv);
     } else {
-        setContent(savedCv);
+        setContent(JSON.parse(savedCv));
     }
 });
 
@@ -25,8 +25,8 @@ document.getElementById("reset-btn").addEventListener("click", function () {
 
 //Save to local storage when save button is clicked
 document.getElementById("save-btn").addEventListener("click", function () {
-    let currentCv = document.getElementById("printable").innerHTML;
-    localStorage.setItem("CV", currentCv);
+    var currentCv = saveCvToArray();
+    localStorage.setItem("CV", JSON.stringify(currentCv));
 });
 
 //Save to PDF with html2pdf when download pdf button is clicked
