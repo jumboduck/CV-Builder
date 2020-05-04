@@ -68,7 +68,7 @@ function convertSavedData(savedCV) {
     return sectionsArray.join("<hr>");
 }
 
-//Saving Content on page to an array
+//Saving CV information to an array of Objects
 function saveCvToArray() {
     var savedArray = [];
     var sections = $("#printable section");
@@ -84,21 +84,8 @@ function saveCvToArray() {
 
             // Converts listing section into an object
         } else if (sections.eq(i).hasClass("listing")) {
-            savedArray[i] = {};
-            savedArray[i].type = "listing";
-            savedArray[i].title = $("#" + sectionId + " .listing-title").html();
-            savedArray[i].list = [];
-            $("#" + sectionId + " .listing-row").each(function () {
-                var listingRow = {};
-                listingRow.date = $(this).find(".listing-date").html();
-                listingRow.location = $(this).find(".listing-location").html();
-                listingRow.position = $(this).find(".listing-position").html();
-                listingRow.description = $(this)
-                    .find(".listing-description")
-                    .html();
-
-                savedArray[i].list.push(listingRow);
-            });
+            savedArray.push(listingToObject(i));
+            //Converts single block section into an object
         } else if (sections.eq(i).hasClass("single-block")) {
             savedArray[i] = {};
             savedArray[i].type = "single-block";
@@ -154,6 +141,24 @@ function threeColToObject(i) {
         threeColObj.list.push($(this).html());
     });
     return threeColObj;
+}
+
+//Fetches information in Listing HTML section and makes it into an object
+function listingToObject(i) {
+    listingObj = {};
+    listingObj.type = "listing";
+    listingObj.title = $("#section" + i + " .listing-title").html();
+    listingObj.list = [];
+    $("#section" + i + " .listing-row").each(function () {
+        var listingRow = {};
+        listingRow.date = $(this).find(".listing-date").html();
+        listingRow.location = $(this).find(".listing-location").html();
+        listingRow.position = $(this).find(".listing-position").html();
+        listingRow.description = $(this).find(".listing-description").html();
+
+        listingObj.list.push(listingRow);
+    });
+    return listingObj;
 }
 
 //EVENT LISTENERS
