@@ -72,50 +72,20 @@ function convertSavedData(savedCV) {
             sectionsArray.push(convertedData);
         }
 
-        //Formatting if section is a list with dates, such as experience
+        //Formatting data to html if section is a list with dates, such as experience
         if (type === "listing") {
-            convertedData = convertListingToHtml(i, itemList, title);
+            convertedData = listingToHtml(i, itemList, title);
             sectionsArray.push(convertedData);
         }
-        //Formatting if section is a single block of content
+        //Formatting data to html if section is a single block of content
         if (type === "single-block") {
-            for (j in itemList) {
-                convertedList += `<div class="row"><div class="col"><div contenteditable="true" class="single-block-content">${itemList[j]}</div></div></div>
-            </div>`;
-            }
-            var convertedData = `<section class="${type}" id="section${i}">
-            <h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${convertedList}</section>`;
+            convertedData = singleBlockToHtml(i, itemList, title);
             sectionsArray.push(convertedData);
         }
 
         //Formatting if section is a list of items, such as skills/interests
         if (type === "3-column") {
-            //Add empty columns if number of items is not divisible by 3
-            while (itemList.length % 3 != 0) {
-                itemList.push("");
-            }
-            for (j in itemList) {
-                //first row of listed items
-                if (j % 3 === 0) {
-                    convertedList += `<div class="row">
-                                    <div class="col">
-                                    <p contenteditable="true" class="3-col-item">${itemList[j]}</p>
-                                    </div>`;
-                    //last row of listed items
-                } else if (j % 3 === 2) {
-                    convertedList += `<div class="col">
-                                    <p contenteditable="true" class="3-col-item">${itemList[j]}</p>
-                                    </div></div>`;
-                    //all other rows of listed items
-                } else {
-                    convertedList += `<div class="col">
-                                    <p contenteditable="true" class="3-col-item">${itemList[j]}</p>
-                                    </div>`;
-                }
-            }
-            var convertedData = `<section class="${type}" id="section${i}">
-                <h3 contenteditable="true" class="section-heading 3-col-title">${title}</h3>
-                ${convertedList}</section>`;
+            convertedData = threeColToHtml(i, itemList, title);
             sectionsArray.push(convertedData);
         }
     }
@@ -193,8 +163,8 @@ function saveCvToArray() {
 }
 
 //Listing Type Objects get converted to HTML
-function convertListingToHtml(i, list, title) {
-    var htmlList = "";
+function listingToHtml(i, list, title) {
+    let htmlList = "";
     for (j in list) {
         htmlList += `<div class="row listing-row">
         <div class="col-md-2">
@@ -215,6 +185,47 @@ function convertListingToHtml(i, list, title) {
     }
     return `<section class="listing" id="section${i}">
     <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
+}
+
+//Single-Block type items get converted to HTML
+function singleBlockToHtml(i, list, title) {
+    let htmlList = "";
+    for (j in list) {
+        htmlList += `<div class="row"><div class="col"><div contenteditable="true" class="single-block-content">${list[j]}</div></div></div>
+</div>`;
+    }
+    return `<section class="single-block" id="section${i}">
+<h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
+}
+
+function threeColToHtml(i, list, title) {
+    let htmlList = "";
+    //Add empty columns if number of items is not divisible by 3
+    while (list.length % 3 != 0) {
+        list.push("");
+    }
+    for (j in list) {
+        //first row of listed items
+        if (j % 3 === 0) {
+            htmlList += `<div class="row">
+                            <div class="col">
+                            <p contenteditable="true" class="3-col-item">${list[j]}</p>
+                            </div>`;
+            //last row of listed items
+        } else if (j % 3 === 2) {
+            htmlList += `<div class="col">
+                            <p contenteditable="true" class="3-col-item">${list[j]}</p>
+                            </div></div>`;
+            //all other rows of listed items
+        } else {
+            htmlList += `<div class="col">
+                            <p contenteditable="true" class="3-col-item">${list[j]}</p>
+                            </div>`;
+        }
+    }
+    return `<section class="3-column" id="section${i}">
+        <h3 contenteditable="true" class="section-heading 3-col-title">${title}</h3>
+        ${htmlList}</section>`;
 }
 
 //EVENT LISTENERS
