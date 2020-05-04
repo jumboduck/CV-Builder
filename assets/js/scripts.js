@@ -80,13 +80,7 @@ function saveCvToArray() {
 
             //Converts 3-column section into object
         } else if (sections.eq(i).hasClass("3-column")) {
-            savedArray[i] = {};
-            savedArray[i].type = "3-column";
-            savedArray[i].title = $("#" + sectionId + " .3-col-title").html();
-            savedArray[i].list = [];
-            $("#" + sectionId + " .3-col-item").each(function () {
-                savedArray[i].list.push($(this).html());
-            });
+            savedArray.push(threeColToObject(i));
 
             // Converts listing section into an object
         } else if (sections.eq(i).hasClass("listing")) {
@@ -120,7 +114,7 @@ function saveCvToArray() {
     return savedArray;
 }
 
-//Fetches information in info HTML section and makes it an object in array
+//Fetches information in info HTML section and makes it into an Object
 function infoToObject(i) {
     var infoObj = {};
     infoObj.type = "info";
@@ -150,7 +144,17 @@ function infoToObject(i) {
     return infoObj;
 }
 
-//function
+//Fetches information in 3 Column HTML section and makes it into an object
+function threeColToObject(i) {
+    var threeColObj = {};
+    threeColObj.type = "3-column";
+    threeColObj.title = $("#section" + i + " .3-col-title").html();
+    threeColObj.list = [];
+    $("#section" + i + " .3-col-item").each(function () {
+        threeColObj.list.push($(this).html());
+    });
+    return threeColObj;
+}
 
 //EVENT LISTENERS
 
