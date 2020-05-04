@@ -8,19 +8,6 @@ function setContent(cvContent) {
     console.log("content updated");
 }
 
-//Save to PDF with html2pdf when download pdf button is clicked
-var toBePrinted = $("#printable");
-var printOptions = {
-    filename: "cv.pdf",
-    pagebreak: { mode: "avoid-all" },
-};
-
-function toPDF() {
-    html2pdf(toBePrinted, printOptions);
-}
-
-$("#download-btn").click(toPDF);
-
 //Traversing JSON data, returns CV data as string of formatted HTML
 function convertSavedData(savedCV) {
     var sectionsArray = [];
@@ -87,10 +74,25 @@ function saveCvToArray() {
             //Converts single block sections into an object
         } else if (sections.eq(i).hasClass("single-block")) {
             savedArray.push(singleBlockToObject(i));
+        } else {
+            savedArray.push({});
         }
     }
     return savedArray;
 }
+
+//Save to PDF with html2pdf when download pdf button is clicked
+var toBePrinted = $("#printable");
+var printOptions = {
+    filename: "cv.pdf",
+    pagebreak: { mode: "avoid-all" },
+};
+
+function toPDF() {
+    html2pdf(toBePrinted, printOptions);
+}
+
+$("#download-btn").click(toPDF);
 
 //EVENT LISTENERS
 
