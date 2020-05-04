@@ -26,7 +26,7 @@ function convertSavedData(savedCV) {
     var sectionsArray = [];
 
     for (i in savedCV) {
-        var convertedList = "";
+        //var convertedList = "";
         var type = savedCV[i].type;
         var title = savedCV[i].title;
         var itemList = [];
@@ -39,7 +39,7 @@ function convertSavedData(savedCV) {
 
         //Formatting if section is the main info content
         if (type === "info") {
-            var dataTable1 = "";
+            /*var dataTable1 = "";
             var dataTable2 = "";
             for (var j = 0; j < table1.label.length; j++) {
                 if (j === 0) {
@@ -68,7 +68,8 @@ function convertSavedData(savedCV) {
             var convertedData = `<section id="section${i}" class="${type}">
             <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
                 dataTable1 + dataTable2
-            }</div></section>`;
+            }</div></section>`;*/
+            convertedData = infoToHtml(i, table1, table2, name);
             sectionsArray.push(convertedData);
         }
 
@@ -98,15 +99,22 @@ function saveCvToArray() {
     var savedArray = [];
     var sections = $("#printable section");
     for (i in sections) {
-        //debugger;
         var sectionId = "section" + i;
         //Converts Info section into an object
         if (sections.eq(i).hasClass("info")) {
             savedArray[i] = {};
             savedArray[i].type = "info";
             savedArray[i].name = $("#" + sectionId + " .info-name").html();
-            savedArray[i].table1 = { label: [], content: [] };
-            savedArray[i].table2 = { label: [], content: [] };
+            savedArray[i].table1 = {
+                class: "info-table1",
+                label: [],
+                content: [],
+            };
+            savedArray[i].table2 = {
+                class: "info-table2",
+                label: [],
+                content: [],
+            };
             $("#" + sectionId + " .info-table1 th").each(function () {
                 savedArray[i].table1.label.push($(this).html());
             });
@@ -198,6 +206,7 @@ function singleBlockToHtml(i, list, title) {
 <h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
 }
 
+//Three-Column type items get converted to HTML
 function threeColToHtml(i, list, title) {
     let htmlList = "";
     //Add empty columns if number of items is not divisible by 3
@@ -228,12 +237,39 @@ function threeColToHtml(i, list, title) {
         ${htmlList}</section>`;
 }
 
+//Info type items get converted to HTML
+
+function infoToHtml(i, table1, table2, name) {
+    var dataTable1 = convertTableToHtml(table1);
+    var dataTable2 = convertTableToHtml(table2);
+
+    return `<section id="section${i}" class="info">
+            <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
+        dataTable1 + dataTable2
+    }</div></section>`;
+}
+
+function convertTableToHtml(table) {
+    let dataTable = "";
+    for (let i = 0; i < table.label.length; i++) {
+        if (table.label.length === 1) {
+            //Table has only 1 row => open and close div tag
+            dataTable += `<div class="col"><table class="table table-borderless ${table.class}"><tr><th class="text-right" contenteditable="true">${table.label[i]}</th><td contenteditable="true">${table.content[i]}</td></tr></table></div>`;
+        } else if (i === 0) {
+            //First row of the table => open div tag
+            dataTable += `<div class="col-6"><table class="table table-borderless table-sm ${table.class}"><tr><th class="text-right" contenteditable="true">${table.label[i]}</th><td contenteditable="true">${table.content[i]}</td></tr>`;
+        } else if (i === table.label.length - 1) {
+            //Last row of the table => close div tag
+            dataTable += `<tr><th class="text-right" contenteditable="true">${table.label[i]}</th><td contenteditable="true">${table.content[i]}</td></tr></table></div>`;
+        } else {
+            //Every other row
+            dataTable += `<tr><th class="text-right" contenteditable="true">${table.label[i]}</th><td contenteditable="true">${table.content[i]}</td></tr>`;
+        }
+    }
+    return dataTable;
+}
+
 //EVENT LISTENERS
-//Set default content when reset button is clicked and delete local storage
-$("#reset-btn").click(function () {
-    setContent(defaultCv);
-    localStorage.clear();
-});
 
 //Save to local storage when save button is clicked
 $("#save-btn").click(function () {
@@ -248,4 +284,11 @@ $(document).ready(function () {
     } else {
         setContent(JSON.parse(savedCv));
     }
+});
+
+//Set default content when reset button is clicked and delete local storage
+$("#reset-btn").click(function () {
+    setContent(defaultCv);
+    console.log(savedCv);
+    localStorage.clear();
 });

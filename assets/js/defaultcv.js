@@ -4,6 +4,7 @@ var defaultCv = [
         type: "info",
         name: "John Doe",
         table1: {
+            class: "info-table1",
             label: ["Address:", "Phone:", "Email:"],
             content: [
                 "123 State St.<br>Oslo, Norway",
@@ -12,6 +13,7 @@ var defaultCv = [
             ],
         },
         table2: {
+            class: "info-table2",
             label: ["Website:", "Twitter:"],
             content: ["htttps://johndoe.com", "@johndoe"],
         },
