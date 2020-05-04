@@ -21,12 +21,11 @@ function toPDF() {
 
 $("#download-btn").click(toPDF);
 
-//Traversing JSON data, returns CV data as formatted HTML
+//Traversing JSON data, returns CV data as string of formatted HTML
 function convertSavedData(savedCV) {
     var sectionsArray = [];
 
     for (i in savedCV) {
-        //var convertedList = "";
         var type = savedCV[i].type;
         var title = savedCV[i].title;
         var itemList = [];
@@ -39,36 +38,6 @@ function convertSavedData(savedCV) {
 
         //Formatting if section is the main info content
         if (type === "info") {
-            /*var dataTable1 = "";
-            var dataTable2 = "";
-            for (var j = 0; j < table1.label.length; j++) {
-                if (j === 0) {
-                    dataTable1 += `<div class="col-6"><table class="table table-borderless table-sm info-table1"><tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr>`;
-                } else if (j === table1.label.length - 1) {
-                    dataTable1 += `<tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr></table></div>`;
-                } else if (table1.label.length === 1) {
-                    dataTable1 += `<div class="col"><table class="table table-borderless"><tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr></table></div>`;
-                } else {
-                    dataTable1 += `<tr><th class="text-right" contenteditable="true">${table1.label[j]}</th><td contenteditable="true">${table1.content[j]}</td></tr>`;
-                }
-            }
-
-            for (var j = 0; j < table2.label.length; j++) {
-                if (j === 0) {
-                    dataTable2 += `<div class="col-6"><table class="table table-borderless table-sm info-table2"><tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr>`;
-                } else if (j === table2.label.length - 1) {
-                    dataTable2 += `<tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr></table></div>`;
-                } else if (table2.label.length === 1) {
-                    dataTable2 += `<div class="col"><table class="table table-borderless"><tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr></table></div>`;
-                } else {
-                    dataTable2 += `<tr><th class="text-right" contenteditable="true">${table2.label[j]}</th><td contenteditable="true">${table2.content[j]}</td></tr>`;
-                }
-            }
-
-            var convertedData = `<section id="section${i}" class="${type}">
-            <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
-                dataTable1 + dataTable2
-            }</div></section>`;*/
             convertedData = infoToHtml(i, table1, table2, name);
             sectionsArray.push(convertedData);
         }
