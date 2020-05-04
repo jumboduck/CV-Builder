@@ -8,44 +8,18 @@ function setContent(cvContent) {
     console.log("content updated");
 }
 
-// Load default or saved content when page loads
-$(document).ready(function () {
-    if (!savedCv) {
-        setContent(defaultCv);
-    } else {
-        setContent(JSON.parse(savedCv));
-    }
-});
-
-//Set default content when reset button is clicked and delete local storage
-$("#reset-btn").click(function () {
-    setContent(defaultCv);
-    localStorage.clear();
-});
-
-//Save to local storage when save button is clicked
-$("#save-btn").click(function () {
-    var currentCv = saveCvToArray();
-    localStorage.setItem("CV", JSON.stringify(currentCv));
-});
-
 //Save to PDF with html2pdf when download pdf button is clicked
 var toBePrinted = $("#printable");
 var printOptions = {
     filename: "cv.pdf",
     pagebreak: { mode: "avoid-all" },
 };
+
 function toPDF() {
     html2pdf(toBePrinted, printOptions);
 }
+
 $("#download-btn").click(toPDF);
-
-//Testing loading content to page from JSON
-
-document.getElementById("test-btn").addEventListener("click", function () {
-    var loadedCv = convertSavedData(defaultCv);
-    setContent(loadedCv);
-});
 
 //Traversing JSON data, returns CV data as formatted HTML
 function convertSavedData(savedCV) {
@@ -236,3 +210,26 @@ function saveCvToArray() {
     }
     return savedArray;
 }
+
+//EVENT LISTENERS
+
+//Set default content when reset button is clicked and delete local storage
+$("#reset-btn").click(function () {
+    setContent(defaultCv);
+    localStorage.clear();
+});
+
+//Save to local storage when save button is clicked
+$("#save-btn").click(function () {
+    var currentCv = saveCvToArray();
+    localStorage.setItem("CV", JSON.stringify(currentCv));
+});
+
+// Load default or saved content when page loads
+$(document).ready(function () {
+    if (!savedCv) {
+        setContent(defaultCv);
+    } else {
+        setContent(JSON.parse(savedCv));
+    }
+});
