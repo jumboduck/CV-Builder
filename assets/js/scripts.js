@@ -43,20 +43,25 @@ function convertSavedData(savedCV) {
         }
 
         //Formatting data to html if section is a list with dates, such as experience
-        if (type === "listing") {
+        else if (type === "listing") {
             convertedData = listingToHtml(i, itemList, title);
             sectionsArray.push(convertedData);
         }
         //Formatting data to html if section is a single block of content
-        if (type === "single-block") {
+        else if (type === "single-block") {
             convertedData = singleBlockToHtml(i, itemList, title);
             sectionsArray.push(convertedData);
         }
 
         //Formatting if section is a list of items, such as skills/interests
-        if (type === "3-column") {
+        else if (type === "3-column") {
             convertedData = threeColToHtml(i, itemList, title);
             sectionsArray.push(convertedData);
+
+            //Other cases
+        } else {
+            sections.Array.push("");
+            console.log("conversion error");
         }
     }
 
