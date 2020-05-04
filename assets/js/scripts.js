@@ -57,11 +57,11 @@ function convertSavedData(savedCV) {
         else if (type === "3-column") {
             convertedData = threeColToHtml(i, itemList, title);
             sectionsArray.push(convertedData);
-
-            //Other cases
-        } else {
+        }
+        //Other cases
+        else {
             sections.Array.push("");
-            console.log("conversion error");
+            console.log("Unkown type");
         }
     }
 
@@ -76,31 +76,7 @@ function saveCvToArray() {
         var sectionId = "section" + i;
         //Converts Info section into an object
         if (sections.eq(i).hasClass("info")) {
-            savedArray[i] = {};
-            savedArray[i].type = "info";
-            savedArray[i].name = $("#" + sectionId + " .info-name").html();
-            savedArray[i].table1 = {
-                class: "info-table1",
-                label: [],
-                content: [],
-            };
-            savedArray[i].table2 = {
-                class: "info-table2",
-                label: [],
-                content: [],
-            };
-            $("#" + sectionId + " .info-table1 th").each(function () {
-                savedArray[i].table1.label.push($(this).html());
-            });
-            $("#" + sectionId + " .info-table1 td").each(function () {
-                savedArray[i].table1.content.push($(this).html());
-            });
-            $("#" + sectionId + " .info-table2 th").each(function () {
-                savedArray[i].table2.label.push($(this).html());
-            });
-            $("#" + sectionId + " .info-table2 td").each(function () {
-                savedArray[i].table2.content.push($(this).html());
-            });
+            savedArray.push(infoToObject(i));
 
             //Converts 3-column section into object
         } else if (sections.eq(i).hasClass("3-column")) {
@@ -143,6 +119,38 @@ function saveCvToArray() {
     }
     return savedArray;
 }
+
+//Fetches information in info HTML section and makes it an object in array
+function infoToObject(i) {
+    var infoObj = {};
+    infoObj.type = "info";
+    infoObj.name = $("#section" + i + " .info-name").html();
+    infoObj.table1 = {
+        class: "info-table1",
+        label: [],
+        content: [],
+    };
+    infoObj.table2 = {
+        class: "info-table2",
+        label: [],
+        content: [],
+    };
+    $("#section" + i + " .info-table1 th").each(function () {
+        infoObj.table1.label.push($(this).html());
+    });
+    $("#section" + i + " .info-table1 td").each(function () {
+        infoObj.table1.content.push($(this).html());
+    });
+    $("#section" + i + " .info-table2 th").each(function () {
+        infoObj.table2.label.push($(this).html());
+    });
+    $("#section" + i + " .info-table2 td").each(function () {
+        infoObj.table2.content.push($(this).html());
+    });
+    return infoObj;
+}
+
+//function
 
 //EVENT LISTENERS
 
