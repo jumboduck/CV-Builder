@@ -74,26 +74,7 @@ function convertSavedData(savedCV) {
 
         //Formatting if section is a list with dates, such as experience
         if (type === "listing") {
-            for (j in itemList) {
-                convertedList += `<div class="row listing-row">
-                <div class="col-md-2">
-                    <h5 contenteditable="true" class="listing-date">${itemList[j].date}</h5>
-                </div>
-                <div class="col-md-2">
-                    <h5 contenteditable="true" class="listing-location">${itemList[j].location}</h5>
-                </div>
-                <div class="col-md-8 pb-4">
-                    <h5 contenteditable="true" class="listing-position">
-                    ${itemList[j].position}
-                    </h5>
-                    <div contenteditable="true" class="listing-description">
-                    ${itemList[j].description}
-                    </div>
-                </div>
-            </div>`;
-            }
-            var convertedData = `<section class="${type}" id="section${i}">
-            <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${convertedList}</section>`;
+            convertedData = convertListingToHtml(i, itemList, title);
             sectionsArray.push(convertedData);
         }
         //Formatting if section is a single block of content
@@ -211,8 +192,32 @@ function saveCvToArray() {
     return savedArray;
 }
 
-//EVENT LISTENERS
+//Listing Type Objects get converted to HTML
+function convertListingToHtml(i, list, title) {
+    var htmlList = "";
+    for (j in list) {
+        htmlList += `<div class="row listing-row">
+        <div class="col-md-2">
+            <h5 contenteditable="true" class="listing-date">${list[j].date}</h5>
+        </div>
+        <div class="col-md-2">
+            <h5 contenteditable="true" class="listing-location">${list[j].location}</h5>
+        </div>
+        <div class="col-md-8 pb-4">
+            <h5 contenteditable="true" class="listing-position">
+            ${list[j].position}
+            </h5>
+            <div contenteditable="true" class="listing-description">
+            ${list[j].description}
+            </div>
+        </div>
+    </div>`;
+    }
+    return `<section class="listing" id="section${i}">
+    <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
+}
 
+//EVENT LISTENERS
 //Set default content when reset button is clicked and delete local storage
 $("#reset-btn").click(function () {
     setContent(defaultCv);
