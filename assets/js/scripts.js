@@ -64,7 +64,6 @@ function convertSavedData(savedCV) {
             console.log("Unkown type");
         }
     }
-
     return sectionsArray.join("<hr>");
 }
 
@@ -73,29 +72,21 @@ function saveCvToArray() {
     var savedArray = [];
     var sections = $("#printable section");
     for (i in sections) {
-        var sectionId = "section" + i;
-        //Converts Info section into an object
+        //Converts Info sections into an object
         if (sections.eq(i).hasClass("info")) {
             savedArray.push(infoToObject(i));
 
-            //Converts 3-column section into object
+            //Converts 3-column sections into object
         } else if (sections.eq(i).hasClass("3-column")) {
             savedArray.push(threeColToObject(i));
 
-            // Converts listing section into an object
+            // Converts listing sections into an object
         } else if (sections.eq(i).hasClass("listing")) {
             savedArray.push(listingToObject(i));
-            //Converts single block section into an object
+
+            //Converts single block sections into an object
         } else if (sections.eq(i).hasClass("single-block")) {
-            savedArray[i] = {};
-            savedArray[i].type = "single-block";
-            savedArray[i].title = $(
-                "#" + sectionId + " .single-block-title"
-            ).html();
-            savedArray[i].list = [];
-            $("#" + sectionId + " .single-block-content").each(function () {
-                savedArray[i].list.push($(this).html());
-            });
+            savedArray.push(singleBlockToObject(i));
         }
     }
     return savedArray;
@@ -159,6 +150,18 @@ function listingToObject(i) {
         listingObj.list.push(listingRow);
     });
     return listingObj;
+}
+
+//Fetches information in Single Block HTML section and makes it into an object
+function singleBlockToObject(i) {
+    singleBlockObj = {};
+    singleBlockObj.type = "single-block";
+    singleBlockObj.title = $("#section" + i + " .single-block-title").html();
+    singleBlockObj.list = [];
+    $("#section" + i + " .single-block-content").each(function () {
+        singleBlockObj.list.push($(this).html());
+    });
+    return singleBlockObj;
 }
 
 //EVENT LISTENERS
