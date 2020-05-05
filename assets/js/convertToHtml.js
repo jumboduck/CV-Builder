@@ -2,22 +2,12 @@
 function listingToHtml(i, list, title) {
     let htmlList = "";
     for (j in list) {
-        htmlList += `<div class="row listing-row deletable">
-        <div class="col-md-2">
-            <h5 contenteditable="true" class="listing-date">${list[j].date}</h5>
-        </div>
-        <div class="col-md-2">
-            <h5 contenteditable="true" class="listing-location">${list[j].location}</h5>
-        </div>
-        <div class="col-md-8">
-            <h5 contenteditable="true" class="listing-position">
-            ${list[j].position}
-            </h5>
-            <div contenteditable="true" class="listing-description">
-            ${list[j].description}
-            </div>
-        </div>
-    </div>`;
+        htmlList += createListingItem(
+            list[j].date,
+            list[j].location,
+            list[j].position,
+            list[j].description
+        );
     }
     return `<section class="listing" id="section${i}">
     <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
@@ -27,8 +17,7 @@ function listingToHtml(i, list, title) {
 function singleBlockToHtml(i, list, title) {
     let htmlList = "";
     for (j in list) {
-        htmlList += `<div class="row deletable"><div class="col"><div contenteditable="true" class="single-block-content">${list[j]}</div></div></div>
-</div>`;
+        htmlList += createSingleBlockItem(list[j]);
     }
     return `<section class="single-block" id="section${i}">
 <h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
@@ -42,20 +31,13 @@ function threeColToHtml(i, list, title) {
         list.push("");
     }
     for (j in list) {
-        //only one row of items
-        if (j === 3) {
-            htmlList += `<div class="row deletable">
-                            <div class="col 3-col-item" contenteditable="true">
-                            ${list[j]}
-                            </div></div>`;
-        }
-        //first row of listed items
-        else if (j % 3 === 0) {
+        //first item in row
+        if (j % 3 === 0) {
             htmlList += `<div class="row deletable">
                             <div class="col  3-col-item" contenteditable="true" >
                             ${list[j]}
                             </div>`;
-            //last row of listed items
+            //last item in row
         } else if (j % 3 === 2) {
             htmlList += `<div class="col 3-col-item" contenteditable="true">
                             ${list[j]}
@@ -102,4 +84,48 @@ function convertTableToHtml(table) {
         }
     }
     return dataTable;
+}
+
+//Create HTML for item in Listing section
+function createListingItem(
+    date = "Date",
+    location = "Location",
+    position = "Position",
+    description = "Descriptive Paragraph"
+) {
+    return `<div class="row listing-row deletable">
+    <div class="col-md-2">
+        <h5 contenteditable="true" class="listing-date">${date}</h5>
+    </div>
+    <div class="col-md-2">
+        <h5 contenteditable="true" class="listing-location">${location}</h5>
+    </div>
+    <div class="col-md-8">
+        <h5 contenteditable="true" class="listing-position">
+        ${position}
+        </h5>
+        <div contenteditable="true" class="listing-description">
+        ${description}
+        </div>
+    </div>
+</div>`;
+}
+
+//Create HTML for item in Single Block section
+function createSingleBlockItem(textContent = "Descriptive Paragraph") {
+    return `<div class="row deletable"><div class="col"><div contenteditable="true" class="single-block-content">${textContent}</div></div></div>
+</div>`;
+}
+
+//Create HTML for item in Three Column section
+function createThreeColumnRow(
+    item1 = "-Item 1",
+    item2 = "-Item 2",
+    item3 = "-Item 3"
+) {
+    return `<div class="row deletable">
+                <div class="col 3-col-item" contenteditable="true">${item1}</div>
+                <div class="col 3-col-item" contenteditable="true">${item2}</div>
+                <div class="col 3-col-item" contenteditable="true">${item3}</div>
+            </div>`;
 }

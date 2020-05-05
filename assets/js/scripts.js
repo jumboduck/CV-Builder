@@ -113,6 +113,7 @@ $(document).ready(function () {
 
 //Event listeners that need to be called when DOM has loaded
 function callListeners() {
+    //create a delete button on lines that can be removed
     $(".deletable").hover(
         function () {
             $(this).append(
@@ -126,6 +127,7 @@ function callListeners() {
         }
     );
 
+    // remove line
     $(document).on("click", ".deletebtn", function () {
         $(this).closest(".deletable").remove();
     });
