@@ -96,14 +96,6 @@ $("#download-btn").click(toPDF);
 
 //EVENT LISTENERS
 
-$(".deletable")
-    .mouseenter(function () {
-        $(this).addClass("deletebtn");
-    })
-    .mouseleave(function () {
-        $(this).removeClass("deletebtn");
-    });
-
 //Save to local storage when save button is clicked
 $("#save-btn").click(function () {
     var currentCv = saveCvToArray();
@@ -117,7 +109,24 @@ $(document).ready(function () {
     } else {
         setContent(JSON.parse(savedCv));
     }
+
+    callListeners();
 });
+
+//Event listeners that need to be called when DOM has loaded
+function callListeners() {
+    $(".deletable")
+        .mouseenter(function () {
+            $(this).append(
+                "<a class='deletebtn' href='#'><i class='fas fa-times-circle'></i></a>"
+            );
+            $(this).addClass("deletable-hover");
+        })
+        .mouseleave(function () {
+            $(this).find("a").remove();
+            $(this).removeClass("deletable-hover");
+        });
+}
 
 //Set default content when reset button is clicked and delete local storage
 $("#reset-btn").click(function () {

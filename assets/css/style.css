@@ -21,25 +21,11 @@ body {
     margin-bottom: 3rem;
 }
 
-*[contenteditable="true"]:hover {
+/**[contenteditable="true"]:hover {
+    
     background: linear-gradient(-45deg, #fff, #ececec);
     background-size: 400% 400%;
     animation: blink 1s ease infinite;
-}
-
-.info-table1,
-.info-table2 {
-    table-layout: fixed;
-}
-
-.info-table1 th,
-.info-table2 th {
-    width: 30%;
-}
-
-.info-table1 td,
-.info-table2 td {
-    width: 70%;
 }
 
 @keyframes blink {
@@ -52,7 +38,7 @@ body {
     100% {
         background-position: 0% 50%;
     }
-}
+}*/
 
 #printable .section-heading {
     margin: 2rem 0;
@@ -84,6 +70,21 @@ td.narrow {
     width: 15%;
 }
 
+.info-table1,
+.info-table2 {
+    table-layout: fixed;
+}
+
+.info-table1 th,
+.info-table2 th {
+    width: 30%;
+}
+
+.info-table1 td,
+.info-table2 td {
+    width: 70%;
+}
+
 /* ACTION BUTTONS */
 
 .actions {
@@ -107,6 +108,30 @@ td.narrow {
     color: #ececec;
 }
 
+/* Delete button */
+.deletable {
+    position: relative;
+}
+
+.deletable-hover {
+    outline: 1px dashed #aaa;
+    /*outline-offset: -10px;*/
+}
+
 .deletebtn {
-    background-color: green;
+    color: #ffcccb;
+    position: absolute;
+    right: -0.75rem;
+    top: -0.75rem;
+    font-size: 1.5rem;
+}
+
+.deletebtn:hover {
+    color: #f00;
+}
+
+/* Spacing */
+
+.row {
+    padding: 0rem 1.2rem;
 }
