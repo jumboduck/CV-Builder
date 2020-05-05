@@ -106,3 +106,7 @@ td.narrow {
     background-color: #664d33;
     color: #ececec;
 }
+
+.deletebtn {
+    background-color: green;
+}

@@ -2,7 +2,7 @@
 function listingToHtml(i, list, title) {
     let htmlList = "";
     for (j in list) {
-        htmlList += `<div class="row listing-row">
+        htmlList += `<div class="row listing-row deletable">
         <div class="col-md-2">
             <h5 contenteditable="true" class="listing-date">${list[j].date}</h5>
         </div>

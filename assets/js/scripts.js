@@ -15,10 +15,10 @@ function convertSavedData(savedCV) {
     for (i in savedCV) {
         var type = savedCV[i].type;
         var title = savedCV[i].title;
-        var itemList = [];
         var name = savedCV[i].name;
         var table1 = savedCV[i].table1;
         var table2 = savedCV[i].table2;
+        var itemList = [];
         for (j in savedCV[i].list) {
             itemList[j] = savedCV[i].list[j];
         }
@@ -95,6 +95,14 @@ function toPDF() {
 $("#download-btn").click(toPDF);
 
 //EVENT LISTENERS
+
+$(".deletable")
+    .mouseenter(function () {
+        $(this).addClass("deletebtn");
+    })
+    .mouseleave(function () {
+        $(this).removeClass("deletebtn");
+    });
 
 //Save to local storage when save button is clicked
 $("#save-btn").click(function () {
