@@ -27,6 +27,8 @@ function singleBlockToHtml(i, list, title) {
 function threeColToHtml(i, list, title) {
     let htmlList = "";
     let rows = [];
+
+    //Ensure each row has 3 columns
     while (list.length % 3 != 0) {
         list.push("");
     }
@@ -57,21 +59,22 @@ function infoToHtml(i, table1, table2, name) {
 }
 
 //Table in Info section get converted to HTML
-function convertTableToHtml(table) {
+function convertTableToHtml(info) {
     let dataTable = "";
-    for (let i = 0; i < table.label.length; i++) {
-        if (table.label.length === 1) {
+    for (let j = 0; j < info.label.length; j++) {
+        let newRow = createInfoItem(info.label[j], info.content[j]);
+        if (info.label.length === 1) {
             //Table has only 1 row => open and close div tag
-            dataTable += `<div class="col-md-6 ${table.class}"><div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div class="col-8 info-content" contenteditable="true">${table.content[i]}</div></div></div></div>`;
-        } else if (i === 0) {
+            dataTable += `<div class="col-md-6 ${info.class}">${newRow}</div>`;
+        } else if (j === 0) {
             //First row of the table => open div tag
-            dataTable += `<div class="col-md-6 ${table.class}"><div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div class="col-8  info-content" contenteditable="true">${table.content[i]}</div></div>`;
-        } else if (i === table.label.length - 1) {
+            dataTable += `<div class="col-md-6 ${info.class}">${newRow}`;
+        } else if (j === info.label.length - 1) {
             //Last row of the table => close div tag
-            dataTable += `<div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div contenteditable="true" class="col-8 info-content">${table.content[i]}</div></div></div>`;
+            dataTable += `${newRow}</div>`;
         } else {
             //Every other row
-            dataTable += `<div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div contenteditable="true" class="col-8 info-content">${table.content[i]}</div></div>`;
+            dataTable += newRow;
         }
     }
     return dataTable;
@@ -119,4 +122,13 @@ function createThreeColumnRow(
                 <div class="col 3-col-item" contenteditable="true">${item2}</div>
                 <div class="col 3-col-item" contenteditable="true">${item3}</div>
             </div>`;
+}
+
+//Create HTML for item in Info section
+
+function createInfoItem(label, content) {
+    return `<div class="row deletable">
+        <div class="col-4 text-right info-label" contenteditable="true">${label}</div>
+        <div contenteditable="true" class="col-8 info-content">${content}</div>
+    </div>`;
 }
