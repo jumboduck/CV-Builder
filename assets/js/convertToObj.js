@@ -13,16 +13,16 @@ function infoToObject(i) {
         label: [],
         content: [],
     };
-    $("#section" + i + " .info-table1 th").each(function () {
+    $("#section" + i + " .info-table1 .info-label").each(function () {
         infoObj.table1.label.push($(this).html());
     });
-    $("#section" + i + " .info-table1 td").each(function () {
+    $("#section" + i + " .info-table1 .info-content").each(function () {
         infoObj.table1.content.push($(this).html());
     });
-    $("#section" + i + " .info-table2 th").each(function () {
+    $("#section" + i + " .info-table2 .info-label").each(function () {
         infoObj.table2.label.push($(this).html());
     });
-    $("#section" + i + " .info-table2 td").each(function () {
+    $("#section" + i + " .info-table2 .info-content").each(function () {
         infoObj.table2.content.push($(this).html());
     });
     return infoObj;

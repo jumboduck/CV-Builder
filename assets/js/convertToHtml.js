@@ -89,16 +89,16 @@ function convertTableToHtml(table) {
     for (let i = 0; i < table.label.length; i++) {
         if (table.label.length === 1) {
             //Table has only 1 row => open and close div tag
-            dataTable += `<div class="col-md-6 ${table.class}"><div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div class="col-8" contenteditable="true">${table.content[i]}</div></div></div></div>`;
+            dataTable += `<div class="col-md-6 ${table.class}"><div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div class="col-8 info-content" contenteditable="true">${table.content[i]}</div></div></div></div>`;
         } else if (i === 0) {
             //First row of the table => open div tag
-            dataTable += `<div class="col-md-6 ${table.class}"><div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div class="col-8" contenteditable="true">${table.content[i]}</div></div>`;
+            dataTable += `<div class="col-md-6 ${table.class}"><div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div class="col-8  info-content" contenteditable="true">${table.content[i]}</div></div>`;
         } else if (i === table.label.length - 1) {
             //Last row of the table => close div tag
-            dataTable += `<div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div contenteditable="true" class="col-8">${table.content[i]}</div></div></div>`;
+            dataTable += `<div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div contenteditable="true" class="col-8 info-content">${table.content[i]}</div></div></div>`;
         } else {
             //Every other row
-            dataTable += `<div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div contenteditable="true" class="col-8">${table.content[i]}</div></div>`;
+            dataTable += `<div class="row deletable"><div class="col-4 text-right info-label" contenteditable="true">${table.label[i]}</div><div contenteditable="true" class="col-8 info-content">${table.content[i]}</div></div>`;
         }
     }
     return dataTable;

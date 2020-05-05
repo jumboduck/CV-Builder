@@ -47,7 +47,7 @@ function convertSavedData(savedCV) {
         }
         //Other cases
         else {
-            sections.Array.push("");
+            sectionsArray.push("");
             console.log("Unkown type");
         }
     }
@@ -74,8 +74,6 @@ function saveCvToArray() {
             //Converts single block sections into an object
         } else if (sections.eq(i).hasClass("single-block")) {
             savedArray.push(singleBlockToObject(i));
-        } else {
-            savedArray.push({});
         }
     }
     return savedArray;
@@ -129,13 +127,12 @@ function callListeners() {
     );
 
     $(document).on("click", ".deletebtn", function () {
-        $(this).parent().remove();
+        $(this).closest(".deletable").remove();
     });
 }
 
 //Set default content when reset button is clicked and delete local storage
 $("#reset-btn").click(function () {
     setContent(defaultCv);
-    console.log(savedCv);
     localStorage.clear();
 });
