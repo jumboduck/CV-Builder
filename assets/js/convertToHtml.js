@@ -9,7 +9,7 @@ function listingToHtml(i, list, title) {
         <div class="col-md-2">
             <h5 contenteditable="true" class="listing-location">${list[j].location}</h5>
         </div>
-        <div class="col-md-8 pb-4">
+        <div class="col-md-8">
             <h5 contenteditable="true" class="listing-position">
             ${list[j].position}
             </h5>
@@ -45,26 +45,25 @@ function threeColToHtml(i, list, title) {
         //only one row of items
         if (j === 3) {
             htmlList += `<div class="row deletable">
-                            <div class="col">
-                            <p contenteditable="true" class="3-col-item">${list[j]}</p>
+                            <div class="col 3-col-item" contenteditable="true">
+                            ${list[j]}
                             </div></div>`;
         }
-
         //first row of listed items
         else if (j % 3 === 0) {
             htmlList += `<div class="row deletable">
-                            <div class="col">
-                            <p contenteditable="true" class="3-col-item">${list[j]}</p>
+                            <div class="col  3-col-item" contenteditable="true" >
+                            ${list[j]}
                             </div>`;
             //last row of listed items
         } else if (j % 3 === 2) {
-            htmlList += `<div class="col">
-                            <p contenteditable="true" class="3-col-item">${list[j]}</p>
+            htmlList += `<div class="col 3-col-item" contenteditable="true">
+                            ${list[j]}
                             </div></div>`;
             //all other rows of listed items
         } else {
-            htmlList += `<div class="col">
-                            <p contenteditable="true" class="3-col-item">${list[j]}</p>
+            htmlList += `<div class="col 3-col-item" contenteditable="true">
+                            ${list[j]}
                             </div>`;
         }
     }
