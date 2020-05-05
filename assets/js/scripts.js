@@ -109,7 +109,7 @@ $(document).ready(function () {
     } else {
         setContent(JSON.parse(savedCv));
     }
-
+    //event listeners are called after DOM has loaded
     callListeners();
 });
 
@@ -118,7 +118,7 @@ function callListeners() {
     $(".deletable")
         .mouseenter(function () {
             $(this).append(
-                "<a class='deletebtn' href='#'><i class='fas fa-times-circle'></i></a>"
+                `<a class='deletebtn' href='#'><i class='fas fa-times-circle'></i></a>`
             );
             $(this).addClass("deletable-hover");
         })
