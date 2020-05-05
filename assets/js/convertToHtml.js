@@ -9,7 +9,7 @@ function listingToHtml(i, list, title) {
             list[j].description
         );
     }
-    return `<section class="listing deletable" id="section${i}">
+    return `<section class="section listing deletable" id="section${i}">
     <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
 }
 
@@ -19,7 +19,7 @@ function singleBlockToHtml(i, list, title) {
     for (j in list) {
         htmlList += createSingleBlockItem(list[j]);
     }
-    return `<section class="single-block deletable" id="section${i}">
+    return `<section class="section single-block deletable" id="section${i}">
 <h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
 }
 
@@ -42,7 +42,7 @@ function threeColToHtml(i, list, title) {
         htmlList += createThreeColumnRow(rows[j][0], rows[j][1], rows[j][2]);
     }
 
-    return `<section class="3-column deletable" id="section${i}">
+    return `<section class="section 3-column deletable" id="section${i}">
         <h3 contenteditable="true" class="section-heading 3-col-title">${title}</h3>
         ${htmlList}</section>`;
 }
@@ -52,7 +52,7 @@ function infoToHtml(i, table1, table2, name) {
     var dataTable1 = convertTableToHtml(table1);
     var dataTable2 = convertTableToHtml(table2);
 
-    return `<section id="section${i}" class="info deletable">
+    return `<section class="section info deletable" id="section${i}">
             <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
         dataTable1 + dataTable2
     }</div></section>`;
