@@ -21,27 +21,8 @@ body {
     margin-bottom: 3rem;
 }
 
-/**[contenteditable="true"]:hover {
-    
-    background: linear-gradient(-45deg, #fff, #ececec);
-    background-size: 400% 400%;
-    animation: blink 1s ease infinite;
-}
-
-@keyframes blink {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}*/
-
 #printable .section-heading {
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
 /* HEADER STYLES */
@@ -120,8 +101,8 @@ body {
 /* Spacing */
 
 .deletable {
-    padding: 1rem;
-    margin: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0.2rem 1rem;
 }
 
 section.deletable {
