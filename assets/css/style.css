@@ -121,4 +121,9 @@ body {
 
 .deletable {
     padding: 1rem;
+    margin: 1rem;
+}
+
+section.deletable {
+    margin: 0;
 }
