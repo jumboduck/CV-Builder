@@ -109,6 +109,8 @@ body {
     right: -0.75rem;
     top: -1rem;
     font-size: 1.5rem;
+    background-color: #fff;
+    cursor: pointer;
 }
 
 .deletebtn:hover {

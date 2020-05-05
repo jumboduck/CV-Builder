@@ -115,17 +115,22 @@ $(document).ready(function () {
 
 //Event listeners that need to be called when DOM has loaded
 function callListeners() {
-    $(".deletable")
-        .mouseenter(function () {
+    $(".deletable").hover(
+        function () {
             $(this).append(
-                `<a class='deletebtn' href='#'><i class='fas fa-times-circle'></i></a>`
+                `<span class='deletebtn'><i class='fas fa-times-circle'></i></span>`
             );
             $(this).addClass("deletable-hover");
-        })
-        .mouseleave(function () {
-            $(this).find("a").remove();
+        },
+        function () {
+            $(this).find(".deletebtn").remove();
             $(this).removeClass("deletable-hover");
-        });
+        }
+    );
+
+    $(document).on("click", ".deletebtn", function () {
+        $(this).parent().remove();
+    });
 }
 
 //Set default content when reset button is clicked and delete local storage
