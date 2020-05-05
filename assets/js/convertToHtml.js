@@ -26,29 +26,20 @@ function singleBlockToHtml(i, list, title) {
 //Three-Column type items get converted to HTML
 function threeColToHtml(i, list, title) {
     let htmlList = "";
-    //Add empty columns if number of items is not divisible by 3
+    let rows = [];
     while (list.length % 3 != 0) {
         list.push("");
     }
-    for (j in list) {
-        //first item in row
-        if (j % 3 === 0) {
-            htmlList += `<div class="row deletable">
-                            <div class="col  3-col-item" contenteditable="true" >
-                            ${list[j]}
-                            </div>`;
-            //last item in row
-        } else if (j % 3 === 2) {
-            htmlList += `<div class="col 3-col-item" contenteditable="true">
-                            ${list[j]}
-                            </div></div>`;
-            //all other rows of listed items
-        } else {
-            htmlList += `<div class="col 3-col-item" contenteditable="true">
-                            ${list[j]}
-                            </div>`;
-        }
+
+    //Divide list in groups of 3
+    while (list.length) {
+        rows.push(list.splice(0, 3));
     }
+
+    for (j in rows) {
+        htmlList += createThreeColumnRow(rows[j][0], rows[j][1], rows[j][2]);
+    }
+
     return `<section class="3-column" id="section${i}">
         <h3 contenteditable="true" class="section-heading 3-col-title">${title}</h3>
         ${htmlList}</section>`;
