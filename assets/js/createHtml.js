@@ -2,7 +2,17 @@
 var numOfSections = 0;
 
 //Listing Type Objects get converted to HTML
-function listingToHtml(list, title) {
+function listingToHtml(
+    list = [
+        {
+            date: "Date",
+            location: "Location",
+            position: "Position",
+            description: "Description",
+        },
+    ],
+    title = "New Listing"
+) {
     let htmlList = "";
     for (j in list) {
         htmlList += createListingItem(
