@@ -89,8 +89,6 @@ section.deletable {
 .deletable-hover {
     border: 1px dashed #aaa;
     border-radius: 0.5rem;
-
-    /*outline-offset: -10px;*/
 }
 
 .deletebtn {
@@ -107,7 +105,19 @@ section.deletable {
     color: #f00;
 }
 
-/* Spacing */
+/* Adding new item */
 
-.deletable {
+.add-element {
+    border: 1px dashed #3cb371;
+    border-radius: 0.5rem;
+    color: #3cb371;
+    position: relative;
+    padding: 0.5rem 1rem;
+    margin: 0.2rem 1rem;
+    cursor: pointer;
+}
+
+.add-element:hover {
+    border: 1px dashed #2e8b57;
+    color: #2e8b57;
 }

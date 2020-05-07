@@ -131,6 +131,17 @@ function callListeners() {
     $(document).on("click", ".deletebtn", function () {
         $(this).closest(".deletable").remove();
     });
+
+    $(".extendable").hover(
+        function () {
+            $(this).append(
+                `<div class="add-element text-center"><i class="fas fa-plus-circle"></i></div>`
+            );
+        },
+        function () {
+            $(this).find(".add-element").remove();
+        }
+    );
 }
 
 //Set default content when reset button is clicked and delete local storage

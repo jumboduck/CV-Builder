@@ -9,7 +9,7 @@ function listingToHtml(i, list, title) {
             list[j].description
         );
     }
-    return `<section class="section listing deletable" id="section${i}">
+    return `<section class="section listing deletable extendable" id="section${i}">
     <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
 }
 
@@ -19,7 +19,7 @@ function singleBlockToHtml(i, list, title) {
     for (j in list) {
         htmlList += createSingleBlockItem(list[j]);
     }
-    return `<section class="section single-block deletable" id="section${i}">
+    return `<section class="section single-block deletable extendable" id="section${i}">
 <h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
 }
 
@@ -42,7 +42,7 @@ function threeColToHtml(i, list, title) {
         htmlList += createThreeColumnRow(rows[j][0], rows[j][1], rows[j][2]);
     }
 
-    return `<section class="section 3-column deletable" id="section${i}">
+    return `<section class="section 3-column extendable deletable" id="section${i}">
         <h3 contenteditable="true" class="section-heading 3-col-title">${title}</h3>
         ${htmlList}</section>`;
 }
@@ -65,10 +65,10 @@ function convertTableToHtml(info) {
         let newRow = createInfoItem(info.label[j], info.content[j]);
         if (info.label.length === 1) {
             //Table has only 1 row => open and close div tag
-            dataTable += `<div class="col-md-6 ${info.class}">${newRow}</div>`;
+            dataTable += `<div class="col-md-6 extendable ${info.class}">${newRow}</div>`;
         } else if (j === 0) {
             //First row of the table => open div tag
-            dataTable += `<div class="col-md-6 ${info.class}">${newRow}`;
+            dataTable += `<div class="col-md-6 extendable ${info.class}">${newRow}`;
         } else if (j === info.label.length - 1) {
             //Last row of the table => close div tag
             dataTable += `${newRow}</div>`;
@@ -125,7 +125,6 @@ function createThreeColumnRow(
 }
 
 //Create HTML for item in Info section
-
 function createInfoItem(label = "Label", content = "Information") {
     return `<div class="row deletable">
         <div class="col-4 text-right info-label" contenteditable="true">${label}</div>
