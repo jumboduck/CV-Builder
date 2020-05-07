@@ -78,7 +78,7 @@ section.deletable {
     margin: 0;
 }
 
-/* Delete button */
+/* Deletable items and delete button */
 .deletable {
     position: relative;
     padding: 0.5rem 1rem;
