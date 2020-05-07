@@ -25,24 +25,24 @@ function convertSavedData(savedCV) {
 
         //Formatting if section is the main info content
         if (type === "info") {
-            convertedData = infoToHtml(i, table1, table2, name);
+            convertedData = infoToHtml(table1, table2, name);
             sectionsArray.push(convertedData);
         }
 
         //Formatting data to html if section is a list with dates, such as experience
         else if (type === "listing") {
-            convertedData = listingToHtml(i, itemList, title);
+            convertedData = listingToHtml(itemList, title);
             sectionsArray.push(convertedData);
         }
         //Formatting data to html if section is a single block of content
         else if (type === "single-block") {
-            convertedData = singleBlockToHtml(i, itemList, title);
+            convertedData = singleBlockToHtml(itemList, title);
             sectionsArray.push(convertedData);
         }
 
         //Formatting if section is a list of items, such as skills/interests
         else if (type === "3-column") {
-            convertedData = threeColToHtml(i, itemList, title);
+            convertedData = threeColToHtml(itemList, title);
             sectionsArray.push(convertedData);
         }
         //Other cases
@@ -59,21 +59,22 @@ function saveCvToArray() {
     var savedArray = [];
     var sections = $("#printable section");
     for (i in sections) {
+        var sectionId = sections.eq(i).attr("id");
         //Converts Info sections into an object
         if (sections.eq(i).hasClass("info")) {
-            savedArray.push(infoToObject(i));
+            savedArray.push(infoToObject(sectionId));
 
             //Converts 3-column sections into object
         } else if (sections.eq(i).hasClass("3-column")) {
-            savedArray.push(threeColToObject(i));
+            savedArray.push(threeColToObject(sectionId));
 
             // Converts listing sections into an object
         } else if (sections.eq(i).hasClass("listing")) {
-            savedArray.push(listingToObject(i));
+            savedArray.push(listingToObject(sectionId));
 
             //Converts single block sections into an object
         } else if (sections.eq(i).hasClass("single-block")) {
-            savedArray.push(singleBlockToObject(i));
+            savedArray.push(singleBlockToObject(sectionId));
         }
     }
     return savedArray;

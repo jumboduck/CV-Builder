@@ -2,7 +2,7 @@
 var numOfSections = 0;
 
 //Listing Type Objects get converted to HTML
-function listingToHtml(i, list, title) {
+function listingToHtml(list, title) {
     let htmlList = "";
     for (j in list) {
         htmlList += createListingItem(
@@ -13,23 +13,23 @@ function listingToHtml(i, list, title) {
         );
     }
     numOfSections++;
-    return `<section class="section listing deletable extendable" id="section${i}">
+    return `<section class="section listing deletable extendable" id="section${numOfSections}">
     <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
 }
 
 //Single-Block type items get converted to HTML
-function singleBlockToHtml(i, list, title) {
+function singleBlockToHtml(list, title) {
     let htmlList = "";
     for (j in list) {
         htmlList += createSingleBlockItem(list[j]);
     }
     numOfSections++;
-    return `<section class="section single-block deletable extendable" id="section${i}">
+    return `<section class="section single-block deletable extendable" id="section${numOfSections}">
 <h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
 }
 
 //Three-Column type items get converted to HTML
-function threeColToHtml(i, list, title) {
+function threeColToHtml(list, title) {
     let htmlList = "";
     let rows = [];
 
@@ -47,17 +47,17 @@ function threeColToHtml(i, list, title) {
         htmlList += createThreeColumnRow(rows[j][0], rows[j][1], rows[j][2]);
     }
     numOfSections++;
-    return `<section class="section 3-column extendable deletable" id="section${i}">
+    return `<section class="section 3-column extendable deletable" id="section${numOfSections}">
         <h3 contenteditable="true" class="section-heading 3-col-title">${title}</h3>
         ${htmlList}</section>`;
 }
 
 //Info type items get converted to HTML
-function infoToHtml(i, table1, table2, name) {
+function infoToHtml(table1, table2, name) {
     var dataTable1 = convertTableToHtml(table1);
     var dataTable2 = convertTableToHtml(table2);
     numOfSections++;
-    return `<section class="section info deletable" id="section${i}">
+    return `<section class="section info deletable" id="section${numOfSections}">
             <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
         dataTable1 + dataTable2
     }</div></section>`;

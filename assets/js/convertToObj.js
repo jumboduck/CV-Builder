@@ -1,8 +1,8 @@
 //Fetches information in info HTML section and makes it into an Object
-function infoToObject(i) {
+function infoToObject(id) {
     var infoObj = {};
     infoObj.type = "info";
-    infoObj.name = $("#section" + i + " .info-name").html();
+    infoObj.name = $("#" + id + " .info-name").html();
     infoObj.table1 = {
         class: "info-table1",
         label: [],
@@ -13,40 +13,40 @@ function infoToObject(i) {
         label: [],
         content: [],
     };
-    $("#section" + i + " .info-table1 .info-label").each(function () {
+    $("#" + id + " .info-table1 .info-label").each(function () {
         infoObj.table1.label.push($(this).html());
     });
-    $("#section" + i + " .info-table1 .info-content").each(function () {
+    $("#" + id + " .info-table1 .info-content").each(function () {
         infoObj.table1.content.push($(this).html());
     });
-    $("#section" + i + " .info-table2 .info-label").each(function () {
+    $("#" + id + " .info-table2 .info-label").each(function () {
         infoObj.table2.label.push($(this).html());
     });
-    $("#section" + i + " .info-table2 .info-content").each(function () {
+    $("#" + id + " .info-table2 .info-content").each(function () {
         infoObj.table2.content.push($(this).html());
     });
     return infoObj;
 }
 
 //Fetches information in 3 Column HTML section and makes it into an object
-function threeColToObject(i) {
+function threeColToObject(id) {
     var threeColObj = {};
     threeColObj.type = "3-column";
-    threeColObj.title = $("#section" + i + " .3-col-title").html();
+    threeColObj.title = $("#section" + numOfSections + " .3-col-title").html();
     threeColObj.list = [];
-    $("#section" + i + " .3-col-item").each(function () {
+    $("#" + id + " .3-col-item").each(function () {
         threeColObj.list.push($(this).html());
     });
     return threeColObj;
 }
 
 //Fetches information in Listing HTML section and makes it into an object
-function listingToObject(i) {
+function listingToObject(id) {
     listingObj = {};
     listingObj.type = "listing";
-    listingObj.title = $("#section" + i + " .listing-title").html();
+    listingObj.title = $("#" + id + " .listing-title").html();
     listingObj.list = [];
-    $("#section" + i + " .listing-row").each(function () {
+    $("#" + id + " .listing-row").each(function () {
         var listingRow = {};
         listingRow.date = $(this).find(".listing-date").html();
         listingRow.location = $(this).find(".listing-location").html();
@@ -59,12 +59,12 @@ function listingToObject(i) {
 }
 
 //Fetches information in Single Block HTML section and makes it into an object
-function singleBlockToObject(i) {
+function singleBlockToObject(id) {
     singleBlockObj = {};
     singleBlockObj.type = "single-block";
-    singleBlockObj.title = $("#section" + i + " .single-block-title").html();
+    singleBlockObj.title = $("#" + id + " .single-block-title").html();
     singleBlockObj.list = [];
-    $("#section" + i + " .single-block-content").each(function () {
+    $("#" + id + " .single-block-content").each(function () {
         singleBlockObj.list.push($(this).html());
     });
     return singleBlockObj;
