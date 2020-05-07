@@ -74,13 +74,22 @@ body {
     color: #ececec;
 }
 
+section.deletable {
+    margin: 0;
+}
+
 /* Delete button */
 .deletable {
     position: relative;
+    padding: 0.5rem 1rem;
+    margin: 0.2rem 1rem;
+    border: 1px solid #fff;
 }
 
 .deletable-hover {
-    outline: 1px dashed #aaa;
+    border: 1px dashed #aaa;
+    border-radius: 0.5rem;
+
     /*outline-offset: -10px;*/
 }
 
@@ -101,10 +110,4 @@ body {
 /* Spacing */
 
 .deletable {
-    padding: 0.5rem 1rem;
-    margin: 0.2rem 1rem;
-}
-
-section.deletable {
-    margin: 0;
 }
