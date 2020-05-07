@@ -18,7 +18,10 @@ function listingToHtml(list, title) {
 }
 
 //Single-Block type items get converted to HTML
-function singleBlockToHtml(list, title) {
+function singleBlockToHtml(
+    list = ["Descriptive Text"],
+    title = "New Single Block"
+) {
     let htmlList = "";
     for (j in list) {
         htmlList += createSingleBlockItem(list[j]);
