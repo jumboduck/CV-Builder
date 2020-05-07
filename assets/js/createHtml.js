@@ -69,7 +69,11 @@ function threeColToHtml(
 }
 
 //Info type items get converted to HTML
-function infoToHtml(table1, table2, name) {
+function infoToHtml(
+    table1 = { label: ["Label"], content: ["Content"] },
+    table2 = { label: ["Label"], content: ["Content"] },
+    name = "Name"
+) {
     var dataTable1 = convertTableToHtml(table1);
     var dataTable2 = convertTableToHtml(table2);
     numOfSections++;

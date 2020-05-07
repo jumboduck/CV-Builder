@@ -10,7 +10,8 @@ $("#new3col-btn").click(function () {
     $("#printable").append(threeColToHtml());
 });
 
-function addNewSection() {
-    var newSection = "<h1>hello</h1>";
-    $("#printable").append(newSection);
-}
+$("#newinfo-btn").click(function () {
+    $("#printable").append(infoToHtml());
+});
+
+function addNewSection() {}
