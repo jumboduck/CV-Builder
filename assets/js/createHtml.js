@@ -42,7 +42,10 @@ function singleBlockToHtml(
 }
 
 //Three-Column type items get converted to HTML
-function threeColToHtml(list, title) {
+function threeColToHtml(
+    list = ["one", "two", "three"],
+    title = "New Three Column Section"
+) {
     let htmlList = "";
     let rows = [];
 
