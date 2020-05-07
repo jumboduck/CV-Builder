@@ -107,8 +107,6 @@ $(document).ready(function () {
     } else {
         setContent(JSON.parse(savedCv));
     }
-    //event listeners are called after DOM has loaded
-    callListeners();
 });
 
 //Set default content when reset button is clicked and delete local storage
