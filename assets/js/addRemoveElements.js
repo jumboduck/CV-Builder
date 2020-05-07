@@ -34,9 +34,23 @@ function callListeners() {
         });
 
     //add new element
-    //$(document).on("click", ".add-element", addItem);
+    $(document).on("click", ".add-element", addItem);
 }
 
-/*function addItem() {
-    if($(this).class)
-}*/
+function addItem() {
+    var newItem = "";
+    if ($(this).parent().hasClass("listing")) {
+        newItem = createListingItem();
+    }
+    if ($(this).parent().hasClass("single-block")) {
+        newItem = createSingleBlockItem();
+    }
+    if ($(this).parent().hasClass("3-column")) {
+        newItem = createThreeColumnRow();
+    }
+
+    if ($(this).parent().hasClass("info-table")) {
+        newItem = createInfoItem();
+    }
+    $(this).before(newItem);
+}
