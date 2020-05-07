@@ -32,7 +32,7 @@ function infoToObject(id) {
 function threeColToObject(id) {
     var threeColObj = {};
     threeColObj.type = "3-column";
-    threeColObj.title = $("#section" + numOfSections + " .3-col-title").html();
+    threeColObj.title = $("#" + id + " .3-col-title").html();
     threeColObj.list = [];
     $("#" + id + " .3-col-item").each(function () {
         threeColObj.list.push($(this).html());
