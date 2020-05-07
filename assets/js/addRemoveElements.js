@@ -1,3 +1,4 @@
+//Display and hide delete button on hover
 $(document).on("mouseenter", ".deletable", function () {
     if (!$(this).find("deletebtn").length) {
         $(this).append(
@@ -12,7 +13,7 @@ $(document).on("mouseleave", ".deletable", function () {
     $(this).removeClass("deletable-hover");
 });
 
-// remove line
+//Remove line
 $(document).on("click", ".deletebtn", function () {
     $(this).closest(".deletable").remove();
 });
@@ -29,22 +30,18 @@ $(document).on("mouseleave", ".extendable", function () {
     $(this).find(".add-element").remove();
 });
 
-//add new element
+//Add new element
 $(document).on("click", ".add-element", addItem);
 
 function addItem() {
     var newItem = "";
     if ($(this).parent().hasClass("listing")) {
         newItem = createListingItem();
-    }
-    if ($(this).parent().hasClass("single-block")) {
+    } else if ($(this).parent().hasClass("single-block")) {
         newItem = createSingleBlockItem();
-    }
-    if ($(this).parent().hasClass("3-column")) {
+    } else if ($(this).parent().hasClass("3-column")) {
         newItem = createThreeColumnRow();
-    }
-
-    if ($(this).parent().hasClass("info-table")) {
+    } else if ($(this).parent().hasClass("info-table")) {
         newItem = createInfoItem();
     }
     $(this).before(newItem);

@@ -1,3 +1,6 @@
+//Count Number of Sections on Page
+var numOfSections = 0;
+
 //Listing Type Objects get converted to HTML
 function listingToHtml(i, list, title) {
     let htmlList = "";
@@ -9,6 +12,7 @@ function listingToHtml(i, list, title) {
             list[j].description
         );
     }
+    numOfSections++;
     return `<section class="section listing deletable extendable" id="section${i}">
     <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
 }
@@ -19,6 +23,7 @@ function singleBlockToHtml(i, list, title) {
     for (j in list) {
         htmlList += createSingleBlockItem(list[j]);
     }
+    numOfSections++;
     return `<section class="section single-block deletable extendable" id="section${i}">
 <h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
 }
@@ -41,7 +46,7 @@ function threeColToHtml(i, list, title) {
     for (j in rows) {
         htmlList += createThreeColumnRow(rows[j][0], rows[j][1], rows[j][2]);
     }
-
+    numOfSections++;
     return `<section class="section 3-column extendable deletable" id="section${i}">
         <h3 contenteditable="true" class="section-heading 3-col-title">${title}</h3>
         ${htmlList}</section>`;
@@ -51,7 +56,7 @@ function threeColToHtml(i, list, title) {
 function infoToHtml(i, table1, table2, name) {
     var dataTable1 = convertTableToHtml(table1);
     var dataTable2 = convertTableToHtml(table2);
-
+    numOfSections++;
     return `<section class="section info deletable" id="section${i}">
             <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
         dataTable1 + dataTable2
