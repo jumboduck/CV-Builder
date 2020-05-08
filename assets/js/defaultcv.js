@@ -71,7 +71,7 @@ var defaultCv = [
         ],
     },
     {
-        type: "3-column",
+        type: "three-column",
         title: "Skills",
         list: [
             "-Salesforce",
@@ -83,7 +83,7 @@ var defaultCv = [
         ],
     },
     {
-        type: "3-column",
+        type: "three-column",
         title: "Interests",
         list: [
             "-Books",

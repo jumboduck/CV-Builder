@@ -31,10 +31,10 @@ function infoToObject(id) {
 //Fetches information in 3 Column HTML section and makes it into an object
 function threeColToObject(id) {
     var threeColObj = {};
-    threeColObj.type = "3-column";
-    threeColObj.title = $("#" + id + " .3-col-title").html();
+    threeColObj.type = "three-column";
+    threeColObj.title = $("#" + id + " .three-col-title").html();
     threeColObj.list = [];
-    $("#" + id + " .3-col-item").each(function () {
+    $("#" + id + " .three-col-item").each(function () {
         threeColObj.list.push($(this).html());
     });
     return threeColObj;

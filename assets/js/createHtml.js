@@ -43,7 +43,7 @@ function singleBlockToHtml(
 
 //Three-Column type items get converted to HTML
 function threeColToHtml(
-    list = ["-New Item"],
+    list = ["-New Item", "-New Item", "-New Item"],
     title = "New Three Column Section"
 ) {
     let htmlList = "";
@@ -52,9 +52,9 @@ function threeColToHtml(
         htmlList += createThreeColumnItem(list[j]);
     }
     numOfSections++;
-    return `<section class="section 3-column extendable deletable" id="section${numOfSections}">
-        <h3 contenteditable="true" class="section-heading 3-col-title">${title}</h3>
-        <div class="row d-flex align-content-start flex-wrap">${htmlList}</div></section>`;
+    return `<section class="section three-column deletable" id="section${numOfSections}">
+        <h3 contenteditable="true" class="section-heading three-col-title">${title}</h3>
+        <div class="row three-column-list d-flex align-content-start flex-wrap extendable">${htmlList}</div></section>`;
 }
 
 //Info type items get converted to HTML
@@ -127,7 +127,7 @@ function createSingleBlockItem(textContent = "Descriptive Paragraph") {
 
 //Create HTML for item in Three Column section
 function createThreeColumnItem(item = "-New Item") {
-    return `<div class="col 3-col-item deletable col-md-3" contenteditable="true">${item}</div>`;
+    return `<div class="col three-col-item deletable col-md-4" contenteditable="true">${item}</div>`;
 }
 
 //Create HTML for item in Info section

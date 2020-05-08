@@ -41,7 +41,7 @@ function convertSavedData(savedCV) {
         }
 
         //Formatting if section is a list of items, such as skills/interests
-        else if (type === "3-column") {
+        else if (type === "three-column") {
             convertedData = threeColToHtml(itemList, title);
             sectionsArray.push(convertedData);
         }
@@ -64,8 +64,8 @@ function saveCvToArray() {
         if (sections.eq(i).hasClass("info")) {
             savedArray.push(infoToObject(sectionId));
 
-            //Converts 3-column sections into object
-        } else if (sections.eq(i).hasClass("3-column")) {
+            //Converts three-column sections into object
+        } else if (sections.eq(i).hasClass("three-column")) {
             savedArray.push(threeColToObject(sectionId));
 
             // Converts listing sections into an object
