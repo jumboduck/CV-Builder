@@ -93,6 +93,13 @@ section.deletable {
     margin: 0.2rem 1rem;
     border: 1px solid #fff;
 }
+.three-column .deletable {
+    margin: 0.2rem 0rem;
+}
+
+.three-column .add-element {
+    margin: 0.2rem 0rem;
+}
 
 .deletable-hover {
     border: 1px dashed #aaa;
