@@ -43,29 +43,18 @@ function singleBlockToHtml(
 
 //Three-Column type items get converted to HTML
 function threeColToHtml(
-    list = ["one", "two", "three"],
+    list = ["-New Item"],
     title = "New Three Column Section"
 ) {
     let htmlList = "";
-    let rows = [];
 
-    //Ensure each row has 3 columns
-    while (list.length % 3 != 0) {
-        list.push("");
-    }
-
-    //Divide list in groups of 3
-    while (list.length) {
-        rows.push(list.splice(0, 3));
-    }
-
-    for (j in rows) {
-        htmlList += createThreeColumnRow(rows[j][0], rows[j][1], rows[j][2]);
+    for (j in list) {
+        htmlList += createThreeColumnItem(list[j]);
     }
     numOfSections++;
     return `<section class="section 3-column extendable deletable" id="section${numOfSections}">
         <h3 contenteditable="true" class="section-heading 3-col-title">${title}</h3>
-        ${htmlList}</section>`;
+        <div class="row d-flex align-content-start flex-wrap">${htmlList}</div></section>`;
 }
 
 //Info type items get converted to HTML
@@ -137,16 +126,8 @@ function createSingleBlockItem(textContent = "Descriptive Paragraph") {
 }
 
 //Create HTML for item in Three Column section
-function createThreeColumnRow(
-    item1 = "-Item 1",
-    item2 = "-Item 2",
-    item3 = "-Item 3"
-) {
-    return `<div class="row deletable">
-                <div class="col 3-col-item" contenteditable="true">${item1}</div>
-                <div class="col 3-col-item" contenteditable="true">${item2}</div>
-                <div class="col 3-col-item" contenteditable="true">${item3}</div>
-            </div>`;
+function createThreeColumnItem(item = "-New Item") {
+    return `<div class="col 3-col-item deletable col-md-3" contenteditable="true">${item}</div>`;
 }
 
 //Create HTML for item in Info section

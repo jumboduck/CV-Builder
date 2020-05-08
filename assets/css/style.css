@@ -63,10 +63,10 @@ h1.logo {
     padding: 2rem;
 }
 
-.actions button.btn-primary,
-.actions button.btn-primary:active,
-button.btn-secondary,
-button.btn-secondary:active {
+.btn-primary,
+.btn-secondary,
+.btn-primary:active,
+.btn-secondary:active {
     background-color: #606060;
     border: 0;
     color: #d6ed17;

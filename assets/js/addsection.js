@@ -13,5 +13,3 @@ $("#new3col-btn").click(function () {
 $("#newinfo-btn").click(function () {
     $("#printable").append(infoToHtml());
 });
-
-function addNewSection() {}
