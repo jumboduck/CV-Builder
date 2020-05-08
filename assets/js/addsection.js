@@ -1,3 +1,7 @@
+$("#addsection-btn").click(function () {
+    $("#new-section-buttons").toggle("blind", 500);
+});
+
 $("#newsingleblock-btn").click(function () {
     $("#printable").append(singleBlockToHtml());
 });

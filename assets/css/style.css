@@ -87,23 +87,21 @@ section.deletable {
 }
 
 /* Deletable items and delete button */
-.deletable {
+.deletable,
+.add-element {
     position: relative;
     padding: 0.5rem 1rem;
     margin: 0.2rem 1rem;
     border: 1px solid #fff;
+    border-radius: 0.5rem;
 }
-.three-column .deletable {
-    margin: 0.2rem 0rem;
-}
-
+.three-column .deletable,
 .three-column .add-element {
     margin: 0.2rem 0rem;
 }
 
 .deletable-hover {
     border: 1px dashed #aaa;
-    border-radius: 0.5rem;
 }
 
 .deletebtn {
@@ -112,8 +110,8 @@ section.deletable {
     right: -0.75rem;
     top: -1rem;
     font-size: 1.5rem;
-    background-color: #fff;
     cursor: pointer;
+    z-index: 10;
 }
 
 .deletebtn:hover {
@@ -124,11 +122,7 @@ section.deletable {
 
 .add-element {
     border: 1px dashed #3cb371;
-    border-radius: 0.5rem;
     color: #3cb371;
-    position: relative;
-    padding: 0.5rem 1rem;
-    margin: 0.2rem 1rem;
     cursor: pointer;
 }
 
@@ -136,3 +130,5 @@ section.deletable {
     border: 1px dashed #2e8b57;
     color: #2e8b57;
 }
+
+/* Adding new section */
