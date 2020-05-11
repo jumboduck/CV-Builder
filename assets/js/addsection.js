@@ -40,4 +40,5 @@ $("#newinfo-btn").click(function () {
     $("#printable").append(infoToHtml());
     toggleSectionBtns();
     createNewElementButton();
+    makeSortable();
 });
