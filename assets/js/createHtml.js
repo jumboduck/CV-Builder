@@ -54,7 +54,7 @@ function threeColToHtml(
     numOfSections++;
     return `<section class="section three-column deletable" id="section${numOfSections}">
         <h3 contenteditable="true" class="section-heading three-col-title">${title}</h3>
-        <div class="row three-column-list d-flex align-content-start flex-wrap extendable pl-2 pr-2">${htmlList}</div></section>`;
+        <div class="row three-column-list d-flex align-content-start flex-wrap extendable pl-2 pr-2 sortable-list">${htmlList}</div></section>`;
 }
 
 //Info type items get converted to HTML
@@ -127,7 +127,7 @@ function createSingleBlockItem(textContent = "Descriptive Paragraph") {
 
 //Create HTML for item in Three Column section
 function createThreeColumnItem(item = "-New Item") {
-    return `<div class="col three-col-item deletable col-md-4" contenteditable="true">${item}</div>`;
+    return `<div class="col three-col-item deletable col-md-4 sortable pl-4" contenteditable="true">${item}</div>`;
 }
 
 //Create HTML for item in Info section
