@@ -7,6 +7,7 @@ function setContent(cvContent) {
     printable.html(loadedCv);
     console.log("content updated");
     createNewElementButton();
+    makeSortable();
 }
 
 //Traversing JSON data, returns CV data as string of formatted HTML

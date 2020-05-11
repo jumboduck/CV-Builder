@@ -37,7 +37,7 @@ function singleBlockToHtml(
         htmlList += createSingleBlockItem(list[j]);
     }
     numOfSections++;
-    return `<section class="section single-block deletable extendable" id="section${numOfSections}">
+    return `<section class="section single-block deletable extendable sortable-list" id="section${numOfSections}">
 <h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
 }
 
@@ -121,7 +121,7 @@ function createListingItem(
 
 //Create HTML for item in Single Block section
 function createSingleBlockItem(textContent = "Descriptive Paragraph") {
-    return `<div class="row deletable"><div class="col"><div contenteditable="true" class="single-block-content">${textContent}</div></div></div>
+    return `<div class="row deletable sortable"><div class="col"><div contenteditable="true" class="single-block-content">${textContent}</div></div></div>
 </div>`;
 }
 

@@ -35,23 +35,6 @@ function createNewElementButton() {
     });
 }
 
-/*$(document).on("mouseover", ".extendable", function () {
-    if (!$(this).find(".add-element").length) {
-        if ($(this).parents().hasClass("three-column")) {
-            $(this).append(
-                `<div class="add-element text-center col-md-4"><i class="fas fa-plus-circle"></i></div>`
-            );
-        } else {
-            $(this).append(
-                `<div class="add-element text-center"><i class="fas fa-plus-circle"></i></div>`
-            );
-        }
-    }
-});
-/*$(document).on("mouseleave", ".extendable", function () {
-    $(this).find(".add-element").remove();
-});*/
-
 //Add new element
 $(document).on("click", ".add-element", addItem);
 

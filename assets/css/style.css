@@ -157,3 +157,15 @@ section.deletable {
 #close-section:hover {
     color: #f00;
 }
+
+/* Sortable Icon */
+.sortable-btn {
+    color: #aaa;
+    position: absolute;
+    left: 5px;
+    cursor: pointer;
+}
+
+.sortable-btn:hover {
+    color: #606060;
+}
