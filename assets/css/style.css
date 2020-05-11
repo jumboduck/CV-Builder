@@ -132,3 +132,7 @@ section.deletable {
 }
 
 /* Adding new section */
+#new-section-buttons img {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
