@@ -15,7 +15,7 @@ h1.logo {
 
 /* PRINTABLE CONTENT STYLING*/
 
-#printable {
+#cv {
     border: solid 1px #aaa;
     padding: 2rem;
     margin-top: 2rem;
@@ -137,6 +137,7 @@ section.deletable {
 #add-section {
     background-color: #ececec;
     text-transform: uppercase;
+    margin: 1rem 0;
 }
 
 .section-btn {
