@@ -51,7 +51,7 @@ function convertSavedData(savedCV) {
             console.log("Unkown type");
         }
     }
-    return sectionsArray.join("<hr>");
+    return sectionsArray.join("");
 }
 
 //Saving CV information to an array of Objects
