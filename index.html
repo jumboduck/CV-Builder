@@ -66,35 +66,40 @@
         <div class="container">
             <!-- PRINTABLE HTML-->
             <div id="printable" class="ml-auto mr-auto"></div>
-            <div class="actions text-center">
-                <button class="btn btn-primary" id="reset-btn">RESET</button>
-                <button class="btn btn-primary" id="save-btn">SAVE</button>
-                <button class="btn btn-primary" id="download-btn">
-                    DOWNLOAD AS PDF
-                </button>
-                <button class="btn btn-primary" id="addsection-btn">
-                    ADD A NEW SECTION
-                </button>
-            </div>
+
             <!-- New Section Buttons -->
-            <div class="row m-2 text-center" id="new-section-buttons">
-                <div class="col-md-3">
-                    <img src="assets/img/new-section-info.png" />
-                    <h5>Info</h5>
+            <div id="add-section">
+                <div id="add-section-btn" class="text-center">
+                    <i class="fas fa-plus-circle"></i>
+                    NEW SECTION
                 </div>
-                <div class="col-md-3">
-                    <img src="assets/img/new-section-listing.png" />
-                    <h5>Listing</h5>
-                </div>
-                <div class="col-md-3">
-                    <img src="assets/img/new-section-3-col.png" />
-                    <h5>Three Columns</h5>
-                </div>
-                <div class="col-md-3">
-                    <img src="assets/img/new-section-block.png" />
-                    <h5>Block</h5>
+
+                <div class="row m-2 text-center" id="new-section-buttons">
+                    <div class="col-md-3" id="newinfo-btn">
+                        <img src="assets/img/new-section-info.png" />
+                        <h5>Info</h5>
+                    </div>
+                    <div class="col-md-3" id="newlisting-btn">
+                        <img src="assets/img/new-section-listing.png" />
+                        <h5>Listing</h5>
+                    </div>
+                    <div class="col-md-3" id="new3col-btn">
+                        <img src="assets/img/new-section-3-col.png" />
+                        <h5>Three Columns</h5>
+                    </div>
+                    <div class="col-md-3" id="newsingleblock-btn">
+                        <img src="assets/img/new-section-block.png" />
+                        <h5>Block</h5>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="actions text-center">
+            <button class="btn btn-primary" id="reset-btn">RESET</button>
+            <button class="btn btn-primary" id="save-btn">SAVE</button>
+            <button class="btn btn-primary" id="download-btn">
+                DOWNLOAD AS PDF
+            </button>
         </div>
 
         <footer class="container-fluid custom-footer">

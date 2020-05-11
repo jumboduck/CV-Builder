@@ -65,8 +65,7 @@ h1.logo {
 
 .btn-primary,
 .btn-secondary,
-.btn-primary:active,
-.btn-secondary:active {
+.btn-primary:active {
     background-color: #606060;
     border: 0;
     color: #d6ed17;
@@ -88,7 +87,8 @@ section.deletable {
 
 /* Deletable items and delete button */
 .deletable,
-.add-element {
+.add-element,
+#add-section {
     position: relative;
     padding: 0.5rem 1rem;
     margin: 0.2rem 1rem;
@@ -120,18 +120,24 @@ section.deletable {
 
 /* Adding new item */
 
-.add-element {
+.add-element,
+#add-section {
     border: 1px dashed #3cb371;
     color: #3cb371;
     cursor: pointer;
 }
 
-.add-element:hover {
+.add-element:hover,
+#add-section:hover {
     border: 1px dashed #2e8b57;
     color: #2e8b57;
 }
 
 /* Adding new section */
+.add-section {
+    background-color: #ececec;
+}
+
 #new-section-buttons img {
     width: 100%;
     margin-bottom: 0.5rem;
