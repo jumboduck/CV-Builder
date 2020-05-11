@@ -22,18 +22,21 @@ $("#newsingleblock-btn").click(function () {
     $("#printable").append(singleBlockToHtml());
     toggleSectionBtns();
     createNewElementButton();
+    makeSortable();
 });
 
 $("#newlisting-btn").click(function () {
     $("#printable").append(listingToHtml());
     toggleSectionBtns();
     createNewElementButton();
+    makeSortable();
 });
 
 $("#new3col-btn").click(function () {
     $("#printable").append(threeColToHtml());
     toggleSectionBtns();
     createNewElementButton();
+    makeSortable();
 });
 
 $("#newinfo-btn").click(function () {
