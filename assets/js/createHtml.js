@@ -23,7 +23,7 @@ function listingToHtml(
         );
     }
     numOfSections++;
-    return `<section class="section listing deletable extendable" id="section${numOfSections}">
+    return `<section class="section listing deletable extendable sortable-list" id="section${numOfSections}">
     <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
 }
 
@@ -101,7 +101,7 @@ function createListingItem(
     position = "Position",
     description = "Descriptive Paragraph"
 ) {
-    return `<div class="row listing-row deletable">
+    return `<div class="row listing-row deletable sortable">
     <div class="col-md-2">
         <h5 contenteditable="true" class="listing-date">${date}</h5>
     </div>
