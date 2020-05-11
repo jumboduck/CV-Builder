@@ -13,6 +13,10 @@ h1.logo {
     padding: 1rem;
 }
 
+section h3 {
+    margin: 1rem;
+}
+
 /* PRINTABLE CONTENT STYLING*/
 
 #cv {
