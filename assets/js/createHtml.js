@@ -23,7 +23,7 @@ function listingToHtml(
         );
     }
     numOfSections++;
-    return `<section class="section listing deletable extendable sortable-list" id="section${numOfSections}">
+    return `<section class="section listing deletable extendable sortable-list sortable" id="section${numOfSections}">
     <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
 }
 
@@ -37,7 +37,7 @@ function singleBlockToHtml(
         htmlList += createSingleBlockItem(list[j]);
     }
     numOfSections++;
-    return `<section class="section single-block deletable extendable sortable-list" id="section${numOfSections}">
+    return `<section class="section single-block deletable extendable sortable-list sortable" id="section${numOfSections}">
 <h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
 }
 
@@ -52,7 +52,7 @@ function threeColToHtml(
         htmlList += createThreeColumnItem(list[j]);
     }
     numOfSections++;
-    return `<section class="section three-column deletable" id="section${numOfSections}">
+    return `<section class="section three-column deletable sortable" id="section${numOfSections}">
         <h3 contenteditable="true" class="section-heading three-col-title">${title}</h3>
         <div class="row three-column-list d-flex align-content-start flex-wrap extendable pl-2 pr-2 sortable-list">${htmlList}</div></section>`;
 }
@@ -66,7 +66,7 @@ function infoToHtml(
     var dataTable1 = convertTableToHtml(table1);
     var dataTable2 = convertTableToHtml(table2);
     numOfSections++;
-    return `<section class="section info deletable" id="section${numOfSections}">
+    return `<section class="section info deletable sortable" id="section${numOfSections}">
             <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
         dataTable1 + dataTable2
     }</div></section>`;

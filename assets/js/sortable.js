@@ -12,7 +12,7 @@ $(document).on("mouseleave", ".sortable", function () {
 
 function makeSortable() {
     $(".sortable-list").sortable({
-        items: ">div.sortable",
+        items: ">.sortable",
         handle: ".sortable-btn",
     });
 }

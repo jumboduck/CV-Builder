@@ -163,6 +163,7 @@ section.deletable {
     color: #aaa;
     position: absolute;
     left: 5px;
+    top: 5px;
     cursor: pointer;
 }
 
