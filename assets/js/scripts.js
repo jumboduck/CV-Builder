@@ -6,6 +6,7 @@ function setContent(cvContent) {
     var loadedCv = convertSavedData(cvContent);
     printable.html(loadedCv);
     console.log("content updated");
+    createNewElementButton();
 }
 
 //Traversing JSON data, returns CV data as string of formatted HTML
@@ -108,7 +109,6 @@ $(document).ready(function () {
     } else {
         setContent(JSON.parse(savedCv));
     }
-    createNewElementButton();
 });
 
 //Set default content when reset button is clicked and delete local storage

@@ -21,14 +21,16 @@ $(document).on("click", ".deletebtn", function () {
 //Add element button appears and disappears on mouse events
 function createNewElementButton() {
     $(".extendable").each(function () {
-        if ($(this).parents().hasClass("three-column")) {
-            $(this).append(
-                `<div class="add-element text-center col-md-4"><i class="fas fa-plus-circle"></i></div>`
-            );
-        } else {
-            $(this).append(
-                `<div class="add-element text-center"><i class="fas fa-plus-circle"></i></div>`
-            );
+        if (!$(this).find(".add-element").length) {
+            if ($(this).parents().hasClass("three-column")) {
+                $(this).append(
+                    `<div class="add-element text-center col-md-4"><i class="fas fa-plus-circle"></i></div>`
+                );
+            } else {
+                $(this).append(
+                    `<div class="add-element text-center"><i class="fas fa-plus-circle"></i></div>`
+                );
+            }
         }
     });
 }

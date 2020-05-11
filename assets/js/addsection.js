@@ -18,16 +18,20 @@ $("#close-section").click(function () {
 
 $("#newsingleblock-btn").click(function () {
     $("#printable").append(singleBlockToHtml());
+    createNewElementButton();
 });
 
 $("#newlisting-btn").click(function () {
     $("#printable").append(listingToHtml());
+    createNewElementButton();
 });
 
 $("#new3col-btn").click(function () {
     $("#printable").append(threeColToHtml());
+    createNewElementButton();
 });
 
 $("#newinfo-btn").click(function () {
     $("#printable").append(infoToHtml());
+    createNewElementButton();
 });
