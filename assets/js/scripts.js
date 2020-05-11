@@ -63,17 +63,17 @@ function saveCvToArray() {
         //Converts Info sections into an object
         if (sections.eq(i).hasClass("info")) {
             savedArray.push(infoToObject(sectionId));
-
-            //Converts three-column sections into object
-        } else if (sections.eq(i).hasClass("three-column")) {
+        }
+        //Converts three-column sections into object
+        else if (sections.eq(i).hasClass("three-column")) {
             savedArray.push(threeColToObject(sectionId));
-
-            // Converts listing sections into an object
-        } else if (sections.eq(i).hasClass("listing")) {
+        }
+        // Converts listing sections into an object
+        else if (sections.eq(i).hasClass("listing")) {
             savedArray.push(listingToObject(sectionId));
-
-            //Converts single block sections into an object
-        } else if (sections.eq(i).hasClass("single-block")) {
+        }
+        //Converts single block sections into an object
+        else if (sections.eq(i).hasClass("single-block")) {
             savedArray.push(singleBlockToObject(sectionId));
         }
     }

@@ -1,5 +1,9 @@
+$(document).ready(function () {
+    $("#new-section-buttons").hide();
+});
+
 $("#addsection-btn").click(function () {
-    $("#new-section-buttons").toggle("blind", 500);
+    $("#new-section-buttons").toggle("blind", "swing", 300);
 });
 
 $("#newsingleblock-btn").click(function () {
