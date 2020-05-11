@@ -14,5 +14,7 @@ function makeSortable() {
     $(".sortable-list").sortable({
         items: ">.sortable",
         handle: ">.sortable-btn",
+        placeholder: "sort-placeholder",
+        cursor: "grabbing",
     });
 }

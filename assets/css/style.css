@@ -96,7 +96,7 @@ section.deletable {
     position: relative;
     padding: 0.5rem 1rem;
     margin: 0.2rem 1rem;
-    border: 1px solid #fff;
+    border: 1px solid transparent;
     border-radius: 0.5rem;
 }
 .three-column .deletable,
@@ -162,16 +162,43 @@ section.deletable {
     color: #f00;
 }
 
-/* Sortable Icon */
+/* Sortable */
+
+.sortable {
+    background-color: #fff;
+}
+
 .sortable-btn {
     color: #aaa;
     position: absolute;
     left: 5px;
     top: 5px;
-    cursor: pointer;
+    cursor: grab;
     font-size: 1.2rem;
 }
 
 .sortable-btn:hover {
     color: #606060;
+}
+
+.three-column .sort-placeholder {
+    width: 0;
+    height: 0;
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-left: 0.5rem solid #f00;
+    border-right: 0;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+.sort-placeholder {
+    height: 2rem;
+    background-color: #eee;
+    border: 1px dashed #aaa;
+    border-radius: 0.5rem;
+}
+
+section .sort-placeholder {
+    margin: 0.2rem 1rem;
 }
