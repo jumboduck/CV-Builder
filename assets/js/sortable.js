@@ -13,6 +13,6 @@ $(document).on("mouseleave", ".sortable", function () {
 function makeSortable() {
     $(".sortable-list").sortable({
         items: ">.sortable",
-        handle: ".sortable-btn",
+        handle: ">.sortable-btn",
     });
 }
