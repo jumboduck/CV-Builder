@@ -79,10 +79,10 @@ function convertTableToHtml(info) {
         let newRow = createInfoItem(info.label[j], info.content[j]);
         if (info.label.length === 1) {
             //Table has only 1 row => open and close div tag
-            dataTable += `<div class="col-md-6 extendable info-table ${info.class}">${newRow}</div>`;
+            dataTable += `<div class="col-md-6 extendable info-table ${info.class} sortable-list">${newRow}</div>`;
         } else if (j === 0) {
             //First row of the table => open div tag
-            dataTable += `<div class="col-md-6 extendable info-table ${info.class}">${newRow}`;
+            dataTable += `<div class="col-md-6 extendable info-table ${info.class} sortable-list">${newRow}`;
         } else if (j === info.label.length - 1) {
             //Last row of the table => close div tag
             dataTable += `${newRow}</div>`;
@@ -132,7 +132,7 @@ function createThreeColumnItem(item = "-New Item") {
 
 //Create HTML for item in Info section
 function createInfoItem(label = "Label", content = "Information") {
-    return `<div class="row deletable">
+    return `<div class="row deletable sortable">
         <div class="col-4 text-right info-label" contenteditable="true">${label}</div>
         <div contenteditable="true" class="col-8 info-content">${content}</div>
     </div>`;
