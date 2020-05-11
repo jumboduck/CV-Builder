@@ -35,21 +35,21 @@ h1.logo {
 
 .custom-header {
     background-color: #606060;
-    color: #d6ed17;
+    color: #fff;
 }
 
 .custom-header nav.navbar ul.navbar-nav li a {
-    color: #d6ed17;
+    color: #fff;
     padding: 0.5rem 0;
     margin: 0 0.5rem;
 }
 
 .custom-header a:hover {
-    border-bottom: 1px solid #d6ed17;
+    border-bottom: 1px solid #fff;
 }
 
 .custom-header a.active {
-    border-bottom: 1px solid #d6ed17;
+    border-bottom: 1px solid #fff;
 }
 
 /* TABLE STYLES */
@@ -68,7 +68,7 @@ h1.logo {
 .btn-primary:active {
     background-color: #606060;
     border: 0;
-    color: #d6ed17;
+    color: #fff;
 }
 
 .actions button:hover {
@@ -134,11 +134,25 @@ section.deletable {
 }
 
 /* Adding new section */
-.add-section {
+#add-section {
     background-color: #ececec;
+    text-transform: uppercase;
+}
+
+.section-btn {
+    color: #000;
 }
 
 #new-section-buttons img {
     width: 100%;
     margin-bottom: 0.5rem;
+}
+
+#close-section {
+    color: #ffcccb;
+    font-size: 1.5rem;
+}
+
+#close-section:hover {
+    color: #f00;
 }

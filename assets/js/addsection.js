@@ -1,9 +1,19 @@
 $(document).ready(function () {
     $("#new-section-buttons").hide();
+    $("#close-section").hide();
 });
 
-$("#addsection-btn").click(function () {
+$("#add-section-btn").click(function () {
+    $("#close-section").toggle();
+    $("#add-section-btn").toggle();
     $("#new-section-buttons").toggle("blind", "swing", 300);
+});
+
+$("#close-section").click(function () {
+    $("#new-section-buttons").toggle("blind", "swing", 300, function () {
+        $("#close-section").toggle();
+        $("#add-section-btn").toggle();
+    });
 });
 
 $("#newsingleblock-btn").click(function () {
