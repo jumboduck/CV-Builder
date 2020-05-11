@@ -59,8 +59,8 @@ function threeColToHtml(
 
 //Info type items get converted to HTML
 function infoToHtml(
-    table1 = { label: ["Label"], content: ["Content"] },
-    table2 = { label: ["Label"], content: ["Content"] },
+    table1 = { class: "info-table1", label: ["Label"], content: ["Content"] },
+    table2 = { class: "info-table2", label: ["Label"], content: ["Content"] },
     name = "Name"
 ) {
     var dataTable1 = convertTableToHtml(table1);
