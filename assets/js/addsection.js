@@ -1,8 +1,10 @@
+//Hide buttons to add sections when page is loaded
 $(document).ready(function () {
     $("#new-section-buttons").hide();
     $("#close-section").hide();
 });
 
+//Toggle buttons to add new section
 function toggleSectionBtns() {
     $("#close-section").toggle();
     $("#add-section-btn").toggle();
@@ -18,6 +20,7 @@ $("#close-section").click(function () {
     });
 });
 
+//Adding new sections
 $("#newsingleblock-btn").click(function () {
     $("#printable").append(singleBlockToHtml());
     toggleSectionBtns();
