@@ -83,14 +83,21 @@ function saveCvToArray() {
 }
 
 //Save to PDF with html2pdf when download pdf button is clicked
-var toBePrinted = $("#printable");
+var toBePrinted = document.getElementById("printable");
 var printOptions = {
     filename: "cv.pdf",
     pagebreak: { mode: "avoid-all" },
 };
 
+function toggleUnprinted() {
+    $(".add-element").toggle();
+}
+
 function toPDF() {
-    html2pdf(toBePrinted, printOptions);
+    toggleUnprinted();
+    html2pdf().set(printOptions).from(toBePrinted).save().then(toggleUnprinted);
+    //
+    //$(".add-element").show();
 }
 
 $("#download-btn").click(toPDF);
