@@ -16,6 +16,7 @@ h1.logo {
 section h3 {
     margin: 1rem;
 }
+
 /* NAVBAR */
 
 .navbar-toggler {
@@ -23,6 +24,11 @@ section h3 {
     top: 60px;
     right: 20px;
     border: 0;
+}
+
+.navbar-nav .nav-item {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* PRINTABLE CONTENT STYLING*/
