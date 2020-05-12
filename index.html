@@ -103,11 +103,58 @@
             </div>
         </div>
         <div class="actions text-center">
-            <button class="btn btn-primary" id="reset-btn">RESET</button>
+            <button
+                class="btn btn-primary"
+                id="reset-alert-btn"
+                data-toggle="modal"
+                data-target="#reset-modal"
+            >
+                RESET
+            </button>
             <button class="btn btn-primary" id="save-btn">SAVE</button>
             <button class="btn btn-primary" id="download-btn">
                 DOWNLOAD AS PDF
             </button>
+        </div>
+        <!-- Modal Window to reset content to default-->
+        <div class="modal" id="reset-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            Are you sure you want to reset the content?
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>You will lose all your changes.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="reset-btn"
+                            data-dismiss="modal"
+                        >
+                            Reset
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            data-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <footer class="container-fluid custom-footer">

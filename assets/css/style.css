@@ -75,15 +75,24 @@ section h3 {
 }
 
 .btn-primary,
-.btn-secondary,
 .btn-primary:active {
     background-color: #606060;
     border: 0;
     color: #fff;
 }
 
-.actions button:hover {
+.btn-primary:hover {
     background-color: #aaa;
+}
+
+#reset-btn,
+#reset-alert-btn {
+    background-color: #f08080;
+}
+
+#reset-btn:hover,
+#reset-alert-btn:hover {
+    background-color: #f00;
 }
 
 /* CUSTOM FOOTER */
@@ -92,8 +101,7 @@ section h3 {
     color: #ececec;
 }
 
-/* Deletable items and delete button */
-
+/* DELETABLE ITEMS AND DELETE BUTTON */
 section.deletable {
     margin: 0;
 }
