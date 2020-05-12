@@ -50,6 +50,10 @@ section h3 {
     margin: 0rem 1rem 0.5rem;
 }
 
+*[contenteditable="true"]:hover {
+    color: #f08080;
+}
+
 /* HEADER STYLES */
 
 .custom-header {
