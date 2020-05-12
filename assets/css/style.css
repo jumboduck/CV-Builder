@@ -161,6 +161,9 @@ section.deletable {
 }
 
 #close-section {
+    position: relative;
+    width: 2rem;
+    margin-left: auto;
     color: #ffcccb;
     font-size: 1.5rem;
 }

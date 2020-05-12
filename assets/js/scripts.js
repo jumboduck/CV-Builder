@@ -96,8 +96,6 @@ function toggleUnprinted() {
 function toPDF() {
     toggleUnprinted();
     html2pdf().set(printOptions).from(toBePrinted).save().then(toggleUnprinted);
-    //
-    //$(".add-element").show();
 }
 
 $("#download-btn").click(toPDF);
