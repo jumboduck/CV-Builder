@@ -127,7 +127,7 @@ function createSingleBlockItem(textContent = "Descriptive Paragraph") {
 
 //Create HTML for item in Three Column section
 function createThreeColumnItem(item = "-New Item") {
-    return `<div class="col three-col-item deletable col-md-4 sortable pl-4" contenteditable="true">${item}</div>`;
+    return `<div class="col three-col-item deletable col-md-4 sortable pl-4"><ul><li contenteditable="true">${item}</li></ul></div>`;
 }
 
 //Create HTML for item in Info section

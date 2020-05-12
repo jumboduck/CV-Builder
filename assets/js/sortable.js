@@ -18,10 +18,4 @@ function makeSortable() {
         placeholder: "sort-placeholder",
         cursor: "grabbing",
     });
-
-    $(".sort-placeholder").each(function () {
-        if ($(this).closest().hasClass("three-column")) {
-            $(this).addClass(".col-md-4");
-        }
-    });
 }

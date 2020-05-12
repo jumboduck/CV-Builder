@@ -61,6 +61,12 @@ section h3 {
     font-weight: bold;
 }
 
+/* THREE COLUMN LIST */
+
+.three-column ul {
+    margin: 0;
+}
+
 /* ACTION BUTTONS */
 
 .actions {
@@ -85,11 +91,12 @@ section h3 {
     color: #ececec;
 }
 
+/* Deletable items and delete button */
+
 section.deletable {
     margin: 0;
 }
 
-/* Deletable items and delete button */
 .deletable,
 .add-element,
 #add-section {
