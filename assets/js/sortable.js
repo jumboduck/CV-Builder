@@ -1,3 +1,4 @@
+//Add button to sort elements on mouse event
 $(document).on("mouseenter", ".sortable", function () {
     if (!$(this).find("sortable-btn").length) {
         $(this).append(
@@ -16,5 +17,11 @@ function makeSortable() {
         handle: ">.sortable-btn",
         placeholder: "sort-placeholder",
         cursor: "grabbing",
+    });
+
+    $(".sort-placeholder").each(function () {
+        if ($(this).closest().hasClass("three-column")) {
+            $(this).addClass(".col-md-4");
+        }
     });
 }

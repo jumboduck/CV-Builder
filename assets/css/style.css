@@ -182,23 +182,17 @@ section.deletable {
 }
 
 .three-column .sort-placeholder {
-    width: 0;
-    height: 0;
-    border-top: 1rem solid transparent;
-    border-bottom: 1rem solid transparent;
-    border-left: 0.5rem solid #f00;
-    border-right: 0;
-    background-color: #fff;
-    border-radius: 0;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
 }
 
 .sort-placeholder {
-    height: 2rem;
+    height: 2.4rem;
     background-color: #eee;
     border: 1px dashed #aaa;
     border-radius: 0.5rem;
 }
 
 section .sort-placeholder {
-    margin: 0.2rem 1rem;
+    margin: 0rem;
 }
