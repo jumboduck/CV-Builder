@@ -240,4 +240,9 @@ section.three-column .sort-placeholder {
     .main-container {
         width: 95%;
     }
+
+    .three-column .sort-placeholder {
+        flex: auto;
+        max-width: 100%;
+    }
 }
