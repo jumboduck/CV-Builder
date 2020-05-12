@@ -74,14 +74,18 @@ section h3 {
     padding: 2rem;
 }
 
-.btn-primary,
-.btn-primary:active {
+.btn-primary {
     background-color: #606060;
     border: 0;
     color: #fff;
+    text-transform: uppercase;
+    border-radius: 0.3rem;
+    border: 0;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:focus {
     background-color: #aaa;
 }
 
@@ -93,6 +97,27 @@ section h3 {
 #reset-btn:hover,
 #reset-alert-btn:hover {
     background-color: #f00;
+}
+
+.close-modal {
+    color: #f00;
+}
+
+.close-modal:hover {
+    color: #f00;
+}
+
+.modal-header,
+.modal-footer {
+    border: 0;
+}
+
+.modal-body {
+    font-size: 1.1rem;
+}
+
+.modal-content {
+    border-radius: 1rem;
 }
 
 /* CUSTOM FOOTER */

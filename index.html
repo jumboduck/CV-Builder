@@ -104,37 +104,44 @@
         </div>
         <div class="actions text-center">
             <button
-                class="btn btn-primary"
+                class="btn btn-primary action-btn"
                 id="reset-alert-btn"
                 data-toggle="modal"
                 data-target="#reset-modal"
             >
                 RESET
             </button>
-            <button class="btn btn-primary" id="save-btn">SAVE</button>
-            <button class="btn btn-primary" id="download-btn">
+            <button class="btn btn-primary action-btn" id="save-btn">
+                SAVE
+            </button>
+            <button class="btn btn-primary action-btn" id="download-btn">
                 DOWNLOAD AS PDF
             </button>
         </div>
         <!-- Modal Window to reset content to default-->
         <div class="modal" id="reset-modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">
-                            Are you sure you want to reset the content?
-                        </h5>
+                        <h4 class="modal-title">
+                            Are you sure?
+                        </h4>
                         <button
                             type="button"
-                            class="close"
+                            class="close close-modal"
                             data-dismiss="modal"
                             aria-label="Close"
                         >
-                            <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true">
+                                <i class="fas fa-times-circle"></i>
+                            </span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>You will lose all your changes.</p>
+                        <p>
+                            By resetting the content, you will lose all your
+                            changes.
+                        </p>
                     </div>
                     <div class="modal-footer">
                         <button
