@@ -21,5 +21,7 @@ function makeSortable() {
         opacity: 0.8,
         revert: 100,
         scrollSensitivity: 80,
+        scrollSpeed: 10,
+        containment: "parent",
     });
 }
