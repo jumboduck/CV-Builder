@@ -1,7 +1,59 @@
-//Count Number of Sections on Page
+//Count Number of Sections on Page to create section id
 var numOfSections = 0;
 
-//Listing Type Objects get converted to HTML
+//GENERATE HTML FOR ENTIRE SECTIONS
+//Generate HTML for info sections
+function infoToHtml(
+    table1 = { class: "info-table1", label: ["Label"], content: ["Content"] },
+    table2 = { class: "info-table2", label: ["Label"], content: ["Content"] },
+    name = "Name"
+) {
+    var dataTable1 = convertTableToHtml(table1);
+    var dataTable2 = convertTableToHtml(table2);
+    numOfSections++;
+    return `<section class="section info deletable sortable" id="section${numOfSections}">
+            <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
+        dataTable1 + dataTable2
+    }</div></section>`;
+}
+
+//Generate HTML for tables in info sections
+function convertTableToHtml(info) {
+    let dataTable = "";
+    for (let j = 0; j < info.label.length; j++) {
+        let newRow = createInfoItem(info.label[j], info.content[j]);
+        if (info.label.length === 1) {
+            //Table has only 1 row => open and close div tag
+            dataTable += `<div class="col-md-6 extendable info-table ${info.class} sortable-list">${newRow}</div>`;
+        } else if (j === 0) {
+            //First row of the table => open div tag
+            dataTable += `<div class="col-md-6 extendable info-table ${info.class} sortable-list">${newRow}`;
+        } else if (j === info.label.length - 1) {
+            //Last row of the table => close div tag
+            dataTable += `${newRow}</div>`;
+        } else {
+            //Every other row
+            dataTable += newRow;
+        }
+    }
+    return dataTable;
+}
+
+//Generate HTML for single block sections
+function singleBlockToHtml(
+    list = ["Descriptive Text"],
+    title = "New Single Block"
+) {
+    let htmlList = "";
+    for (j in list) {
+        htmlList += createSingleBlockItem(list[j]);
+    }
+    numOfSections++;
+    return `<section class="section single-block deletable extendable sortable-list sortable" id="section${numOfSections}">
+<h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
+}
+
+//Generate HTML for listing sections
 function listingToHtml(
     list = [
         {
@@ -27,21 +79,7 @@ function listingToHtml(
     <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
 }
 
-//Single-Block type items get converted to HTML
-function singleBlockToHtml(
-    list = ["Descriptive Text"],
-    title = "New Single Block"
-) {
-    let htmlList = "";
-    for (j in list) {
-        htmlList += createSingleBlockItem(list[j]);
-    }
-    numOfSections++;
-    return `<section class="section single-block deletable extendable sortable-list sortable" id="section${numOfSections}">
-<h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
-}
-
-//Three-Column type items get converted to HTML
+//Generate HTML for three column sections
 function threeColToHtml(
     list = ["New Item", "New Item", "New Item"],
     title = "New Three Column Section"
@@ -57,43 +95,7 @@ function threeColToHtml(
         <div class="row three-column-list d-flex align-content-start flex-wrap extendable pl-2 pr-2 sortable-list">${htmlList}</div></section>`;
 }
 
-//Info type items get converted to HTML
-function infoToHtml(
-    table1 = { class: "info-table1", label: ["Label"], content: ["Content"] },
-    table2 = { class: "info-table2", label: ["Label"], content: ["Content"] },
-    name = "Name"
-) {
-    var dataTable1 = convertTableToHtml(table1);
-    var dataTable2 = convertTableToHtml(table2);
-    numOfSections++;
-    return `<section class="section info deletable sortable" id="section${numOfSections}">
-            <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
-        dataTable1 + dataTable2
-    }</div></section>`;
-}
-
-//Table in Info section get converted to HTML
-function convertTableToHtml(info) {
-    let dataTable = "";
-    for (let j = 0; j < info.label.length; j++) {
-        let newRow = createInfoItem(info.label[j], info.content[j]);
-        if (info.label.length === 1) {
-            //Table has only 1 row => open and close div tag
-            dataTable += `<div class="col-md-6 extendable info-table ${info.class} sortable-list">${newRow}</div>`;
-        } else if (j === 0) {
-            //First row of the table => open div tag
-            dataTable += `<div class="col-md-6 extendable info-table ${info.class} sortable-list">${newRow}`;
-        } else if (j === info.label.length - 1) {
-            //Last row of the table => close div tag
-            dataTable += `${newRow}</div>`;
-        } else {
-            //Every other row
-            dataTable += newRow;
-        }
-    }
-    return dataTable;
-}
-
+//GENERATE HTML FOR ELEMENTS WITHIN SECTIONS
 //Create HTML for item in Listing section
 function createListingItem(
     date = "Date",
