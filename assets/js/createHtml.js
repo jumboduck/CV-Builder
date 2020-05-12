@@ -43,7 +43,7 @@ function singleBlockToHtml(
 
 //Three-Column type items get converted to HTML
 function threeColToHtml(
-    list = ["-New Item", "-New Item", "-New Item"],
+    list = ["New Item", "New Item", "New Item"],
     title = "New Three Column Section"
 ) {
     let htmlList = "";
@@ -126,8 +126,8 @@ function createSingleBlockItem(textContent = "Descriptive Paragraph") {
 }
 
 //Create HTML for item in Three Column section
-function createThreeColumnItem(item = "-New Item") {
-    return `<div class="col three-col-item deletable col-md-4 sortable pl-4"><ul><li contenteditable="true">${item}</li></ul></div>`;
+function createThreeColumnItem(item = "New Item") {
+    return `<div class="col deletable col-md-4 sortable pl-4"><ul><li contenteditable="true" class="three-col-item">${item}</li></ul></div>`;
 }
 
 //Create HTML for item in Info section
