@@ -201,5 +201,15 @@ section.deletable {
 }
 
 section .sort-placeholder {
+    margin: 0rem 1.1rem;
+}
+
+section.three-column .sort-placeholder {
     margin: 0rem;
+}
+
+.ui-sortable-helper {
+    -webkit-box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.39);
+    -moz-box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.39);
+    box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.39);
 }
