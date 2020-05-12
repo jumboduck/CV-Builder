@@ -17,5 +17,9 @@ function makeSortable() {
         handle: ">.sortable-btn",
         placeholder: "sort-placeholder",
         cursor: "grabbing",
+        helper: "clone",
+        opacity: 0.8,
+        revert: 100,
+        scrollSensitivity: 80,
     });
 }
