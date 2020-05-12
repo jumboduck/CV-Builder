@@ -149,10 +149,23 @@ section.deletable {
     background-color: #ececec;
     text-transform: uppercase;
     margin: 1rem 0;
+    cursor: auto;
+}
+
+#add-section-btn {
+    cursor: pointer;
 }
 
 .section-btn {
     color: #000;
+    cursor: pointer;
+}
+
+.section-btn img:hover {
+    transform: scale(1.1);
+    -webkit-box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.39);
+    -moz-box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.39);
+    box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.39);
 }
 
 #new-section-buttons img {
@@ -166,6 +179,7 @@ section.deletable {
     margin-left: auto;
     color: #ffcccb;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 #close-section:hover {
