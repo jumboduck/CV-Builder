@@ -142,7 +142,9 @@ section.deletable {
 }
 .three-column .deletable,
 .three-column .add-element {
-    margin: 0.2rem 0rem;
+    margin: 0.1rem 0.1rem;
+    flex: 0 0 32%;
+    max-width: 32%;
 }
 
 .deletable-hover {
@@ -240,8 +242,8 @@ section.deletable {
 }
 
 .three-column .sort-placeholder {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
+    flex: 0 0 32%;
+    max-width: 32%;
 }
 
 .sort-placeholder {
@@ -276,6 +278,13 @@ section.three-column .sort-placeholder {
 
     .three-column .sort-placeholder {
         flex: auto;
+        max-width: 100%;
+    }
+
+    .three-column .deletable,
+    .three-column .add-element {
+        margin: 0.1rem 0.1rem;
+        flex: 0 0 100%;
         max-width: 100%;
     }
 }
