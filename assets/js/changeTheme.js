@@ -1,26 +1,30 @@
+var themes = ["theme1", "theme2", "theme3"];
+
 function changeActiveNav(nav) {
     $(".nav-link .sr-only").remove();
     $(".active").removeClass("active");
     nav.addClass("active");
-    $(".active").append(`<span class="sr-only">(current)</span>`);
+    nav.append(`<span class="sr-only">(current)</span>`);
+}
+
+function changeTheme(theme) {
+    var themeClasses = themes.join(" ");
+    $("#printable").removeClass(themeClasses).addClass(theme);
+    changeActiveNav($(this));
 }
 
 $("#default-theme-link").click(function () {
-    $("#printable").removeClass("theme1 theme2 theme3");
-    changeActiveNav($(this));
+    changeTheme("");
 });
 
 $("#theme1-link").click(function () {
-    $("#printable").removeClass("theme2 theme3").addClass("theme1");
-    changeActiveNav($(this));
+    changeTheme("theme1");
 });
 
 $("#theme2-link").click(function () {
-    $("#printable").removeClass("theme1 theme3").addClass("theme2");
-    changeActiveNav($(this));
+    changeTheme("theme2");
 });
 
 $("#theme3-link").click(function () {
-    $("#printable").removeClass("theme1 theme2").addClass("theme3");
-    changeActiveNav($(this));
+    changeTheme("theme3");
 });
