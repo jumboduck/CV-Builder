@@ -1,9 +1,44 @@
-/* DEFAULT THEME */
+/* Importing fonts from google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Jost&family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&family=Roboto&display=swap");
 
-section h3 {
-    font-size: 1.6rem;
+/* Theme 1 */
+.theme1 h2,
+.theme1 h3,
+.theme1 h5 {
+    color: #1e3f5a;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
 }
 
-section h5 {
-    font-size: 1rem;
+.theme1 {
+    color: #454545;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Theme 2 */
+.theme2 h2,
+.theme2 h3,
+.theme2 h5 {
+    color: #f00;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+}
+
+.theme2 {
+    color: #000;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Theme 3 */
+.theme3 h2,
+.theme3 h3,
+.theme3 h5 {
+    color: #0f0;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+}
+
+.theme3 {
+    color: #000;
+    font-family: "Jost", sans-serif;
 }

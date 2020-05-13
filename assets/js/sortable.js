@@ -23,5 +23,6 @@ function makeSortable() {
         scrollSensitivity: 80,
         scrollSpeed: 10,
         containment: "parent",
+        tolerance: "touch",
     });
 }

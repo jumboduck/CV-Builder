@@ -15,6 +15,11 @@ h1.logo {
 
 section h3 {
     margin: 1rem;
+    font-size: 1.6rem;
+}
+
+section h5 {
+    font-size: 1rem;
 }
 
 /* NAVBAR */
