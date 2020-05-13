@@ -57,6 +57,57 @@ section h5 {
 
 *[contenteditable="true"]:hover {
     color: #f08080;
+    -webkit-animation: blink 1s ease-out infinite;
+    -moz-animation: blink 1s ease-out infinite;
+    -o-animation: blink 1s ease-out infinite;
+    animation: blink 1s ease-out infinite;
+    opacity: 0.5;
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+@-moz-keyframes blink {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+@-o-keyframes blink {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
 }
 
 /* HEADER STYLES */
