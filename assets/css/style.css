@@ -56,7 +56,7 @@ section h5 {
 }
 
 *[contenteditable="true"]:hover {
-    color: #f08080;
+    color: #555;
     -webkit-animation: blink 1s ease-out infinite;
     -moz-animation: blink 1s ease-out infinite;
     -o-animation: blink 1s ease-out infinite;
