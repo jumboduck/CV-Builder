@@ -26,7 +26,7 @@ section h5 {
     content: " ";
     display: block;
     height: 1px;
-    border-top: 0.5px solid #555;
+    border-top: 1px solid #aaa;
     margin-top: 1rem;
 }
 
@@ -250,6 +250,9 @@ section.deletable {
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 10;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 1.5rem;
 }
 
 .deletebtn:hover {
