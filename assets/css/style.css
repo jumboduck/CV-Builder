@@ -56,12 +56,16 @@ section h5 {
 }
 
 *[contenteditable="true"]:hover {
-    color: #555;
     -webkit-animation: blink 1s ease-out infinite;
     -moz-animation: blink 1s ease-out infinite;
     -o-animation: blink 1s ease-out infinite;
     animation: blink 1s ease-out infinite;
     opacity: 0.5;
+}
+
+*[contenteditable="true"]:focus {
+    outline: thin dashed;
+    background-color: #eee;
 }
 
 @-webkit-keyframes blink {
@@ -134,6 +138,11 @@ section h5 {
 /* TABLE STYLES */
 .info-label {
     font-weight: bold;
+    margin-left: 0.6rem;
+}
+
+.info-content {
+    margin-right: -0.6rem;
 }
 
 /* THREE COLUMN LIST */
