@@ -109,7 +109,7 @@ $(document).ready(function () {
         setContent(defaultCv);
     } else {
         setContent(JSON.parse(savedCv));
-        $("#printable").addClass(JSON.parse(usedTheme));
+        changeTheme(JSON.parse(usedTheme));
     }
 });
 
@@ -132,6 +132,6 @@ $("#save-alert .close").click(function () {
 //Set default content when reset button is clicked and delete local storage
 $("#reset-btn").click(function () {
     setContent(defaultCv);
-    changeTheme("");
+    changeTheme("default-theme");
     localStorage.clear();
 });
