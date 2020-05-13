@@ -190,6 +190,10 @@ section h5 {
     background-color: #f00;
 }
 
+.actions i {
+    padding-left: 0.2rem;
+}
+
 .close-modal {
     color: #f00;
 }
