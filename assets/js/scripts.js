@@ -1,11 +1,11 @@
 var savedCv = localStorage.getItem("CV");
+var usedTheme = localStorage.getItem("theme");
 var printable = $("#printable");
 
 //Define content to be displayed
 function setContent(cvContent) {
     var loadedCv = convertSavedData(cvContent);
     printable.html(loadedCv);
-    console.log("content updated");
     createNewElementButton();
     makeSortable();
 }
@@ -109,6 +109,7 @@ $(document).ready(function () {
         setContent(defaultCv);
     } else {
         setContent(JSON.parse(savedCv));
+        $("#printable").addClass(JSON.parse(usedTheme));
     }
 });
 
@@ -116,6 +117,7 @@ $(document).ready(function () {
 $("#save-btn").click(function () {
     var currentCv = saveCvToArray();
     localStorage.setItem("CV", JSON.stringify(currentCv));
+    localStorage.setItem("theme", JSON.stringify(usedTheme));
     $("#save-alert").show("blind", 100).delay(3000).hide("blind", 100);
 });
 
@@ -130,5 +132,6 @@ $("#save-alert .close").click(function () {
 //Set default content when reset button is clicked and delete local storage
 $("#reset-btn").click(function () {
     setContent(defaultCv);
+    changeTheme("");
     localStorage.clear();
 });

@@ -10,21 +10,25 @@ function changeActiveNav(nav) {
 function changeTheme(theme) {
     var themeClasses = themes.join(" ");
     $("#printable").removeClass(themeClasses).addClass(theme);
-    changeActiveNav($(this));
+    usedTheme = theme;
 }
 
 $("#default-theme-link").click(function () {
     changeTheme("");
+    changeActiveNav($(this));
 });
 
 $("#theme1-link").click(function () {
     changeTheme("theme1");
+    changeActiveNav($(this));
 });
 
 $("#theme2-link").click(function () {
     changeTheme("theme2");
+    changeActiveNav($(this));
 });
 
 $("#theme3-link").click(function () {
     changeTheme("theme3");
+    changeActiveNav($(this));
 });
