@@ -46,19 +46,29 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">
+                                <a
+                                    class="nav-link active"
+                                    id="default-theme-link"
+                                    href="#"
+                                >
                                     Default
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Theme 1</a>
+                                <a class="nav-link" id="theme1-link" href="#">
+                                    Theme 1
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Theme 2</a>
+                                <a class="nav-link" id="theme2-link" href="#">
+                                    Theme 2
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Theme 3</a>
+                                <a class="nav-link" id="theme3-link" href="#">
+                                    Theme 3
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -80,7 +90,10 @@
                         <i class="fas fa-times-circle"></i>
                     </div>
 
-                    <div class="row m-2 text-center" id="new-section-buttons">
+                    <div
+                        class="row m-2 text-center hide"
+                        id="new-section-buttons"
+                    >
                         <div class="col-md-3 section-btn" id="newinfo-btn">
                             <img src="assets/img/new-section-info.png" />
                             Info
@@ -104,21 +117,38 @@
                 </div>
             </div>
         </div>
-        <div class="actions text-center">
-            <button
-                class="btn btn-primary action-btn"
-                id="reset-alert-btn"
-                data-toggle="modal"
-                data-target="#reset-modal"
+        <div class="container">
+            <!-- Succesful save alert -->
+            <div
+                id="save-alert"
+                class="alert alert-success alert-dismissible fade show text-center"
+                role="alert"
             >
-                RESET
-            </button>
-            <button class="btn btn-primary action-btn" id="save-btn">
-                SAVE
-            </button>
-            <button class="btn btn-primary action-btn" id="download-btn">
-                DOWNLOAD AS PDF
-            </button>
+                <strong>CV saved successfully!</strong>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true" class="close-alert">
+                        <i class="fas fa-times-circle"></i>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="actions text-center">
+                <button
+                    class="btn btn-primary action-btn"
+                    id="reset-alert-btn"
+                    data-toggle="modal"
+                    data-target="#reset-modal"
+                >
+                    RESET
+                </button>
+                <button class="btn btn-primary action-btn" id="save-btn">
+                    SAVE
+                </button>
+                <button class="btn btn-primary action-btn" id="download-btn">
+                    DOWNLOAD AS PDF
+                </button>
+            </div>
         </div>
         <!-- Modal Window to reset content to default-->
         <div class="modal" id="reset-modal" tabindex="-1" role="dialog">

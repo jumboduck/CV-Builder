@@ -89,10 +89,6 @@ var printOptions = {
     pagebreak: { mode: "avoid-all" },
 };
 
-function toggleUnprinted() {
-    $(".add-element").toggle();
-}
-
 function toPDF() {
     toggleUnprinted();
     html2pdf().set(printOptions).from(toBePrinted).save().then(toggleUnprinted);
@@ -100,13 +96,12 @@ function toPDF() {
 
 $("#download-btn").click(toPDF);
 
-//EVENT LISTENERS
+// Adds and removes elements that should not be printed to the pdf
+function toggleUnprinted() {
+    $(".add-element").toggle();
+}
 
-//Save to local storage when save button is clicked
-$("#save-btn").click(function () {
-    var currentCv = saveCvToArray();
-    localStorage.setItem("CV", JSON.stringify(currentCv));
-});
+//EVENT LISTENERS
 
 // Load default or saved content when page loads
 $(document).ready(function () {
@@ -115,6 +110,21 @@ $(document).ready(function () {
     } else {
         setContent(JSON.parse(savedCv));
     }
+});
+
+//Save to local storage when save button is clicked
+$("#save-btn").click(function () {
+    var currentCv = saveCvToArray();
+    localStorage.setItem("CV", JSON.stringify(currentCv));
+    $("#save-alert").show("blind", 100);
+});
+
+$(document).ready(function () {
+    $("#save-alert").hide();
+});
+
+$("#save-alert .close").click(function () {
+    $("#save-alert").hide("blind", 100);
 });
 
 //Set default content when reset button is clicked and delete local storage
