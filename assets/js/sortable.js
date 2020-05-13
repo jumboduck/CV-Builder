@@ -11,6 +11,7 @@ $(document).on("mouseleave", ".sortable", function () {
     $(this).find(".sortable-btn").remove();
 });
 
+//Sortable function with options
 function makeSortable() {
     $(".sortable-list").sortable({
         items: ">.sortable",
