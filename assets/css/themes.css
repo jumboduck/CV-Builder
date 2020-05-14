@@ -1,5 +1,5 @@
 /* Importing fonts from google fonts */
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600|Open+Sans:400,700|Raleway:400|Roboto:400,700|Lato:400|Jost:400,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600|Open+Sans:400,700|Raleway:400|Roboto:400,700|Lato:400|Jost:400,500");
 
 /* Default Theme */
 /* horizontal bar between sections */
@@ -54,12 +54,16 @@
 .theme3 h2,
 .theme3 h3,
 .theme3 h5 {
-    color: #0f0;
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
+    color: #132226;
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
 }
 
 .theme3 {
-    color: #000;
-    font-family: "Jost", sans-serif;
+    color: #132226;
+    font-family: "Lato", sans-serif;
+}
+
+.theme3 .three-column ul {
+    list-style-type: none;
 }
