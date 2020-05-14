@@ -9,44 +9,50 @@ var defaultCv = [
             content: [
                 "123 State St.<br>Oslo, Norway",
                 "555-123-4567",
-                "john@doe.io",
+                "john@polygonal.eu",
             ],
         },
         table2: {
             class: "info-table2",
-            label: ["Website:", "Twitter:"],
-            content: ["htttps://johndoe.com", "@johndoe"],
+            label: ["Website:", "Linkedin", "Twitter:"],
+            content: [
+                "https://polygonalbrewing.eu",
+                "@johndoe",
+                "https://www.linkedin.com/",
+            ],
         },
     },
     {
         type: "single-block",
-        title: "About",
-        list: ["I'm a self made man who enjoys the good things in life."],
+        title: "About Me",
+        list: [
+            "I am a brewer with 12 years of experience, specialized in wild yeast fermentation and barrel-aging.",
+        ],
     },
     {
         type: "listing",
         title: "Professional Experience",
         list: [
             {
-                date: "2019-2020",
-                location: "Bigstore Management",
-                position: "Director of Sales",
+                date: "2017-2020",
+                location: "Polygonal Brewing Co.",
+                position: "Head Brewer",
                 description:
-                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae aspernatur repellat quis hic sunt harum deleniti perferendis necessitatibus reprehenderit minima vero unde assumenda id adipisci consequuntur consectetur, sint dignissimos omnis voluptates ratione eaque eos? Iste repellendus facere, eveniet tempora unde laboriosam adipisci, illo obcaecati blanditiis quibusdam assumenda, beatae soluta temporibus?",
-            },
-            {
-                date: "2017-2019",
-                location: "Elephant Inc.",
-                position: "Communication Strategist",
-                description:
-                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae aspernatur repellat quis hic sunt harum deleniti perferendis necessitatibus reprehenderit minima vero unde assumenda id adipisci consequuntur consectetur, sint dignissimos omnis voluptates ratione eaque eos? Iste repellendus facere, eveniet tempora unde laboriosam adipisci, illo obcaecati blanditiis quibusdam assumenda, beatae soluta temporibus?",
+                    "As head brewer, I partner with the marketing team to plan recipes and the production schedule. I manage a team of 4 people and ensure inventory is up to date.",
             },
             {
                 date: "2015-2017",
-                location: "Elephant Inc.",
-                position: "Sales Assistant",
+                location: "Polygonal Brewing Co.",
+                position: "Assistant Brewer",
                 description:
-                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae aspernatur repellat quis hic sunt harum deleniti perferendis necessitatibus reprehenderit minima vero unde assumenda id adipisci consequuntur consectetur, sint dignissimos omnis voluptates ratione eaque eos? Iste repellendus facere, eveniet tempora unde laboriosam adipisci, illo obcaecati blanditiis quibusdam assumenda, beatae soluta temporibus?",
+                    "As assistant brewer I was in charge of production, facility sanitation, product packaging, while ensuring proper brewing and hygiene routines.",
+            },
+            {
+                date: "2013-2015",
+                location: "Polygonal Taproom",
+                position: "Bartender",
+                description:
+                    "On top of customer relations, I maintained cleanliness of taps and beer lines to ensure optimal product quality. I also organized various events and special releases.",
             },
         ],
     },
