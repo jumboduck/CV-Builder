@@ -31,14 +31,23 @@
 .theme2 h2,
 .theme2 h3,
 .theme2 h5 {
-    color: #f00;
+    color: #595775;
     font-family: "Raleway", sans-serif;
     font-weight: 400;
 }
 
 .theme2 {
-    color: #000;
+    color: #555;
     font-family: "Roboto", sans-serif;
+}
+
+.theme2 .three-column ul {
+    list-style-type: circle;
+}
+
+.theme2 .section:not(:last-child)::after {
+    border-top: 1px solid #8a87b0;
+    margin: 1rem 12rem 0;
 }
 
 /* Theme 3 */
