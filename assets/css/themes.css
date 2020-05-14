@@ -1,5 +1,8 @@
 /* Importing fonts from google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Jost&family=Lato&family=Montserrat&family=Open+Sans&family=Raleway&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600|Open+Sans:400,700|Raleway:400|Roboto:400,700|Lato:400|Jost:400,700");
+
+/* Default Theme */
+/* horizontal bar between sections */
 
 /* Theme 1 */
 .theme1 h2,
@@ -7,12 +10,21 @@
 .theme1 h5 {
     color: #1e3f5a;
     font-family: "Montserrat", sans-serif;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .theme1 {
     color: #454545;
     font-family: "Open Sans", sans-serif;
+}
+
+.theme1 .section:not(:last-child)::after {
+    border-top: 1px solid #1e3f5a;
+    margin: 1rem 8rem 0;
+}
+
+.theme1 .three-column ul {
+    list-style-type: square;
 }
 
 /* Theme 2 */
