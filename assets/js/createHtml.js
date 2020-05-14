@@ -104,13 +104,13 @@ function createListingItem(
     description = "Descriptive Paragraph"
 ) {
     return `<div class="row listing-row deletable sortable">
-    <div class="col-md-2">
+    <div class="col-md-2 listing-date-col">
         <h5 contenteditable="true" class="listing-date">${date}</h5>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 listing-location-col">
         <h5 contenteditable="true" class="listing-location">${location}</h5>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 listing-content-col">
         <h5 contenteditable="true" class="listing-position">
         ${position}
         </h5>

@@ -154,13 +154,21 @@ section h5 {
 }
 
 /* THREE COLUMN LIST */
-
 .three-column ul {
     margin: 0;
 }
 
-/* ACTION BUTTONS */
+/* LISTING ITEMS */
+.listing-date-col {
+    padding: 0.2rem 0.2rem 0 0.8rem;
+}
 
+.listing-location-col,
+.listing-content-col {
+    padding: 0.2rem 0.2rem;
+}
+
+/* ACTION BUTTONS */
 .actions {
     padding: 1rem 0 2rem;
 }
