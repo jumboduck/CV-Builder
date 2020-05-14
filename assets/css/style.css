@@ -408,4 +408,13 @@ section.three-column .sort-placeholder {
         flex: 0 0 100%;
         max-width: 100%;
     }
+
+    .deletable {
+        padding: 0.5rem 1.5rem;
+        margin: 0.2rem 0.5rem;
+    }
+
+    .listing-date-col {
+        padding: 0.2rem 0.2rem 0;
+    }
 }
