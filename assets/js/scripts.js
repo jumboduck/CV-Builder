@@ -118,7 +118,7 @@ $("#save-btn").click(function () {
     var currentCv = saveCvToArray();
     localStorage.setItem("CV", JSON.stringify(currentCv));
     localStorage.setItem("theme", JSON.stringify(usedTheme));
-    $("#save-alert").show("blind", 100).delay(3000).hide("blind", 100);
+    $("#save-alert").show("blind", 100); //delay(10000).hide("blind", 100);
 });
 
 $(document).ready(function () {
