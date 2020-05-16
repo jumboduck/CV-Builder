@@ -120,7 +120,7 @@ $("#save-btn").click(function () {
     $("#save-alert").show("blind", 100);
     setTimeout(function () {
         $("#save-alert").hide("blind", 100);
-    }, 2000);
+    }, 8000);
 });
 
 $(document).ready(function () {
