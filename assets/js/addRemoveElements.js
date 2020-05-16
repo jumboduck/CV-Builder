@@ -24,11 +24,11 @@ function createNewElementButton() {
         if (!$(this).find(".add-element").length) {
             if ($(this).parents().hasClass("three-column")) {
                 $(this).append(
-                    `<div data-html2canvas-ignore class="add-element d-flex justify-content-center align-items-center col-md-4"><i class="fas fa-plus-circle"></i></div>`
+                    `<div class="add-element d-flex justify-content-center align-items-center col-md-4"><i class="fas fa-plus-circle"></i></div>`
                 );
             } else {
                 $(this).append(
-                    `<div data-html2canvas-ignore class="add-element text-center"><i class="fas fa-plus-circle"></i></div>`
+                    `<div class="add-element text-center"><i class="fas fa-plus-circle"></i></div>`
                 );
             }
         }

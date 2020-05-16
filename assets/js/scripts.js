@@ -86,11 +86,13 @@ function saveCvToArray() {
 var toBePrinted = document.getElementById("printable");
 var printOptions = {
     filename: "cv.pdf",
-    pagebreak: { mode: "avoid-all" },
+    pagebreak: { avoid: "section" },
+    html2canvas: { windowWidth: 992 },
 };
 
 function toPDF() {
-    html2pdf().set(printOptions).from(toBePrinted).save();
+    toggleUnprinted();
+    html2pdf().set(printOptions).from(toBePrinted).save().then(toggleUnprinted);
 }
 
 $("#download-btn").click(toPDF);

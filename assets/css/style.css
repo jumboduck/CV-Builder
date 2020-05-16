@@ -400,7 +400,7 @@ section.three-column .sort-placeholder {
 }
 
 /* Media Queries */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 992px) {
     #cv {
         padding: 0.1rem;
     }
