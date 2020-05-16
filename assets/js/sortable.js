@@ -1,5 +1,6 @@
 //Add button to sort elements on mouse event
 $(document).on("mouseenter", ".sortable", function () {
+    //Add sortable handle only if is not already appended to the element
     if (!$(this).find("sortable-btn").length) {
         $(this).append(
             `<span class="sortable-btn"><i class="fas fa-bars"></i></span>`
@@ -7,6 +8,7 @@ $(document).on("mouseenter", ".sortable", function () {
     }
 });
 
+//Remove sortable handle on mouse leave
 $(document).on("mouseleave", ".sortable", function () {
     $(this).find(".sortable-btn").remove();
 });
@@ -24,5 +26,6 @@ function makeSortable() {
         scrollSensitivity: 60,
         scrollSpeed: 10,
         tolerance: "touch",
+        html2canvas: { windowWidth: 600 },
     });
 }
