@@ -86,8 +86,8 @@ function saveCvToArray() {
 var toBePrinted = document.getElementById("printable");
 var printOptions = {
     filename: "cv.pdf",
-    pagebreak: { avoid: "section" },
-    html2canvas: { windowWidth: 1200, windowHeight: 2000 },
+    pagebreak: { mode: "avoid-all" },
+    html2canvas: { windowWidth: 1200, windowHeight: 1500 },
 };
 
 function toPDF() {
@@ -98,10 +98,6 @@ function toPDF() {
 $("#download-btn").click(toPDF);
 
 // Adds and removes elements that should not be seen in preview
-
-/*function toggleUnprinted() {
-    $(".add-element").toggle();
-}*/
 
 function toggleUnprinted() {
     $(".add-element").each(function () {
