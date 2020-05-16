@@ -90,13 +90,12 @@ var printOptions = {
 };
 
 function toPDF() {
-    toggleUnprinted();
-    html2pdf().set(printOptions).from(toBePrinted).save().then(toggleUnprinted);
+    html2pdf().set(printOptions).from(toBePrinted).save();
 }
 
 $("#download-btn").click(toPDF);
 
-// Adds and removes elements that should not be printed to the pdf
+// Adds and removes elements that should not be seen in preview
 function toggleUnprinted() {
     $(".add-element").toggle();
 }
@@ -118,7 +117,7 @@ $("#save-btn").click(function () {
     var currentCv = saveCvToArray();
     localStorage.setItem("CV", JSON.stringify(currentCv));
     localStorage.setItem("theme", JSON.stringify(usedTheme));
-    $("#save-alert").show("blind", 100); //delay(10000).hide("blind", 100);
+    $("#save-alert").show("blind", 100);
     setTimeout(function () {
         $("#save-alert").hide("blind", 100);
     }, 2000);

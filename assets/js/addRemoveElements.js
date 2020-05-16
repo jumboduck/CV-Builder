@@ -28,7 +28,7 @@ function createNewElementButton() {
                 );
             } else {
                 $(this).append(
-                    `<div class="add-element data-html2canvas-ignore text-center"><i class="fas fa-plus-circle"></i></div>`
+                    `<div data-html2canvas-ignore class="add-element text-center"><i class="fas fa-plus-circle"></i></div>`
                 );
             }
         }
