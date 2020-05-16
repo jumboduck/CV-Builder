@@ -1,4 +1,4 @@
-var themes = ["default-theme", "theme1", "theme2", "theme3"];
+var themes = ["default-theme", "theme-modern", "theme-lavender", "theme-deco"];
 
 function changeActiveNav(nav) {
     $(".nav-link .sr-only").remove();
@@ -13,12 +13,12 @@ function changeTheme(theme) {
     usedTheme = theme;
     if (theme === "default-theme") {
         changeActiveNav($("#default-theme-link"));
-    } else if (theme === "theme1") {
-        changeActiveNav($("#theme1-link"));
-    } else if (theme === "theme2") {
-        changeActiveNav($("#theme2-link"));
-    } else if (theme === "theme3") {
-        changeActiveNav($("#theme3-link"));
+    } else if (theme === "theme-modern") {
+        changeActiveNav($("#theme-modern-link"));
+    } else if (theme === "theme-lavender") {
+        changeActiveNav($("#theme-lavender-link"));
+    } else if (theme === "theme-deco") {
+        changeActiveNav($("#theme-deco-link"));
     }
 }
 
@@ -26,14 +26,14 @@ $("#default-theme-link").click(function () {
     changeTheme("default-theme");
 });
 
-$("#theme1-link").click(function () {
-    changeTheme("theme1");
+$("#theme-modern-link").click(function () {
+    changeTheme("theme-modern");
 });
 
-$("#theme2-link").click(function () {
-    changeTheme("theme2");
+$("#theme-lavender-link").click(function () {
+    changeTheme("theme-lavender");
 });
 
-$("#theme3-link").click(function () {
-    changeTheme("theme3");
+$("#theme-deco-link").click(function () {
+    changeTheme("theme-deco");
 });

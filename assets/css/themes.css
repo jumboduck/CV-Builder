@@ -5,65 +5,65 @@
 /* horizontal bar between sections */
 
 /* Theme 1 */
-.theme1 h2,
-.theme1 h3,
-.theme1 h5 {
+.theme-modern h2,
+.theme-modern h3,
+.theme-modern h5 {
     color: #1e3f5a;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
 }
 
-.theme1 {
+.theme-modern {
     color: #454545;
     font-family: "Open Sans", sans-serif;
 }
 
-.theme1 .section:not(:last-child)::after {
+.theme-modern .section:not(:last-child)::after {
     border-top: 1px solid #1e3f5a;
     margin: 1rem 8rem 0;
 }
 
-.theme1 .three-column ul {
+.theme-modern .three-column ul {
     list-style-type: square;
 }
 
 /* Theme 2 */
-.theme2 h2,
-.theme2 h3,
-.theme2 h5 {
+.theme-lavender h2,
+.theme-lavender h3,
+.theme-lavender h5 {
     color: #595775;
     font-family: "Raleway", sans-serif;
     font-weight: 400;
 }
 
-.theme2 {
+.theme-lavender {
     color: #555;
     font-family: "Roboto", sans-serif;
 }
 
-.theme2 .three-column ul {
+.theme-lavender .three-column ul {
     list-style-type: circle;
 }
 
-.theme2 .section:not(:last-child)::after {
+.theme-lavender .section:not(:last-child)::after {
     border-top: 1px solid #8a87b0;
     margin: 1rem 12rem 0;
 }
 
 /* Theme 3 */
-.theme3 h2,
-.theme3 h3,
-.theme3 h5 {
+.theme-deco h2,
+.theme-deco h3,
+.theme-deco h5 {
     color: #132226;
     font-family: "Jost", sans-serif;
     font-weight: 500;
 }
 
-.theme3 {
+.theme-deco {
     color: #132226;
     font-family: "Lato", sans-serif;
 }
 
-.theme3 .three-column ul {
+.theme-deco .three-column ul {
     list-style-type: none;
 }
