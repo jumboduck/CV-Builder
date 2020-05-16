@@ -87,7 +87,7 @@ var toBePrinted = document.getElementById("printable");
 var printOptions = {
     filename: "cv.pdf",
     pagebreak: { avoid: "section" },
-    html2canvas: { windowWidth: 992 },
+    html2canvas: { windowWidth: 1200, windowHeight: 2000 },
 };
 
 function toPDF() {
@@ -98,8 +98,20 @@ function toPDF() {
 $("#download-btn").click(toPDF);
 
 // Adds and removes elements that should not be seen in preview
-function toggleUnprinted() {
+
+/*function toggleUnprinted() {
     $(".add-element").toggle();
+}*/
+
+function toggleUnprinted() {
+    $(".add-element").each(function () {
+        if ($(this).hasClass("d-flex")) {
+            $(this).removeClass("d-flex").addClass("invisibleFlex");
+        } else if ($(this).hasClass("invisibleFlex")) {
+            $(this).removeClass("invisibleFlex").addClass("d-flex");
+        }
+        $(this).toggle();
+    });
 }
 
 //EVENT LISTENERS
