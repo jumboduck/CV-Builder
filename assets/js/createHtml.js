@@ -135,7 +135,7 @@ function createThreeColumnItem(item = "New Item") {
 //Create HTML for item in Info section
 function createInfoItem(label = "Label", content = "Information") {
     return `<div class="row deletable sortable">
-        <div class="col-md-4 text-md-right info-label" contenteditable="true">${label}</div>
+        <div class="col-md-4 text-left info-label" contenteditable="true">${label}</div>
         <div contenteditable="true" class="col-md-8 info-content">${content}</div>
     </div>`;
 }
