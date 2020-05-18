@@ -24,6 +24,10 @@
     list-style-type: square;
 }
 
+.theme-modern a {
+    color: #1e3f5a;
+}
+
 /* Lavender Theme */
 .theme-lavender h2,
 .theme-lavender h3,
@@ -47,6 +51,10 @@
     margin: 1rem 12rem 0;
 }
 
+.theme-lavender a {
+    color: #595775;
+}
+
 /* Deco Theme */
 .theme-deco h2,
 .theme-deco h3,
@@ -63,4 +71,8 @@
 
 .theme-deco .three-column ul {
     list-style-type: none;
+}
+
+.theme-deco a {
+    color: #132226;
 }

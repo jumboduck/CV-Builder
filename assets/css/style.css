@@ -4,6 +4,10 @@ body {
     background-color: #ececec;
 }
 
+a {
+    color: #000;
+}
+
 .container {
     width: 80%;
 }
