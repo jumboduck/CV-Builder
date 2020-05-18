@@ -1,39 +1,39 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Cv Builder
 
-Welcome USER_NAME,
+## About
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+This CV builder gives users the tools necessary to create a simple CV and to download it as a PDF document. The goal is to allow the user as much flexbility as possible in how the content is displayed and organized. It allows users to display information in four types of sections:
 
-## Gitpod Reminders
+-   **Info Section** would include the name and two tables of items for various contact information
+-   **Listing Section** would be used for listings such as education or work experience
+-   **Block Section** would be used to display simple paragraphs of information
+-   **Three Column** would be used to list elements in three columns
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Sections can be added or removed, as well as individual items within these sections.
 
-`python3 -m http.server`
+Additionally, the cv can be customized using 4 different themes that would change the fonts and colors on the final product:
 
-A blue button should appear to click: *Make Public*,
+-   Default
+-   Modern
+-   Lavender
+-   Deco
 
-Another blue button should appear to click: *Open Browser*.
+Any changes made to the cv or its theme can be saved to the browser's local storage to be updated at a later time. Its content can also be reset if a user wishes to restart from scratch.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Demo
 
-A blue button should appear to click: *Make Public*,
+The live demo of the cv builder is accessible [here](https://jumboduck.github.io/CV-Builder/index.html).
 
-Another blue button should appear to click: *Open Browser*.
+## UX
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+## Features
 
-## Updates Since The Instructional Video
+## Technologies
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+## Testing
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Code Notes
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Deployment
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+## Acknowledgments
