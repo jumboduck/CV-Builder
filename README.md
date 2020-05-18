@@ -69,6 +69,7 @@ The CV displayed on the page is generated from an object
 -   JQuery UI
 -   JQuery UI Touch Punch
 -   HTML2PDF.js, which relies on HTML2canvas and jsPDF
+-   anchorme.js
 
 ## Tools Used
 
