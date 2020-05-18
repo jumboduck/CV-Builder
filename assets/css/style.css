@@ -181,7 +181,11 @@ section h5 {
 
 /* ACTION BUTTONS */
 .actions {
-    padding: 1rem 0 2rem;
+    padding: 0.5rem 0 2rem;
+}
+
+.actions .action-btn {
+    margin-top: 0.5rem;
 }
 
 .btn-primary {
