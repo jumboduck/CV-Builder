@@ -17,8 +17,8 @@ var defaultCv = [
             label: ["Website:", "Linkedin", "Twitter:"],
             content: [
                 "https://polygonalbrewing.eu",
-                "@johndoe",
                 "https://www.linkedin.com/",
+                "@johndoe",
             ],
         },
     },
