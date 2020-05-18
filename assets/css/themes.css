@@ -1,10 +1,7 @@
 /* Importing fonts from google fonts */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,600|Open+Sans:400,700|Raleway:400|Roboto:400,700|Lato:400,700|Jost:400,500");
 
-/* Default Theme */
-/* horizontal bar between sections */
-
-/* Theme 1 */
+/* Moden Theme */
 .theme-modern h2,
 .theme-modern h3,
 .theme-modern h5 {
@@ -27,7 +24,7 @@
     list-style-type: square;
 }
 
-/* Theme 2 */
+/* Lavender Theme */
 .theme-lavender h2,
 .theme-lavender h3,
 .theme-lavender h5 {
@@ -50,7 +47,7 @@
     margin: 1rem 12rem 0;
 }
 
-/* Theme 3 */
+/* Deco Theme */
 .theme-deco h2,
 .theme-deco h3,
 .theme-deco h5 {
