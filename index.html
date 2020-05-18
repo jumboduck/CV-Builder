@@ -53,6 +53,7 @@
                                     class="nav-link active"
                                     id="default-theme-link"
                                     href="#"
+                                    aria-label="default theme"
                                 >
                                     Default
                                     <span class="sr-only">(current)</span>
@@ -63,6 +64,7 @@
                                     class="nav-link"
                                     id="theme-modern-link"
                                     href="#"
+                                    aria-label="modern theme"
                                 >
                                     Modern
                                 </a>
@@ -72,6 +74,7 @@
                                     class="nav-link"
                                     id="theme-lavender-link"
                                     href="#"
+                                    aria-label="lavender theme"
                                 >
                                     Lavender
                                 </a>
@@ -81,6 +84,7 @@
                                     class="nav-link"
                                     id="theme-deco-link"
                                     href="#"
+                                    aria-label="deco theme"
                                 >
                                     Deco
                                 </a>
@@ -160,15 +164,24 @@
                     id="reset-alert-btn"
                     data-toggle="modal"
                     data-target="#reset-modal"
+                    aria-label="reset"
                 >
                     RESET
                     <i class="fas fa-undo-alt"></i>
                 </button>
-                <button class="btn btn-primary action-btn" id="save-btn">
+                <button
+                    class="btn btn-primary action-btn"
+                    id="save-btn"
+                    aria-label="save"
+                >
                     SAVE
                     <i class="far fa-save"></i>
                 </button>
-                <button class="btn btn-primary action-btn" id="download-btn">
+                <button
+                    class="btn btn-primary action-btn"
+                    id="download-btn"
+                    aria-label="download as pdf"
+                >
                     DOWNLOAD AS PDF
                     <i class="fas fa-file-download"></i>
                 </button>
@@ -205,6 +218,7 @@
                             class="btn btn-primary"
                             id="reset-btn"
                             data-dismiss="modal"
+                            aria-label="reset"
                         >
                             Reset
                             <i class="fas fa-undo-alt"></i>
@@ -213,6 +227,7 @@
                             type="button"
                             class="btn btn-primary"
                             data-dismiss="modal"
+                            aria-label="cancel"
                         >
                             Cancel
                         </button>
