@@ -82,23 +82,7 @@ function saveCvToArray() {
     return savedArray;
 }
 
-//Save to PDF with html2pdf when download pdf button is clicked
-var toBePrinted = document.getElementById("printable");
-var printOptions = {
-    filename: "cv.pdf",
-    pagebreak: { mode: "avoid-all" },
-    html2canvas: { windowWidth: 1200, windowHeight: 1500 },
-};
-
-function toPDF() {
-    toggleUnprinted();
-    html2pdf().set(printOptions).from(toBePrinted).save().then(toggleUnprinted);
-}
-
-$("#download-btn").click(toPDF);
-
-// Adds and removes elements that should not be seen in preview
-
+// Adds and removes elements that should not be seen the PDF
 function toggleUnprinted() {
     $(".add-element").each(function () {
         if ($(this).hasClass("d-flex")) {
@@ -111,6 +95,8 @@ function toggleUnprinted() {
 }
 
 //EVENT LISTENERS
+
+$("#download-btn").click(toPDF);
 
 // Load default or saved content when page loads
 $(document).ready(function () {
