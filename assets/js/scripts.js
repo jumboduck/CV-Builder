@@ -1,12 +1,12 @@
-var printable = $("#printable");
+let printable = $("#printable");
 
 //Retrieve CV and theme saved to local storage
-var savedCv = localStorage.getItem("CV");
-var usedTheme = localStorage.getItem("theme");
+let savedCv = localStorage.getItem("CV");
+let usedTheme = localStorage.getItem("theme");
 
 //Define CV to be displayed
 function setContent(cvContent) {
-    var loadedCv = convertSavedData(cvContent);
+    let loadedCv = convertSavedData(cvContent);
     printable.html(loadedCv);
     //Once CV is displayed, create buttons to add new elements and sortable functionality
     createNewElementButton();
@@ -15,14 +15,14 @@ function setContent(cvContent) {
 
 //Traversing JSON data, returns CV data as string of formatted HTML
 function convertSavedData(savedCV) {
-    var sectionsArray = [];
+    let sectionsArray = [];
     for (i in savedCV) {
-        var type = savedCV[i].type;
-        var title = savedCV[i].title;
-        var name = savedCV[i].name;
-        var table1 = savedCV[i].table1;
-        var table2 = savedCV[i].table2;
-        var itemList = [];
+        let type = savedCV[i].type;
+        let title = savedCV[i].title;
+        let name = savedCV[i].name;
+        let table1 = savedCV[i].table1;
+        let table2 = savedCV[i].table2;
+        let itemList = [];
         for (j in savedCV[i].list) {
             itemList[j] = savedCV[i].list[j];
         }
@@ -58,10 +58,10 @@ function convertSavedData(savedCV) {
 
 //Saving CV information to an array of Objects
 function saveCvToArray() {
-    var savedArray = [];
-    var sections = $("#printable section");
+    let savedArray = [];
+    let sections = $("#printable section");
     for (i in sections) {
-        var sectionId = sections.eq(i).attr("id");
+        let sectionId = sections.eq(i).attr("id");
         //Converts Info sections JSON data
         if (sections.eq(i).hasClass("info")) {
             savedArray.push(infoToObject(sectionId));
@@ -107,7 +107,7 @@ $(document).ready(function () {
 
 //Save to local storage when save button is clicked
 $("#save-btn").click(function () {
-    var currentCv = saveCvToArray();
+    let currentCv = saveCvToArray();
     localStorage.setItem("CV", JSON.stringify(currentCv));
     localStorage.setItem("theme", JSON.stringify(usedTheme));
     //Display confirmation alert when saved
