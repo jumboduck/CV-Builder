@@ -4,6 +4,17 @@ let printable = $("#printable");
 let savedCv = localStorage.getItem("CV");
 let usedTheme = localStorage.getItem("theme");
 
+//Fetch default CV data
+let defaultCv;
+fetch("assets/data/defaultcv.json")
+    .then(function (res) {
+        return res.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        defaultCv = data;
+    });
+
 //Define CV to be displayed
 function setContent(cvContent) {
     let loadedCv = convertSavedData(cvContent);
@@ -14,17 +25,17 @@ function setContent(cvContent) {
 }
 
 //Traversing JSON data, returns CV data as string of formatted HTML
-function convertSavedData(savedCV) {
+function convertSavedData(jsonCv) {
     let sectionsArray = [];
-    for (i in savedCV) {
-        let type = savedCV[i].type;
-        let title = savedCV[i].title;
-        let name = savedCV[i].name;
-        let table1 = savedCV[i].table1;
-        let table2 = savedCV[i].table2;
+    for (i in jsonCv) {
+        let type = jsonCv[i].type;
+        let title = jsonCv[i].title;
+        let name = jsonCv[i].name;
+        let table1 = jsonCv[i].table1;
+        let table2 = jsonCv[i].table2;
         let itemList = [];
-        for (j in savedCV[i].list) {
-            itemList[j] = savedCV[i].list[j];
+        for (j in jsonCv[i].list) {
+            itemList[j] = jsonCv[i].list[j];
         }
 
         //Formatting data to html if section is the main info content
