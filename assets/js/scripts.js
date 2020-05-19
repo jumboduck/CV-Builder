@@ -7,11 +7,18 @@ let usedTheme = localStorage.getItem("theme");
 //Fetch default CV data
 let defaultCv;
 fetch("assets/data/defaultcv.json")
-    .then(function (res) {
-        return res.json();
-    })
-    .then(function (data) {
+    .then((res) => res.json())
+    .then((data) => {
         defaultCv = data;
+        // If no saved cv exist, set content to default
+        if (!savedCv) {
+            setContent(data);
+        }
+        // Set content to saved cv
+        else {
+            setContent(JSON.parse(savedCv));
+            changeTheme(JSON.parse(usedTheme));
+        }
     });
 
 //Display cv on page
@@ -108,13 +115,6 @@ function toggleUnprinted() {
 $(document).ready(function () {
     $("#save-alert").hide();
     // Load default or saved content when page loads
-    console.log(defaultCv);
-    if (!savedCv) {
-        setContent(defaultCv);
-    } else {
-        setContent(JSON.parse(savedCv));
-        changeTheme(JSON.parse(usedTheme));
-    }
 });
 
 //Save to local storage when save button is clicked
