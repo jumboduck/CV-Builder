@@ -20,31 +20,24 @@ $("#close-section").click(function () {
     });
 });
 
-//Adding new sections to the page, each function
+//Adds a new section to the cv and ensures it is sortable and has buttons to add a new element
+function addSection(type) {
+    $("#printable").append(type);
+    toggleSectionBtns();
+    createNewElementButton();
+    makeSortable();
+}
+
+//New sections added on click
 $("#newsingleblock-btn").click(function () {
-    $("#printable").append(singleBlockToHtml());
-    toggleSectionBtns();
-    createNewElementButton();
-    makeSortable();
+    addSection(singleBlockToHtml());
 });
-
 $("#newlisting-btn").click(function () {
-    $("#printable").append(listingToHtml());
-    toggleSectionBtns();
-    createNewElementButton();
-    makeSortable();
+    addSection(listingToHtml());
 });
-
 $("#new3col-btn").click(function () {
-    $("#printable").append(threeColToHtml());
-    toggleSectionBtns();
-    createNewElementButton();
-    makeSortable();
+    addSection(threeColToHtml());
 });
-
 $("#newinfo-btn").click(function () {
-    $("#printable").append(infoToHtml());
-    toggleSectionBtns();
-    createNewElementButton();
-    makeSortable();
+    addSection(infoToHtml());
 });
