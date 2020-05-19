@@ -1,5 +1,6 @@
 var themes = ["default-theme", "theme-modern", "theme-lavender", "theme-deco"];
 
+//Update active theme in navigation
 function changeActiveNav(nav) {
     $(".nav-link .sr-only").remove();
     $(".active").removeClass("active");
@@ -7,6 +8,7 @@ function changeActiveNav(nav) {
     nav.append(`<span class="sr-only">(current)</span>`);
 }
 
+//Update CV themes and changes color of header
 function changeTheme(theme) {
     var themeClasses = themes.join(" ");
     $("#printable").removeClass(themeClasses).addClass(theme);
@@ -26,18 +28,16 @@ function changeTheme(theme) {
     }
 }
 
+//Nav links listeners
 $("#default-theme-link").click(function () {
     changeTheme("default-theme");
 });
-
 $("#theme-modern-link").click(function () {
     changeTheme("theme-modern");
 });
-
 $("#theme-lavender-link").click(function () {
     changeTheme("theme-lavender");
 });
-
 $("#theme-deco-link").click(function () {
     changeTheme("theme-deco");
 });

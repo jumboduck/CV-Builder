@@ -2,6 +2,10 @@
 var numOfSections = 0;
 
 //GENERATE HTML FOR ENTIRE SECTIONS
+
+//Arguments are objects from JSON data, whether default CV or CV saved in local storage
+//Default arguments are used when a new section is created
+
 //Generate HTML for info sections
 function infoToHtml(
     table1 = { class: "info-table1", label: ["Label"], content: ["Content"] },
@@ -17,22 +21,25 @@ function infoToHtml(
     }</div></section>`;
 }
 
-//Generate HTML for tables in info sections
-function convertTableToHtml(info) {
+//Generate HTML for tables in info sections, returns a string of HTML
+function convertTableToHtml(table) {
     let dataTable = "";
-    for (let j = 0; j < info.label.length; j++) {
-        let newRow = createInfoItem(info.label[j], info.content[j]);
-        if (info.label.length === 1) {
-            //Table has only 1 row => open and close div tag
-            dataTable += `<div class="col-md-6 extendable info-table ${info.class} sortable-list">${newRow}</div>`;
-        } else if (j === 0) {
-            //First row of the table => open div tag
-            dataTable += `<div class="col-md-6 extendable info-table ${info.class} sortable-list">${newRow}`;
-        } else if (j === info.label.length - 1) {
-            //Last row of the table => close div tag
+    for (let j = 0; j < table.label.length; j++) {
+        let newRow = createInfoItem(table.label[j], table.content[j]);
+        //Table has only 1 row => open and close div tag
+        if (table.label.length === 1) {
+            dataTable += `<div class="col-md-6 extendable info-table ${table.class} sortable-list">${newRow}</div>`;
+        }
+        //First row of the table => open div tag
+        else if (j === 0) {
+            dataTable += `<div class="col-md-6 extendable info-table ${table.class} sortable-list">${newRow}`;
+        }
+        //Last row of the table => close div tag
+        else if (j === table.label.length - 1) {
             dataTable += `${newRow}</div>`;
-        } else {
-            //Every other row
+        }
+        //Every other row
+        else {
             dataTable += newRow;
         }
     }
@@ -96,6 +103,7 @@ function threeColToHtml(
 }
 
 //GENERATE HTML FOR ELEMENTS WITHIN SECTIONS
+//Default parameters are used when a new element is created
 //Create HTML for item in Listing section
 function createListingItem(
     date = "Date",

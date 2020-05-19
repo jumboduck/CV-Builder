@@ -16,7 +16,7 @@ var defaultCv = [
             class: "info-table2",
             label: ["Website:", "Linkedin", "Twitter:"],
             content: [
-                "https://polygonalbrewing.eu",
+                "https://polygonal.eu",
                 "https://www.linkedin.com/",
                 "@johndoe",
             ],
