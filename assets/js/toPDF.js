@@ -1,6 +1,6 @@
-//Save to PDF with html2pdf when download pdf button is clicked
-
 var toBePrinted = document.getElementById("printable");
+
+//HTML2PDF settings
 var printOptions = {
     filename: "cv.pdf",
     html2canvas: { windowWidth: 1500 },
@@ -9,6 +9,7 @@ var printOptions = {
     enableLinks: true,
 };
 
+//Transform urls in text to <a> tags
 function makeAnchors(id) {
     var content = document.getElementById(id).innerHTML;
     document.getElementById(id).innerHTML = anchorme({
@@ -16,8 +17,11 @@ function makeAnchors(id) {
     });
 }
 
+//Print CV to a pdf file
 function toPDF() {
     toggleUnprinted();
     makeAnchors("printable");
     html2pdf().set(printOptions).from(toBePrinted).save().then(toggleUnprinted);
 }
+
+$("#download-btn").click(toPDF);

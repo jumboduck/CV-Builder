@@ -20,7 +20,7 @@ $("#close-section").click(function () {
     });
 });
 
-//Adding new sections
+//Adding new sections to the page, each function
 $("#newsingleblock-btn").click(function () {
     $("#printable").append(singleBlockToHtml());
     toggleSectionBtns();

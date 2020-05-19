@@ -1,11 +1,14 @@
-var savedCv = localStorage.getItem("CV");
-var usedTheme = localStorage.getItem("theme");
 var printable = $("#printable");
 
-//Define content to be displayed
+//Retrieve CV and theme saved to local storage
+var savedCv = localStorage.getItem("CV");
+var usedTheme = localStorage.getItem("theme");
+
+//Define CV to be displayed
 function setContent(cvContent) {
     var loadedCv = convertSavedData(cvContent);
     printable.html(loadedCv);
+    //Once CV is displayed, create buttons to add new elements and sortable functionality
     createNewElementButton();
     makeSortable();
 }
@@ -13,7 +16,6 @@ function setContent(cvContent) {
 //Traversing JSON data, returns CV data as string of formatted HTML
 function convertSavedData(savedCV) {
     var sectionsArray = [];
-
     for (i in savedCV) {
         var type = savedCV[i].type;
         var title = savedCV[i].title;
@@ -25,12 +27,11 @@ function convertSavedData(savedCV) {
             itemList[j] = savedCV[i].list[j];
         }
 
-        //Formatting if section is the main info content
+        //Formatting data to html if section is the main info content
         if (type === "info") {
             convertedData = infoToHtml(table1, table2, name);
             sectionsArray.push(convertedData);
         }
-
         //Formatting data to html if section is a list with dates, such as experience
         else if (type === "listing") {
             convertedData = listingToHtml(itemList, title);
@@ -41,7 +42,6 @@ function convertSavedData(savedCV) {
             convertedData = singleBlockToHtml(itemList, title);
             sectionsArray.push(convertedData);
         }
-
         //Formatting if section is a list of items, such as skills/interests
         else if (type === "three-column") {
             convertedData = threeColToHtml(itemList, title);
@@ -62,19 +62,19 @@ function saveCvToArray() {
     var sections = $("#printable section");
     for (i in sections) {
         var sectionId = sections.eq(i).attr("id");
-        //Converts Info sections into an object
+        //Converts Info sections JSON data
         if (sections.eq(i).hasClass("info")) {
             savedArray.push(infoToObject(sectionId));
         }
-        //Converts three-column sections into object
+        //Converts three-column sections into JSON data
         else if (sections.eq(i).hasClass("three-column")) {
             savedArray.push(threeColToObject(sectionId));
         }
-        // Converts listing sections into an object
+        // Converts listing sections into JSON data
         else if (sections.eq(i).hasClass("listing")) {
             savedArray.push(listingToObject(sectionId));
         }
-        //Converts single block sections into an object
+        //Converts single block sections into JSON data
         else if (sections.eq(i).hasClass("single-block")) {
             savedArray.push(singleBlockToObject(sectionId));
         }
@@ -82,7 +82,7 @@ function saveCvToArray() {
     return savedArray;
 }
 
-// Adds and removes elements that should not be seen the PDF
+//Toggles elements that should not be seen the PDF
 function toggleUnprinted() {
     $(".add-element").each(function () {
         if ($(this).hasClass("d-flex")) {
@@ -94,12 +94,9 @@ function toggleUnprinted() {
     });
 }
 
-//EVENT LISTENERS
-
-$("#download-btn").click(toPDF);
-
-// Load default or saved content when page loads
 $(document).ready(function () {
+    $("#save-alert").hide();
+    // Load default or saved content when page loads
     if (!savedCv) {
         setContent(defaultCv);
     } else {
@@ -113,14 +110,11 @@ $("#save-btn").click(function () {
     var currentCv = saveCvToArray();
     localStorage.setItem("CV", JSON.stringify(currentCv));
     localStorage.setItem("theme", JSON.stringify(usedTheme));
+    //Display confirmation alert when saved
     $("#save-alert").show("blind", 100);
     setTimeout(function () {
         $("#save-alert").hide("blind", 100);
     }, 8000);
-});
-
-$(document).ready(function () {
-    $("#save-alert").hide();
 });
 
 $("#save-alert .close").click(function () {

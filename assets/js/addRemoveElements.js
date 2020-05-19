@@ -1,5 +1,6 @@
-//Display and hide delete button on hover
+//Display "delete" button on mouse enter
 $(document).on("mouseenter", ".deletable", function () {
+    //Delete button is only created if one doesn't already exist
     if (!$(this).find("deletebtn").length) {
         $(this).append(
             `<span class="deletebtn" aria-label="delete-element"><i class='fas fa-times-circle'></i></span>`
@@ -7,22 +8,23 @@ $(document).on("mouseenter", ".deletable", function () {
         $(this).addClass("deletable-hover");
     }
 });
-
+//Remove button and on mouse leave
 $(document).on("mouseleave", ".deletable", function () {
     $(this).find(".deletebtn").remove();
     $(this).removeClass("deletable-hover");
 });
 
-//Remove line
+//Remove element or section
 $(document).on("click", ".deletebtn", function () {
     $(this).closest(".deletable").remove();
 });
 
-//Add element button appears and disappears on mouse events
+//Button to add new is generated in every section
 function createNewElementButton() {
     $(".extendable").each(function () {
         if (!$(this).find(".add-element").length) {
             if ($(this).parents().hasClass("three-column")) {
+                //Three column section "add element" button behaves slightly differently due to bootstrap column
                 $(this).append(
                     `<div class="add-element d-flex justify-content-center align-items-center col-md-4" aria-label="add-element"><i class="fas fa-plus-circle"></i></div>`
                 );
