@@ -11,17 +11,17 @@ fetch("assets/data/defaultcv.json")
         return res.json();
     })
     .then(function (data) {
-        console.log(data);
         defaultCv = data;
     });
 
-//Define CV to be displayed
+//Display cv on page
 function setContent(cvContent) {
     let loadedCv = convertSavedData(cvContent);
     printable.html(loadedCv);
     //Once CV is displayed, create buttons to add new elements and sortable functionality
     createNewElementButton();
     makeSortable();
+    console.log("content updated");
 }
 
 //Traversing JSON data, returns CV data as string of formatted HTML
@@ -93,7 +93,7 @@ function saveCvToArray() {
     return savedArray;
 }
 
-//Toggles elements that should not be seen the PDF
+//Toggles elements that should not be seen in the PDF
 function toggleUnprinted() {
     $(".add-element").each(function () {
         if ($(this).hasClass("d-flex")) {
@@ -108,6 +108,7 @@ function toggleUnprinted() {
 $(document).ready(function () {
     $("#save-alert").hide();
     // Load default or saved content when page loads
+    console.log(defaultCv);
     if (!savedCv) {
         setContent(defaultCv);
     } else {
