@@ -1,6 +1,6 @@
 //Fetches information in info HTML section and makes it into an Object
 function infoToObject(id) {
-    var infoObj = {};
+    let infoObj = {};
     infoObj.type = "info";
     infoObj.name = $("#" + id + " .info-name").html();
     infoObj.table1 = {
@@ -30,7 +30,7 @@ function infoToObject(id) {
 
 //Fetches information in 3 Column HTML section and makes it into an object
 function threeColToObject(id) {
-    var threeColObj = {};
+    let threeColObj = {};
     threeColObj.type = "three-column";
     threeColObj.title = $("#" + id + " .three-col-title").html();
     threeColObj.list = [];
@@ -47,7 +47,7 @@ function listingToObject(id) {
     listingObj.title = $("#" + id + " .listing-title").html();
     listingObj.list = [];
     $("#" + id + " .listing-row").each(function () {
-        var listingRow = {};
+        let listingRow = {};
         listingRow.date = $(this).find(".listing-date").html();
         listingRow.location = $(this).find(".listing-location").html();
         listingRow.position = $(this).find(".listing-position").html();

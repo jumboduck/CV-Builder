@@ -1,4 +1,4 @@
-var themes = ["default-theme", "theme-modern", "theme-lavender", "theme-deco"];
+let themes = ["default-theme", "theme-modern", "theme-lavender", "theme-deco"];
 
 //Update active theme in navigation
 function changeActiveNav(nav) {
@@ -10,7 +10,7 @@ function changeActiveNav(nav) {
 
 //Update CV themes and changes color of header
 function changeTheme(theme) {
-    var themeClasses = themes.join(" ");
+    let themeClasses = themes.join(" ");
     $("#printable").removeClass(themeClasses).addClass(theme);
     usedTheme = theme;
     if (theme === "default-theme") {

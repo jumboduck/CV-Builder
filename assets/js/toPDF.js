@@ -1,7 +1,7 @@
-var toBePrinted = document.getElementById("printable");
+let toBePrinted = document.getElementById("printable");
 
 //HTML2PDF settings
-var printOptions = {
+let printOptions = {
     filename: "cv.pdf",
     html2canvas: { windowWidth: 1500 },
     pagebreak: { mode: "avoid-all" },
@@ -11,7 +11,7 @@ var printOptions = {
 
 //Transform urls in text to <a> tags
 function makeAnchors(id) {
-    var content = document.getElementById(id).innerHTML;
+    let content = document.getElementById(id).innerHTML;
     document.getElementById(id).innerHTML = anchorme({
         input: content,
     });

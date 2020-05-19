@@ -1,5 +1,5 @@
 //Count Number of Sections on Page to create section id
-var numOfSections = 0;
+let numOfSections = 0;
 
 //GENERATE HTML FOR ENTIRE SECTIONS
 
@@ -12,8 +12,8 @@ function infoToHtml(
     table2 = { class: "info-table2", label: ["Label"], content: ["Content"] },
     name = "Name"
 ) {
-    var dataTable1 = convertTableToHtml(table1);
-    var dataTable2 = convertTableToHtml(table2);
+    let dataTable1 = convertTableToHtml(table1);
+    let dataTable2 = convertTableToHtml(table2);
     numOfSections++;
     return `<section class="section info deletable sortable break-after" id="section${numOfSections}">
             <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
