@@ -2,27 +2,26 @@
 
 ## Table of Contents
 
--   [Description](#description)
--   [Deployment and Live Demo](#deployment-and-live-demo)
--   [UX](#ux)
+-   **[Description](#description)**
+-   **[Deployment and Live Demo](#deployment-and-live-demo)**
+-   **[UX](#ux)**
     -   [User Stories](#user-stories)
     -   [Wireframes](#wireframes)
     -   [Design](#design)
--   [Features](#features)
+-   **[Features](#features)**
     -   [CV Sections](#cv-sections)
     -   [Themes](#themes)
     -   [Save Function](#save-function)
     -   [Download as PDF](#download-as-pdf)
     -   [Mobile Friendly](#mobile-friendly)
--   [Technologies](#technologies)
--   [Tools Used](#tools-used)
--   [Testing](#testing)
+-   **[Technologies](#technologies)**
+-   **[Tools Used](#tools-used)**
+-   **[Testing](#testing)**
     -   [Manual Testing](#manual-testing)
     -   [User Testing](#user-testing)
-    -   [Jasmine Testing](#jasmine-testing)
     -   [Known Bugs](#known-bugs)
--   [Code Notes](#code-notes)
--   [Aknowledgments](#aknowledgments)
+-   **[Code Notes](#code-notes)**
+-   **[Aknowledgments](#aknowledgments)**
 
 ---
 
@@ -34,7 +33,35 @@
 
 The CV builder can be used locally by cloning or downloading the repository from [github](https://github.com/jumboduck/CV-Builder).
 
-The live demo of the cv builder is accessible [here](https://jumboduck.github.io/CV-Builder/index.html).
+### Download
+
+1. Click on "Clone or download" under the repository name.
+
+2. Click on "Download ZIP"
+
+3. Choose directory to download it to and unzip file
+
+4. Access the CV-builder-master folder
+
+5. Open index.html into your browser to open the CV Builder
+
+### Clone with Git
+
+In your local IDE:
+
+1. Open a new terminal window
+
+2. Change the current working directory to the location where the cloned directory to be created.
+
+3. Enter the following line in the console:
+
+`git clone https://github.com/jumboduck/CV-Builder.git`
+
+4. Press enter
+
+### Live Demo
+
+The live demo of the cv builder has been deployed to Github Pages and is accessible [here](https://jumboduck.github.io/CV-Builder/index.html).
 
 ---
 
@@ -61,7 +88,8 @@ These goals are accomplished in the following way:
 
 ### Wireframes
 
-The wireframes were created with balsamiq and can be found [here](wireframes/CV-Builder-Wireframe.pdf)
+Wireframes were created with balsamiq to ensure proper structure and organization of content on all device sizes.
+The final version of the wireframes can be found [here](wireframes/CV-Builder-Wireframe.pdf)
 
 ### Design
 
@@ -156,7 +184,12 @@ It was built responsively with the bootstrap framework, and uses JQuery UI Touch
 
 ### User Testing
 
-### Jasmine Testing
+When the program was advanced enough to be usable, several users were asked to manipulate it to assess their experience and comfort with it. This highlighted the need for more consistent user feedback. The following changes came from this round of testing:
+
+-   Header background color changes when theme changes
+-   Placeholders on sortable items to notify user where the item will be positioned
+-   Notification when content is saved to local storage, additionally a note was added to let users know the content would be lost if the browser's cache was cleared
+-   Confirmation window when content is reset
 
 ### Known Bugs
 
@@ -166,11 +199,13 @@ It was built responsively with the bootstrap framework, and uses JQuery UI Touch
 
 ## Code Notes
 
+Initially when the CV was saved, the entire inner HTML of printable element was saved as a string. Measures were taken to instead translate the content of the html to an object, which allowed for more flexibility and scalability down the line.
+
 ---
 
-## Acknowledgments
+## Aknowledgments
 
-Thanks for help on readme
+[The following Code Institute student project](https://github.com/sabinemm/fruit-game) helped me in creating and structuring this very readme file
 
 Felipe for ideas and inspiration for the project
 
