@@ -1,12 +1,42 @@
-# Cv Builder
+# CV Builder
+
+## Table of Contents
+
+-   [Description](#description)
+-   [Deployment and Live Demo](#deployment-and-live-demo)
+-   [UX](#ux)
+    -   [User Stories](#user-stories)
+    -   [Wireframes](#wireframes)
+    -   [Design](#design)
+-   [Features](#features)
+    -   [CV Sections](#cv-sections)
+    -   [Themes](#themes)
+    -   [Save Function](#save-function)
+    -   [Download as PDF](#download-as-pdf)
+    -   [Mobile Friendly](#mobile-friendly)
+-   [Technologies](#technologies)
+-   [Tools Used](#tools-used)
+-   [Testing](#testing)
+    -   [Manual Testing](#manual-testing)
+    -   [User Testing](#user-testing)
+    -   [Jasmine Testing](#jasmine-testing)
+    -   [Known Bugs](#known-bugs)
+-   [Code Notes](#code-notes)
+-   [Aknowledgments](#aknowledgments)
+
+---
 
 ## Description
 
-## Deployment and live Demo
+---
+
+## Deployment and Live Demo
 
 The CV builder can be used locally by cloning or downloading the repository from [github](https://github.com/jumboduck/CV-Builder).
 
 The live demo of the cv builder is accessible [here](https://jumboduck.github.io/CV-Builder/index.html).
+
+---
 
 ## UX
 
@@ -47,6 +77,8 @@ Special care was put into making this cv builder an easy tool to use with intuit
 -   Cursor changes when sortable handle is hovered or grabbed
 -   Clear placeholders when sortable element is moved to indicate the new placement to the user
 
+---
+
 ## Features
 
 This CV builder gives users the tools necessary to create a simple CV and to download it as a PDF document. The goal is to allow the user as much flexbility as possible in how the content is displayed and organized.
@@ -81,14 +113,16 @@ Any changes made to the cv or its theme can be saved to be updated at a later ti
 When saved, the content of the page generates a JSON object which is saved to local storage. The theme chosen by the user is also saved to local storage.
 Upon reload of the page, the saved data and theme are automatically displayed on the page. If no information is found in local storage, a default CV will be displayed.
 
-### Download PDF
+### Download as PDF
 
 The CV builder uses html2pdf.js to convert the content of the CV into a PDF document, that can be downloaded to the user's device.
 
-### Mobile
+### Mobile Friendly
 
 This application is primarily meant to be used on computer sized screens but it has been optimized to to work on mobile devices as well.
 It was built responsively with the bootstrap framework, and uses JQuery UI Touch Punch to ensure all functionalities work on touch enabled devices.
+
+---
 
 ## Technologies
 
@@ -114,6 +148,8 @@ It was built responsively with the bootstrap framework, and uses JQuery UI Touch
 -   [W3C HTML Validator](https://validator.w3.org/): used to validate HTML code
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/): used to validate CSS
 
+---
+
 ## Testing
 
 ### Manual Testing
@@ -126,7 +162,11 @@ It was built responsively with the bootstrap framework, and uses JQuery UI Touch
 
 -   When generated from a mobile device, the PDF has a different aspect than when generated from larger screen sized because of how html2pdf.js converts a page to a PDF file. By sending options to html2pdf.js, it is possible for the CV to be laid out as if on a larger screen size, however the page breaks on the PDF seem to be determined by the device's window height, resulting in uneven and unpredictable page breaks. For this reason, the choice was made to have the PDF appear differently when generated from mobile devices, for now.
 
+---
+
 ## Code Notes
+
+---
 
 ## Acknowledgments
 
