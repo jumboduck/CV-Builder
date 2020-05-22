@@ -4,6 +4,9 @@
 
 -   **[Description](#description)**
 -   **[Deployment and Live Demo](#deployment-and-live-demo)**
+    -   [Download](#download)
+    -   [Clone with Git](#clone-with-git)
+    -   [Live Demo](#live-demo)
 -   **[UX](#ux)**
     -   [User Stories](#user-stories)
     -   [Wireframes](#wireframes)
@@ -55,7 +58,7 @@ In your local IDE:
 
 3. Enter the following line in the console:
 
-`git clone https://github.com/jumboduck/CV-Builder.git`
+    `git clone https://github.com/jumboduck/CV-Builder.git`
 
 4. Press enter
 
