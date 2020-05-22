@@ -436,4 +436,8 @@ section.three-column .sort-placeholder {
     .listing-date-col {
         padding: 0.2rem 0.2rem 0;
     }
+
+    .info-label {
+        padding-left: 0;
+    }
 }
