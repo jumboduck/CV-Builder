@@ -3,7 +3,7 @@ let toBePrinted = document.getElementById("printable");
 //HTML2PDF settings
 let printOptions = {
     filename: "cv.pdf",
-    html2canvas: { windowWidth: 1500 },
+    //html2canvas: { windowWidth: 1500 },
     pagebreak: { mode: "avoid-all" },
     image: { type: "jpeg", quality: 0.98 },
     enableLinks: true,
