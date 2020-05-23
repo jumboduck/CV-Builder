@@ -16,6 +16,7 @@
     -   [Themes](#themes)
     -   [Save Function](#save-function)
     -   [Download as PDF](#download-as-pdf)
+    -   [Reset](#reset)
     -   [Mobile Friendly](#mobile-friendly)
 -   **[Technologies](#technologies)**
 -   **[Tools Used](#tools-used)**
@@ -142,13 +143,17 @@ Additionally, the cv can be customized using 4 different themes that change the 
 
 ### Save Function
 
-Any changes made to the cv or its theme can be saved to be updated at a later time. Its content can also be reset if a user wishes to restart from scratch.
+Any changes made to the cv or its theme can be saved to be updated at a later time.
 When saved, the content of the page generates a JSON object which is saved to local storage. The theme chosen by the user is also saved to local storage.
 Upon reload of the page, the saved data and theme are automatically displayed on the page. If no information is found in local storage, a default CV will be displayed.
 
 ### Download as PDF
 
 The CV builder uses html2pdf.js to convert the content of the CV into a PDF document, that can be downloaded to the user's device.
+
+### Reset
+
+A reset button at the bottom of the page enables the user to reset the CV's content and themes to their default values, and to clear the local storage. The user has to confirm the reset in a modal window before the content is set back to default.
 
 ### Mobile Friendly
 
@@ -168,6 +173,8 @@ It was built responsively with the bootstrap framework, and uses JQuery UI Touch
 -   JQuery UI Touch Punch: to make JQuery UI sortable function touch device friendly
 -   [html2pdf.js](https://github.com/eKoopmans/html2pdf.js): relies on HTML2canvas and jsPDF to convert the CV to a PDF file
 -   [anchorme.js](https://alexcorvi.github.io/anchorme.js/): dynamically finds urls and email addresses on the CV and converts them to anchor tags
+
+---
 
 ## Tools Used
 
@@ -199,6 +206,8 @@ When the program was advanced enough to be usable, several users were asked to m
 ### Known Bugs
 
 -   When generated from a mobile device, the PDF has a different aspect than when generated from larger screen sized because of how html2pdf.js converts a page to a PDF file. By sending options to html2pdf.js, it is possible for the CV to be laid out as if on a larger screen size, however the page breaks on the PDF seem to be determined by the device's window height, resulting in uneven and unpredictable page breaks. For this reason, the choice was made to have the PDF appear differently when generated from mobile devices, for now.
+
+-   The elements within sections cannot be re-ordered when on the Brave browser.
 
 ---
 
