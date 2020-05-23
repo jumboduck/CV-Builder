@@ -408,7 +408,19 @@ section.three-column .sort-placeholder {
 }
 
 /* Media Queries */
+
 @media only screen and (max-width: 992px) {
+    h1.logo {
+        font-size: 1.3rem;
+    }
+
+    .navbar-toggler {
+        position: absolute;
+        top: 1rem;
+        right: 0.2rem;
+        border: 0;
+    }
+
     #cv {
         padding: 0.1rem;
     }
