@@ -119,13 +119,13 @@ This CV builder gives users the tools necessary to create a simple CV and to dow
 The information in the user's CV can be displayed in four types of sections.
 
 -   **Info Section** would include the name and two tables of items for various contact information
-    ![alt text](assets/img/new-section-info.png "Info Section")
+    ![alt text](wireframes/section-info-icon.png "Info Section")
 -   **Listing Section** would be used for listings such as education or work experience
-    ![alt text](assets/img/new-section-listing.png "Listing section")
+    ![alt text](wireframes/section-listing-icon.png "Listing section")
 -   **Block Section** would be used to display simple paragraphs of information
-    ![alt text](assets/img/new-section-block.png "block Section")
+    ![alt text](wireframes/section-block-icon.png "block Section")
 -   **Three Column** would be used to list elements in three columns
-    ![alt text](assets/img/new-section-3-col.png "Three Column Section")
+    ![alt text](wireframes/section-3-col-icon.png "Three Column Section")
 
 Sections can be added or removed, and re-organized with a drag and drop. This also applies to individual items within these sections.
 
