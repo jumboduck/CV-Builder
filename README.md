@@ -221,6 +221,6 @@ Initially when the CV was saved, the entire inner HTML of printable element was 
 
 [The following Code Institute student project](https://github.com/sabinemm/fruit-game) helped me in creating and structuring this very readme file
 
-Felipe for ideas and inspiration for the project
+Thank you to [Felipe Alarcon](https://github.com/felipe-alarcon) for brainstorming the initial idea for the project, for assistance in testing and for support and guidance along the way.
 
-CI Slack community for support
+Thanks to the CI Slack community for advice in things large and small, and for encouragement throughout the process.
