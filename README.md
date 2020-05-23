@@ -30,6 +30,8 @@
 
 ## Description
 
+CV Builder is meant to be a simple intuitive way for users to create a CV and download it as a PDF file. It gives an array of options to customize a CV's content and its appearance, giving its users the flexibility to create a document that meets their needs.
+
 ---
 
 ## Deployment and Live Demo
@@ -111,8 +113,6 @@ Special care was put into making this cv builder an easy tool to use with intuit
 ---
 
 ## Features
-
-This CV builder gives users the tools necessary to create a simple CV and to download it as a PDF document. The goal is to allow the user as much flexbility as possible in how the content is displayed and organized.
 
 ### CV Sections
 
