@@ -32,6 +32,8 @@
 
 CV Builder is meant to be a simple intuitive way for users to create a CV and download it as a PDF file. It gives an array of options to customize a CV's content and its appearance, giving its users the flexibility to create a document that meets their needs.
 
+![alt text](wireframes/cv-builder-displays.png "CV Builder on Many displays")
+
 ---
 
 ## Deployment and Live Demo
