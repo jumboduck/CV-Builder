@@ -1,4 +1,4 @@
-# CV Builder
+![alt text](readme-files/cv-builder-logo.png "CV Builder Logo")
 
 ## Table of Contents
 
