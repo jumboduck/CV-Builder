@@ -20,7 +20,12 @@ function makeAnchors(id) {
 function toPDF() {
     toggleUnprinted();
     makeAnchors("printable");
-    html2pdf().set(printOptions).from(toBePrinted).save().then(toggleUnprinted);
+    html2pdf()
+        .set(printOptions)
+        .from(toBePrinted)
+        .save()
+        .then(toggleUnprinted)
+        .then(makeSortable);
 }
 
 $("#download-btn").click(toPDF);

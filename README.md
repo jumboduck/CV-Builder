@@ -17,9 +17,9 @@
     -   [Save Function](#save-function)
     -   [Download as PDF](#download-as-pdf)
     -   [Reset](#reset)
-    -   [Mobile Friendly](#mobile-friendly)
+    -   [Responsive Design](#responsive-design)
 -   **[Technologies](#technologies)**
--   **[Tools Used](#tools-used)**
+-   **[Tools](#tools)**
 -   **[Testing](#testing)**
     -   [Manual Testing](#manual-testing)
     -   [User Testing](#user-testing)
@@ -156,7 +156,7 @@ The CV builder uses html2pdf.js to convert the content of the CV into a PDF docu
 
 A reset button at the bottom of the page enables the user to reset the CV's content and themes to their default values, and to clear the local storage. The user has to confirm the reset in a modal window before the content is set back to default.
 
-### Mobile Friendly
+### Responsive Design
 
 This application is primarily meant to be used on computer sized screens but it has been optimized to to work on mobile devices as well.
 It was built responsively with the bootstrap framework, and uses JQuery UI Touch Punch to ensure all functionalities work on touch enabled devices.
@@ -177,7 +177,7 @@ It was built responsively with the bootstrap framework, and uses JQuery UI Touch
 
 ---
 
-## Tools Used
+## Tools
 
 -   VSCode: IDE used to create and ede code
 -   Adobe Photoshop: Image editor used for section vignettes and favicon
@@ -214,7 +214,7 @@ When the program was advanced enough to be usable, several users were asked to m
 
 -   When generated from a mobile device, the PDF has a different aspect than when generated from larger screen sized because of how html2pdf.js converts a page to a PDF file. By sending options to html2pdf.js, it is possible for the CV to be laid out as if on a larger screen size, however the page breaks on the PDF seem to be determined by the device's window height, resulting in uneven and unpredictable page breaks. For this reason, the choice was made to have the PDF appear differently when generated from mobile devices, for now.
 
--   The elements within sections cannot be re-ordered when on the Brave browser.
+-   The elements within sections cannot be re-ordered in the Brave browser.
 
 ---
 
