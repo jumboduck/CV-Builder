@@ -24,6 +24,7 @@
     -   [Manual Testing](#manual-testing)
     -   [User Testing](#user-testing)
     -   [Known Bugs](#known-bugs)
+-   **[Scalability](#scalability)**
 -   **[Code Notes](#code-notes)**
 -   **[Aknowledgments](#aknowledgments)**
 
@@ -33,7 +34,7 @@
 
 CV Builder is meant to be a simple intuitive way for users to create a CV and download it as a PDF file. It gives an array of options to customize a CV's content and its appearance, giving its users the flexibility to create a document that meets their needs.
 
-![alt text](wireframes/cv-builder-displays.png "CV Builder on Many displays")
+![alt text](readme-files/cv-builder-displays.png "CV Builder on Many displays")
 
 ---
 
@@ -97,7 +98,7 @@ These goals are accomplished in the following way:
 ### Wireframes
 
 Wireframes were created with balsamiq to ensure proper structure and organization of content on all device sizes.
-The final version of the wireframes can be found [here](wireframes/CV-Builder-Wireframe.pdf)
+The final version of the wireframes can be found [here](readme-files/CV-Builder-Wireframe.pdf)
 
 ### Design
 
@@ -122,13 +123,13 @@ Special care was put into making this cv builder an easy tool to use with intuit
 The information in the user's CV can be displayed in four types of sections.
 
 -   **Info Section** would include the name and two tables of items for various contact information
-    ![alt text](wireframes/section-info-icon.png "Info Section")
+    ![alt text](readme-files/info-section-example.png "Info Section")
 -   **Listing Section** would be used for listings such as education or work experience
-    ![alt text](wireframes/section-listing-icon.png "Listing section")
+    ![alt text](readme-files/listing-section-example.png "Listing section")
 -   **Block Section** would be used to display simple paragraphs of information
-    ![alt text](wireframes/section-block-icon.png "block Section")
+    ![alt text](readme-files/block-section-example.png "block Section")
 -   **Three Column** would be used to list elements in three columns
-    ![alt text](wireframes/section-3-col-icon.png "Three Column Section")
+    ![alt text](readme-files/three-col-section-example.png "Three Column Section")
 
 Sections can be added or removed, and re-organized with a drag and drop. This also applies to individual items within these sections.
 
@@ -208,6 +209,18 @@ When the program was advanced enough to be usable, several users were asked to m
 -   When generated from a mobile device, the PDF has a different aspect than when generated from larger screen sized because of how html2pdf.js converts a page to a PDF file. By sending options to html2pdf.js, it is possible for the CV to be laid out as if on a larger screen size, however the page breaks on the PDF seem to be determined by the device's window height, resulting in uneven and unpredictable page breaks. For this reason, the choice was made to have the PDF appear differently when generated from mobile devices, for now.
 
 -   The elements within sections cannot be re-ordered when on the Brave browser.
+
+---
+
+## Scalability
+
+A number of new features will be implemented in the future.
+
+-   A preview of the final PDF will be seen download
+
+-   More themes and granular customization options, such as a choice of fonts and colors.
+
+-   New types of sections should be available for use
 
 ---
 
