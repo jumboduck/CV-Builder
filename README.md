@@ -195,6 +195,12 @@ It was built responsively with the bootstrap framework, and uses JQuery UI Touch
 
 ### Manual Testing
 
+The site was tested on various platforms and browsers to ensure proper display and functionality across different screen sizes.
+
+As functionalities were added to the application, thorough testing was conducted to ensure proper behavior with no side-effects.
+
+The HTML and CSS were validated on W3C Validators, and speed tested on Pingdom.
+
 ### User Testing
 
 When the program was advanced enough to be usable, several users were asked to manipulate it to assess their experience and comfort with it. This highlighted the need for more consistent user feedback. The following changes came from this round of testing:
