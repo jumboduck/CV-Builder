@@ -8,8 +8,16 @@ let numOfSections = 0;
 
 //Generate HTML for info sections
 function infoToHtml(
-    table1 = { class: "info-table1", label: ["Label"], content: ["Content"] },
-    table2 = { class: "info-table2", label: ["Label"], content: ["Content"] },
+    table1 = {
+        class: "info-table1",
+        label: ["Label"],
+        content: ["Information"],
+    },
+    table2 = {
+        class: "info-table2",
+        label: ["Label"],
+        content: ["Information"],
+    },
     name = "Name"
 ) {
     let dataTable1 = convertTableToHtml(table1);
@@ -47,10 +55,7 @@ function convertTableToHtml(table) {
 }
 
 //Generate HTML for single block sections
-function singleBlockToHtml(
-    list = ["Descriptive Text"],
-    title = "New Single Block"
-) {
+function singleBlockToHtml(list = ["Description"], title = "New Single Block") {
     let htmlList = "";
     for (j in list) {
         htmlList += createSingleBlockItem(list[j]);
@@ -109,7 +114,7 @@ function createListingItem(
     date = "Date",
     location = "Location",
     position = "Position",
-    description = "Descriptive Paragraph"
+    description = "Description"
 ) {
     return `<div class="row listing-row deletable sortable">
     <div class="col-md-2 listing-date-col">
@@ -130,7 +135,7 @@ function createListingItem(
 }
 
 //Create HTML for item in Single Block section
-function createSingleBlockItem(textContent = "Descriptive Paragraph") {
+function createSingleBlockItem(textContent = "Description") {
     return `<div class="row deletable sortable"><div class="col"><div contenteditable="true" class="single-block-content">${textContent}</div></div></div>
 </div>`;
 }
