@@ -114,7 +114,6 @@ function toggleUnprinted() {
 
 $(document).ready(function () {
     $("#save-alert").hide();
-    // Load default or saved content when page loads
 });
 
 //Save to local storage when save button is clicked
