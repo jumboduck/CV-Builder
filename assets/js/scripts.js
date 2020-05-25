@@ -1,17 +1,19 @@
 let printable = $("#printable");
 let themes = ["default-theme", "theme-modern", "theme-lavender", "theme-deco"];
 let toBePrinted = printable[0];
-//document.getElementById("printable");
-
-//Count Number of Sections on Page to create section id
 let numOfSections = 0;
-
+let defaultCv;
 //Retrieve CV and theme saved to local storage
 let savedCv = localStorage.getItem("CV");
 let usedTheme = localStorage.getItem("theme");
 
+$(document).ready(function () {
+    $("#save-alert").hide();
+    $("#new-section-buttons").hide();
+    $("#close-section").hide();
+});
+
 //Fetch default CV data and display as formatted HTML
-let defaultCv;
 fetch("assets/data/defaultcv.json")
     .then((res) => res.json())
     .then((data) => {
@@ -117,10 +119,6 @@ function toggleUnprinted() {
         $(this).toggle();
     });
 }
-
-$(document).ready(function () {
-    $("#save-alert").hide();
-});
 
 //Save to local storage when save button is clicked
 $("#save-btn").click(function () {
@@ -251,8 +249,8 @@ function threeColToHtml(
         <div class="row three-column-list d-flex align-content-start flex-wrap extendable pl-2 pr-2 sortable-list">${htmlList}</div></section>`;
 }
 
-//GENERATE HTML FOR ELEMENTS WITHIN SECTIONS
-//Default parameters are used when a new element is created
+/* Generate HTML for elements within sections
+Default parameters are used when a new element is created*/
 
 //Create HTML for item in Info section
 function createInfoItem(label = "Label", content = "Information") {
@@ -299,12 +297,6 @@ function createThreeColumnItem(item = "New Item") {
 }
 
 /* Adding a new section to CV */
-
-//Hide buttons to add sections when page is loaded
-$(document).ready(function () {
-    $("#new-section-buttons").hide();
-    $("#close-section").hide();
-});
 
 //Toggle buttons to add new section
 function toggleSectionBtns() {
