@@ -4,24 +4,24 @@ let printable = $("#printable");
 let savedCv = localStorage.getItem("CV");
 let usedTheme = localStorage.getItem("theme");
 
-//Fetch default CV data
+//Fetch default CV data and display as formatted HTML
 let defaultCv;
 fetch("assets/data/defaultcv.json")
     .then((res) => res.json())
     .then((data) => {
         defaultCv = data;
-        // If no saved cv exist, set content to default
+        // If no saved CV has been saved, set content to default CV
         if (!savedCv) {
             setContent(data);
         }
-        // Set content to saved cv
+        // Set content to saved CV
         else {
             setContent(JSON.parse(savedCv));
             changeTheme(JSON.parse(usedTheme));
         }
     });
 
-//Display cv on page
+//Display CV on page
 function setContent(cvContent) {
     let loadedCv = convertSavedData(cvContent);
     printable.html(loadedCv);
@@ -45,22 +45,22 @@ function convertSavedData(jsonCv) {
             itemList[j] = jsonCv[i].list[j];
         }
 
-        //Formatting data to html if section is the main info content
+        //Formatting data to html for info section
         if (type === "info") {
             convertedData = infoToHtml(table1, table2, name);
             sectionsArray.push(convertedData);
         }
-        //Formatting data to html if section is a list with dates, such as experience
+        //Formatting data to html for listing section
         else if (type === "listing") {
             convertedData = listingToHtml(itemList, title);
             sectionsArray.push(convertedData);
         }
-        //Formatting data to html if section is a single block of content
+        //Formatting data to html for single block section
         else if (type === "single-block") {
             convertedData = singleBlockToHtml(itemList, title);
             sectionsArray.push(convertedData);
         }
-        //Formatting if section is a list of items, such as skills/interests
+        //Formatting data to html for three column section
         else if (type === "three-column") {
             convertedData = threeColToHtml(itemList, title);
             sectionsArray.push(convertedData);

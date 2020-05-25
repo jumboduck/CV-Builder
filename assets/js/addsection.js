@@ -11,8 +11,10 @@ function toggleSectionBtns() {
     $("#new-section-buttons").toggle("blind", "swing", 300);
 }
 
+//When Button to add section is clicked, section type selection appears
 $("#add-section-btn").click(toggleSectionBtns);
 
+//Closing section type selection
 $("#close-section").click(function () {
     $("#new-section-buttons").toggle("blind", "swing", 300, function () {
         $("#close-section").toggle();

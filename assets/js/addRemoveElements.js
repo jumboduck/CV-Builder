@@ -8,18 +8,18 @@ $(document).on("mouseenter", ".deletable", function () {
         $(this).addClass("deletable-hover");
     }
 });
-//Remove button and on mouse leave
+//Remove button and deletable class on mouse leave
 $(document).on("mouseleave", ".deletable", function () {
     $(this).find(".deletebtn").remove();
     $(this).removeClass("deletable-hover");
 });
 
-//Remove element or section
+//Remove element or section on click of delete button
 $(document).on("click", ".deletebtn", function () {
     $(this).closest(".deletable").remove();
 });
 
-//Button to add new is generated in every section
+//Button to add a new element is generated in every section
 function createNewElementButton() {
     $(".extendable").each(function () {
         if (!$(this).find(".add-element").length) {
@@ -51,5 +51,6 @@ function addItem() {
     } else if ($(this).parent().hasClass("info-table")) {
         newItem = createInfoItem();
     }
+    //The new element is added before the button
     $(this).before(newItem);
 }

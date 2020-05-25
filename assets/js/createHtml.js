@@ -6,7 +6,7 @@ let numOfSections = 0;
 //Arguments are objects from JSON data, whether default CV or CV saved in local storage
 //Default arguments are used when a new section is created
 
-//Generate HTML for info sections
+//Generate HTML for info sections, returns a string of HTML
 function infoToHtml(
     table1 = {
         class: "info-table1",
@@ -34,15 +34,15 @@ function convertTableToHtml(table) {
     let dataTable = "";
     for (let j = 0; j < table.label.length; j++) {
         let newRow = createInfoItem(table.label[j], table.content[j]);
-        //Table has only 1 row => open and close div tag
+        //Table has only 1 row, open and close div tag
         if (table.label.length === 1) {
             dataTable += `<div class="col-md-6 extendable info-table ${table.class} sortable-list">${newRow}</div>`;
         }
-        //First row of the table => open div tag
+        //First row of the table, open div tag, no closing div tag
         else if (j === 0) {
             dataTable += `<div class="col-md-6 extendable info-table ${table.class} sortable-list">${newRow}`;
         }
-        //Last row of the table => close div tag
+        //Last row of the table, no open div tag, close div tag
         else if (j === table.label.length - 1) {
             dataTable += `${newRow}</div>`;
         }
@@ -109,6 +109,15 @@ function threeColToHtml(
 
 //GENERATE HTML FOR ELEMENTS WITHIN SECTIONS
 //Default parameters are used when a new element is created
+
+//Create HTML for item in Info section
+function createInfoItem(label = "Label", content = "Information") {
+    return `<div class="row deletable sortable">
+        <div class="col-md-4 text-left info-label" contenteditable="true">${label}</div>
+        <div contenteditable="true" class="col-md-8 info-content">${content}</div>
+    </div>`;
+}
+
 //Create HTML for item in Listing section
 function createListingItem(
     date = "Date",
@@ -143,12 +152,4 @@ function createSingleBlockItem(textContent = "Description") {
 //Create HTML for item in Three Column section
 function createThreeColumnItem(item = "New Item") {
     return `<div class="col-12 col-md-4 sortable deletable"><ul><li contenteditable="true" class="three-col-item">${item}</li></ul></div>`;
-}
-
-//Create HTML for item in Info section
-function createInfoItem(label = "Label", content = "Information") {
-    return `<div class="row deletable sortable">
-        <div class="col-md-4 text-left info-label" contenteditable="true">${label}</div>
-        <div contenteditable="true" class="col-md-8 info-content">${content}</div>
-    </div>`;
 }

@@ -8,7 +8,7 @@ let printOptions = {
     enableLinks: true,
 };
 
-//Transform urls in text to <a> tags
+//Transform urls in text to <a> tags with anchorme.js
 function makeAnchors(id) {
     let content = document.getElementById(id).innerHTML;
     document.getElementById(id).innerHTML = anchorme({
@@ -16,7 +16,7 @@ function makeAnchors(id) {
     });
 }
 
-//Print CV to a pdf file
+//Print CV to a pdf file with html2pdf.js
 function toPDF() {
     toggleUnprinted();
     makeAnchors("printable");

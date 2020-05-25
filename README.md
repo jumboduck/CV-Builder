@@ -195,9 +195,11 @@ It was built responsively with the bootstrap framework, and uses JQuery UI Touch
 
 ### Manual Testing
 
-The site was tested on various platforms and browsers to ensure proper display and functionality across different screen sizes.
+The site was tested on various platforms and browsers to ensure proper display and functionality across different screen sizes, including touch devices.
 
 As functionalities were added to the application, thorough testing was conducted to ensure proper behavior with no side-effects.
+
+Google Chrome's dev tools were used extensively for debugging.
 
 The HTML and CSS were validated on W3C Validators, and speed tested on Pingdom.
 
@@ -212,9 +214,7 @@ When the program was advanced enough to be usable, several users were asked to m
 
 ### Known Bugs
 
--   When generated from a mobile device, the PDF has a different aspect than when generated from larger screen sized because of how html2pdf.js converts a page to a PDF file. By sending options to html2pdf.js, it is possible for the CV to be laid out as if on a larger screen size, however the page breaks on the PDF seem to be determined by the device's window height, resulting in uneven and unpredictable page breaks. For this reason, the choice was made to have the PDF appear differently when generated from mobile devices, for now.
-
--   The elements within sections cannot be re-ordered in the Brave browser.
+-   When generated from a mobile device, the PDF has a different aspect than when generated from larger screen sized because of how html2pdf.js converts a page to a PDF file. By sending options to html2pdf.js, it is possible for the CV to be laid out as if on a larger screen size, however the page breaks on the PDF seem to be determined by the device's window height, resulting in uneven and unpredictable page breaks. For this reason, the choice was made to have the PDF appear differently when generated from different screen sizes, for now.
 
 ---
 
@@ -241,5 +241,7 @@ Initially when the CV was saved, the entire inner HTML of printable element was 
 [The following Code Institute student project](https://github.com/sabinemm/fruit-game) helped me in creating and structuring this very readme file
 
 Thank you to [Felipe Alarcon](https://github.com/felipe-alarcon) for brainstorming the initial idea for the project, for assistance in testing and for support and guidance along the way.
+
+Many thanks to friends and family who helped testing the program.
 
 Thanks to the CI Slack community for advice in things large and small, and for encouragement throughout the process.

@@ -1,4 +1,4 @@
-//Fetches information in info HTML section and makes it into an Object
+//Fetches information in info HTML section and generates an Object
 function infoToObject(id) {
     let infoObj = {};
     infoObj.type = "info";
@@ -28,7 +28,7 @@ function infoToObject(id) {
     return infoObj;
 }
 
-//Fetches information in 3 Column HTML section and makes it into an object
+//Fetches information in 3 Column HTML section and generates an object
 function threeColToObject(id) {
     let threeColObj = {};
     threeColObj.type = "three-column";
@@ -40,7 +40,7 @@ function threeColToObject(id) {
     return threeColObj;
 }
 
-//Fetches information in Listing HTML section and makes it into an object
+//Fetches information in Listing HTML section and generates an object
 function listingToObject(id) {
     listingObj = {};
     listingObj.type = "listing";
@@ -58,7 +58,7 @@ function listingToObject(id) {
     return listingObj;
 }
 
-//Fetches information in Single Block HTML section and makes it into an object
+//Fetches information in Single Block HTML section and generates an object
 function singleBlockToObject(id) {
     singleBlockObj = {};
     singleBlockObj.type = "single-block";
