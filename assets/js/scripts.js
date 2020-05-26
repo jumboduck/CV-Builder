@@ -442,11 +442,11 @@ function createNewElementButton() {
             if ($(this).parents().hasClass("three-column")) {
                 //Three column section "add element" button behaves slightly differently due to bootstrap column
                 $(this).append(
-                    `<div class="add-element d-flex justify-content-center align-items-center col-md-4" aria-label="add-element"><i class="fas fa-plus-circle"></i></div>`
+                    `<button class="add-element btn-block d-flex justify-content-center align-items-center col-md-4" aria-label="add-element"><i class="fas fa-plus-circle"></i></button>`
                 );
             } else {
                 $(this).append(
-                    `<div class="add-element text-center"  aria-label="add-element"><i class="fas fa-plus-circle"></i></div>`
+                    `<button class="add-element btn-block text-center row"  aria-label="add-element"><i class="fas fa-plus-circle"></i></button>`
                 );
             }
         }

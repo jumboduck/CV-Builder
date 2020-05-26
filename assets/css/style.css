@@ -264,7 +264,7 @@ section.deletable {
 #add-section {
     position: relative;
     padding: 0.5rem 1rem;
-    margin: 0.2rem 1rem;
+    margin: 0.2rem 0rem;
     border: 1px solid transparent;
     border-radius: 0.5rem;
 }
