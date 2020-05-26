@@ -9,9 +9,16 @@
     let toBePrinted;
     let numOfSections = 0;
     let defaultCv;
+
     //Retrieve CV and theme saved to local storage
-    let savedCv = localStorage.getItem("CV");
-    let usedTheme = localStorage.getItem("theme");
+    let savedCv;
+    let usedTheme;
+    try {
+        savedCv = JSON.parse(localStorage.getItem("CV"));
+        usedTheme = JSON.parse(localStorage.getItem("theme"));
+    } catch (error) {
+        console.log(error);
+    }
 
     $(document).ready(function () {
         $("#save-alert").hide();
@@ -32,8 +39,8 @@
                 // Set content to saved CV and theme
                 else {
                     try {
-                        setContent(JSON.parse(savedCv));
-                        changeTheme(JSON.parse(usedTheme));
+                        setContent(savedCv);
+                        changeTheme(usedTheme);
                     } catch (error) {
                         console.log(error);
                     }
