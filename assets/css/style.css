@@ -17,6 +17,8 @@ h1.logo {
     border: 0.3rem dashed;
     border-radius: 1rem;
     padding: 1rem;
+    font-size: 2rem;
+    margin-bottom: 0;
 }
 
 section h3 {
