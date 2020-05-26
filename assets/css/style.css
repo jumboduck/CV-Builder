@@ -352,11 +352,14 @@ section.deletable {
 
 #close-section {
     position: relative;
-    width: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     margin-left: auto;
     color: #ffcccb;
     font-size: 1.5rem;
     cursor: pointer;
+    line-height: 0;
+    background: transparent;
 }
 
 #close-section:hover {
