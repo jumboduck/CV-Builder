@@ -70,6 +70,7 @@ section h5 {
 .custom-header {
     background-color: #606060;
     color: #fff;
+    transition: background-color 0.5s;
 }
 
 button.nav-link {

@@ -28,6 +28,12 @@
     color: #1e3f5a;
 }
 
+.custom-header.theme-modern {
+    background-color: #1e3f5a;
+    color: #fff;
+    font-family: helvetica, arial, sans-serif;
+}
+
 /* Lavender Theme */
 .theme-lavender h2,
 .theme-lavender h3,
@@ -55,6 +61,12 @@
     color: #595775;
 }
 
+.custom-header.theme-lavender {
+    background-color: #595775;
+    color: #fff;
+    font-family: helvetica, arial, sans-serif;
+}
+
 /* Deco Theme */
 .theme-deco h2,
 .theme-deco h3,
@@ -75,4 +87,10 @@
 
 .theme-deco a {
     color: #132226;
+}
+
+.custom-header.theme-deco {
+    background-color: #132226;
+    color: #fff;
+    font-family: helvetica, arial, sans-serif;
 }
