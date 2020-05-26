@@ -384,7 +384,7 @@ section.deletable {
     position: absolute;
     left: 5px;
     top: 5px;
-    cursor: grab;
+    cursor: grab !important;
     font-size: 1.2rem;
     border: 0;
     padding: 0;
