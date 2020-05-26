@@ -6,7 +6,6 @@
         "theme-lavender",
         "theme-deco",
     ];
-    let toBePrinted;
     let numOfSections = 0;
     let defaultCv;
 
@@ -25,16 +24,16 @@
         $("#new-section-buttons").hide();
         $("#close-section").hide();
         printable = $("#printable");
-        toBePrinted = printable[0];
 
         //Fetch default CV data and display as formatted HTML
         fetch("assets/data/defaultcv.json")
             .then((res) => res.json())
             .then((data) => {
+                console.log(data);
                 defaultCv = data;
                 // If no saved CV has been saved, set content to default CV
                 if (!savedCv) {
-                    setContent(data);
+                    setContent(defaultCv);
                 }
                 // Set content to saved CV and theme
                 else {
@@ -60,38 +59,27 @@
 
     //Traversing JSON data, returns CV data as string of formatted HTML
     function convertSavedData(jsonCv) {
-        let sectionsArray = [];
-        for (i in jsonCv) {
-            let type = jsonCv[i].type;
-
-            switch (type) {
+        console.log(jsonCv);
+        return jsonCv.map(function (section) {
+            switch (section.type) {
                 //Formatting data to html for info section
                 case "info":
-                    convertedData = infoToHtml(jsonCv[i]);
-                    sectionsArray.push(convertedData);
-                    break;
+                    return infoToHtml(section);
                 //Formatting data to html for listing section
                 case "listing":
-                    convertedData = listingToHtml(jsonCv[i]);
-                    sectionsArray.push(convertedData);
-                    break;
+                    return listingToHtml(section);
                 //Formatting data to html for single block section
                 case "single-block":
-                    convertedData = singleBlockToHtml(jsonCv[i]);
-                    sectionsArray.push(convertedData);
-                    break;
+                    return singleBlockToHtml(section);
                 //Formatting data to html for three column section
                 case "three-column":
-                    convertedData = threeColToHtml(jsonCv[i]);
-                    sectionsArray.push(convertedData);
-                    break;
+                    return threeColToHtml(section);
                 //Other cases
                 default:
-                    sectionsArray.push("");
-                    console.log("Unkown type");
+                    console.log("Unkown type", section.type);
+                    return "";
             }
-        }
-        return sectionsArray.join("");
+        });
     }
 
     //Saving CV information to an array of Objects
@@ -549,7 +537,7 @@ Default parameters are used when a new element is created*/
         makeAnchors("printable");
         html2pdf()
             .set(printOptions)
-            .from(toBePrinted)
+            .from(printable[0])
             .save()
             .then(toggleUnprinted)
             .then(makeSortable);
