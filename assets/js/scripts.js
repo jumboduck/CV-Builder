@@ -55,40 +55,36 @@
     function convertSavedData(jsonCv) {
         let sectionsArray = [];
         for (i in jsonCv) {
-            let type = jsonCv[i].type;
-            let title = jsonCv[i].title;
-            let name = jsonCv[i].name;
-            let table1 = jsonCv[i].table1;
-            let table2 = jsonCv[i].table2;
+            let { type, title, name, table1, table2 } = jsonCv[i];
             let itemList = [];
             for (j in jsonCv[i].list) {
                 itemList[j] = jsonCv[i].list[j];
             }
-
-            //Formatting data to html for info section
-            if (type === "info") {
-                convertedData = infoToHtml(table1, table2, name);
-                sectionsArray.push(convertedData);
-            }
-            //Formatting data to html for listing section
-            else if (type === "listing") {
-                convertedData = listingToHtml(itemList, title);
-                sectionsArray.push(convertedData);
-            }
-            //Formatting data to html for single block section
-            else if (type === "single-block") {
-                convertedData = singleBlockToHtml(itemList, title);
-                sectionsArray.push(convertedData);
-            }
-            //Formatting data to html for three column section
-            else if (type === "three-column") {
-                convertedData = threeColToHtml(itemList, title);
-                sectionsArray.push(convertedData);
-            }
-            //Other cases
-            else {
-                sectionsArray.push("");
-                console.log("Unkown type");
+            switch (type) {
+                //Formatting data to html for info section
+                case "info":
+                    convertedData = infoToHtml(table1, table2, name);
+                    sectionsArray.push(convertedData);
+                    break;
+                //Formatting data to html for listing section
+                case "listing":
+                    convertedData = listingToHtml(itemList, title);
+                    sectionsArray.push(convertedData);
+                    break;
+                //Formatting data to html for single block section
+                case "single-block":
+                    convertedData = singleBlockToHtml(itemList, title);
+                    sectionsArray.push(convertedData);
+                    break;
+                //Formatting data to html for three column section
+                case "three-column":
+                    convertedData = threeColToHtml(itemList, title);
+                    sectionsArray.push(convertedData);
+                    break;
+                //Other cases
+                default:
+                    sectionsArray.push("");
+                    console.log("Unkown type");
             }
         }
         return sectionsArray.join("");
