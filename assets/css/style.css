@@ -316,13 +316,21 @@ section.deletable {
 /* Adding new section */
 #add-section {
     background-color: #ececec;
-    text-transform: uppercase;
     margin: 1rem 0;
     cursor: auto;
 }
 
 #add-section-btn {
     cursor: pointer;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    color: #3cb371;
+    text-transform: uppercase;
+}
+
+#add-section-btn:hover {
+    color: #2e8b57;
 }
 
 .section-btn {
