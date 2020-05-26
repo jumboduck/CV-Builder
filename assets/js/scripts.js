@@ -55,30 +55,27 @@
     function convertSavedData(jsonCv) {
         let sectionsArray = [];
         for (i in jsonCv) {
-            let { type, title, name, table1, table2 } = jsonCv[i];
-            let itemList = [];
-            for (j in jsonCv[i].list) {
-                itemList[j] = jsonCv[i].list[j];
-            }
+            let type = jsonCv[i].type;
+
             switch (type) {
                 //Formatting data to html for info section
                 case "info":
-                    convertedData = infoToHtml(table1, table2, name);
+                    convertedData = infoToHtml(jsonCv[i]);
                     sectionsArray.push(convertedData);
                     break;
                 //Formatting data to html for listing section
                 case "listing":
-                    convertedData = listingToHtml(itemList, title);
+                    convertedData = listingToHtml(jsonCv[i]);
                     sectionsArray.push(convertedData);
                     break;
                 //Formatting data to html for single block section
                 case "single-block":
-                    convertedData = singleBlockToHtml(itemList, title);
+                    convertedData = singleBlockToHtml(jsonCv[i]);
                     sectionsArray.push(convertedData);
                     break;
                 //Formatting data to html for three column section
                 case "three-column":
-                    convertedData = threeColToHtml(itemList, title);
+                    convertedData = threeColToHtml(jsonCv[i]);
                     sectionsArray.push(convertedData);
                     break;
                 //Other cases
@@ -158,25 +155,27 @@
 
     //Generate HTML for info sections, returns a string of HTML
     function infoToHtml(
-        table1 = {
-            class: "info-table1",
-            label: ["Label"],
-            content: ["Information"],
-        },
-        table2 = {
-            class: "info-table2",
-            label: ["Label"],
-            content: ["Information"],
-        },
-        name = "Name"
+        section = {
+            name: "Name",
+            table1: {
+                class: "info-table1",
+                label: ["Label"],
+                content: ["Information"],
+            },
+            table2: {
+                class: "info-table2",
+                label: ["Label"],
+                content: ["Information"],
+            },
+        }
     ) {
-        let dataTable1 = convertTableToHtml(table1);
-        let dataTable2 = convertTableToHtml(table2);
+        let dataTable1 = convertTableToHtml(section.table1);
+        let dataTable2 = convertTableToHtml(section.table2);
         numOfSections++;
         return `<section class="section info deletable sortable break-after" id="section${numOfSections}">
-            <h2 contenteditable="true" class="text-center info-name">${name}</h2><div class="row">${
-            dataTable1 + dataTable2
-        }</div></section>`;
+            <h2 contenteditable="true" class="text-center info-name">${
+                section.name
+            }</h2><div class="row">${dataTable1 + dataTable2}</div></section>`;
     }
 
     //Generate HTML for tables in info sections, returns a string of HTML
@@ -206,57 +205,55 @@
 
     //Generate HTML for single block sections
     function singleBlockToHtml(
-        list = ["Description"],
-        title = "New Single Block"
+        section = { title: "New Single Block", list: ["Description"] }
     ) {
         let htmlList = "";
-        for (j in list) {
-            htmlList += createSingleBlockItem(list[j]);
+        for (j in section.list) {
+            htmlList += createSingleBlockItem(section.list[j]);
         }
         numOfSections++;
         return `<section class="break-after section single-block deletable extendable sortable-list sortable" id="section${numOfSections}">
-<h3 contenteditable="true" class="section-heading single-block-title">${title}</h3>${htmlList}</section>`;
+<h3 contenteditable="true" class="section-heading single-block-title">${section.title}</h3>${htmlList}</section>`;
     }
 
     //Generate HTML for listing sections
     function listingToHtml(
-        list = [
-            {
-                date: "Date",
-                location: "Location",
-                position: "Position",
-                description: "Description",
-            },
-        ],
-        title = "New Listing"
+        section = {
+            list: [
+                {
+                    date: "Date",
+                    location: "Location",
+                    position: "Position",
+                    description: "Description",
+                },
+            ],
+            title: "New Listing",
+        }
     ) {
         let htmlList = "";
-        for (j in list) {
-            htmlList += createListingItem(
-                list[j].date,
-                list[j].location,
-                list[j].position,
-                list[j].description
-            );
+        for (j in section.list) {
+            htmlList += createListingItem(section.list[j]);
         }
         numOfSections++;
         return `<section class="section break-after listing deletable extendable sortable-list sortable" id="section${numOfSections}">
-    <h3 contenteditable="true" class="listing-title section-heading">${title}</h3>${htmlList}</section>`;
+    <h3 contenteditable="true" class="listing-title section-heading">${section.title}</h3>${htmlList}</section>`;
     }
 
     //Generate HTML for three column sections
     function threeColToHtml(
-        list = ["New Item", "New Item", "New Item"],
-        title = "New Three Column Section"
+        section = {
+            list: ["New Item", "New Item", "New Item"],
+            title: "New Three Column Section",
+        }
     ) {
         let htmlList = "";
 
-        for (j in list) {
-            htmlList += createThreeColumnItem(list[j]);
+        for (j in section.list) {
+            htmlList += createThreeColumnItem(section.list[j]);
         }
         numOfSections++;
         return `<section break-after class="section three-column deletable sortable" id="section${numOfSections}">
-        <h3 contenteditable="true" class="section-heading three-col-title">${title}</h3>
+        <h3 contenteditable="true" class="section-heading three-col-title">${section.title}</h3>
         <div class="row three-column-list d-flex align-content-start flex-wrap extendable pl-2 pr-2 sortable-list">${htmlList}</div></section>`;
     }
 
@@ -273,24 +270,26 @@ Default parameters are used when a new element is created*/
 
     //Create HTML for item in Listing section
     function createListingItem(
-        date = "Date",
-        location = "Location",
-        position = "Position",
-        description = "Description"
+        listing = {
+            date: "Date",
+            location: "Location",
+            position: "Position",
+            description: "Description",
+        }
     ) {
         return `<div class="row listing-row deletable sortable">
     <div class="col-md-2 listing-date-col">
-        <h5 contenteditable="true" class="listing-date">${date}</h5>
+        <h5 contenteditable="true" class="listing-date">${listing.date}</h5>
     </div>
     <div class="col-md-2 listing-location-col">
-        <h5 contenteditable="true" class="listing-location">${location}</h5>
+        <h5 contenteditable="true" class="listing-location">${listing.location}</h5>
     </div>
     <div class="col-md-8 listing-content-col">
         <h5 contenteditable="true" class="listing-position">
-        ${position}
+        ${listing.position}
         </h5>
         <div contenteditable="true" class="listing-description">
-        ${description}
+        ${listing.description}
         </div>
     </div>
 </div>`;
