@@ -478,7 +478,7 @@ $(document).on("mouseenter", ".sortable", function () {
     //Add sortable handle only if is not already appended to the element
     if (!$(this).find("sortable-btn").length) {
         $(this).append(
-            `<span class="sortable-btn"><i class="fas fa-bars"></i></span>`
+            `<button class="sortable-btn"><i class="fas fa-bars"></i></button>`
         );
     }
 });
@@ -493,6 +493,7 @@ function makeSortable() {
     $(".sortable-list").sortable({
         items: ">.sortable",
         handle: ">.sortable-btn",
+        cancel: "",
         placeholder: "sort-placeholder",
         cursor: "grabbing",
         helper: "clone",

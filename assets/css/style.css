@@ -383,6 +383,9 @@ section.deletable {
     top: 5px;
     cursor: grab;
     font-size: 1.2rem;
+    border: 0;
+    padding: 0;
+    background: transparent;
 }
 
 .sortable-btn:hover {
