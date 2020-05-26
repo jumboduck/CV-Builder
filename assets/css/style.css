@@ -36,7 +36,7 @@ section h5 {
     margin-top: 1rem;
 }
 
-/* NAVBAR */
+/* HEADER AND NAVBAR */
 
 .navbar-toggler {
     position: absolute;
@@ -50,6 +50,14 @@ section h5 {
     margin-right: auto;
 }
 
+button.nav-link {
+    border: 0;
+    background-color: transparent;
+    display: inline;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .navbar-nav #nav-title {
     color: #fff;
     padding: 0.5rem 0;
@@ -57,6 +65,25 @@ section h5 {
     font-weight: 700;
     display: inline-block;
     text-transform: uppercase;
+}
+
+.custom-header {
+    background-color: #606060;
+    color: #fff;
+}
+
+button.nav-link {
+    color: #fff;
+    padding: 0.5rem 0;
+    margin: 0 0.5rem;
+}
+
+button.nav-link:hover {
+    border-bottom: 1px solid #fff;
+}
+
+button.nav-link.active {
+    border-bottom: 1px solid #fff;
 }
 
 /* PRINTABLE CONTENT STYLING*/
@@ -135,27 +162,6 @@ section h5 {
     100% {
         opacity: 0.5;
     }
-}
-
-/* HEADER STYLES */
-
-.custom-header {
-    background-color: #606060;
-    color: #fff;
-}
-
-.custom-header nav.navbar ul.navbar-nav li a {
-    color: #fff;
-    padding: 0.5rem 0;
-    margin: 0 0.5rem;
-}
-
-.custom-header a:hover {
-    border-bottom: 1px solid #fff;
-}
-
-.custom-header a.active {
-    border-bottom: 1px solid #fff;
 }
 
 /* TABLE STYLES */
