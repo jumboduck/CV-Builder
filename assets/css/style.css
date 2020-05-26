@@ -50,12 +50,10 @@ section h5 {
     margin-right: auto;
 }
 
-button.nav-link {
+.navbar-nav button.nav-link {
     border: 0;
     background-color: transparent;
     display: inline;
-    padding-left: 0;
-    padding-right: 0;
 }
 
 .navbar-nav #nav-title {
@@ -317,6 +315,7 @@ section.deletable {
 #add-section {
     background-color: #ececec;
     margin: 1rem 0;
+    text-transform: uppercase;
     cursor: auto;
 }
 
@@ -336,6 +335,9 @@ section.deletable {
 .section-btn {
     color: #000;
     cursor: pointer;
+    background: transparent;
+    border: 0;
+    text-transform: uppercase;
 }
 
 .section-btn img:hover {
