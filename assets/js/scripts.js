@@ -1,12 +1,12 @@
 (function () {
-    let printable = $("#printable");
+    let printable;
     let themes = [
         "default-theme",
         "theme-modern",
         "theme-lavender",
         "theme-deco",
     ];
-    let toBePrinted = printable[0];
+    let toBePrinted;
     let numOfSections = 0;
     let defaultCv;
     //Retrieve CV and theme saved to local storage
@@ -17,23 +17,29 @@
         $("#save-alert").hide();
         $("#new-section-buttons").hide();
         $("#close-section").hide();
-    });
+        printable = $("#printable");
+        toBePrinted = printable[0];
 
-    //Fetch default CV data and display as formatted HTML
-    fetch("assets/data/defaultcv.json")
-        .then((res) => res.json())
-        .then((data) => {
-            defaultCv = data;
-            // If no saved CV has been saved, set content to default CV
-            if (!savedCv) {
-                setContent(data);
-            }
-            // Set content to saved CV and theme
-            else {
-                setContent(JSON.parse(savedCv));
-                changeTheme(JSON.parse(usedTheme));
-            }
-        });
+        //Fetch default CV data and display as formatted HTML
+        fetch("assets/data/defaultcv.json")
+            .then((res) => res.json())
+            .then((data) => {
+                defaultCv = data;
+                // If no saved CV has been saved, set content to default CV
+                if (!savedCv) {
+                    setContent(data);
+                }
+                // Set content to saved CV and theme
+                else {
+                    try {
+                        setContent(JSON.parse(savedCv));
+                        changeTheme(JSON.parse(usedTheme));
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }
+            });
+    });
 
     //Display CV on page
     function setContent(cvContent) {
