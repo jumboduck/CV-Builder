@@ -402,7 +402,7 @@ section.deletable {
 }
 
 section .sort-placeholder {
-    margin: 0rem 1rem;
+    margin: 0;
 }
 
 section.three-column .sort-placeholder {
