@@ -29,7 +29,6 @@
         fetch("assets/data/defaultcv.json")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 defaultCv = data;
                 // If no saved CV has been saved, set content to default CV
                 if (!savedCv) {
@@ -59,7 +58,6 @@
 
     //Traversing JSON data, returns CV data as string of formatted HTML
     function convertSavedData(jsonCv) {
-        console.log(jsonCv);
         return jsonCv.map(function (section) {
             switch (section.type) {
                 //Formatting data to html for info section
@@ -84,28 +82,27 @@
 
     //Saving CV information to an array of Objects
     function saveCvToArray() {
-        let savedArray = [];
-        let sections = $("#printable section");
-        for (i in sections) {
-            let sectionId = sections.eq(i).attr("id");
-            //Converts Info sections JSON data
-            if (sections.eq(i).hasClass("info")) {
-                savedArray.push(infoToObject(sectionId));
+        return [...document.querySelectorAll("#printable section")].map(
+            function (section) {
+                let sectionId = section.id;
+                //Converts Info sections JSON data
+                if (section.classList.contains("info")) {
+                    return infoToObject(sectionId);
+                }
+                //Converts three-column sections into JSON data
+                else if (section.classList.contains("three-column")) {
+                    return threeColToObject(sectionId);
+                }
+                // Converts listing sections into JSON data
+                else if (section.classList.contains("listing")) {
+                    return listingToObject(sectionId);
+                }
+                //Converts single block sections into JSON data
+                else if (section.classList.contains("single-block")) {
+                    return singleBlockToObject(sectionId);
+                }
             }
-            //Converts three-column sections into JSON data
-            else if (sections.eq(i).hasClass("three-column")) {
-                savedArray.push(threeColToObject(sectionId));
-            }
-            // Converts listing sections into JSON data
-            else if (sections.eq(i).hasClass("listing")) {
-                savedArray.push(listingToObject(sectionId));
-            }
-            //Converts single block sections into JSON data
-            else if (sections.eq(i).hasClass("single-block")) {
-                savedArray.push(singleBlockToObject(sectionId));
-            }
-        }
-        return savedArray;
+        );
     }
 
     //Toggles elements that should not be seen in the PDF
