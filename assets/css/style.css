@@ -223,7 +223,7 @@ button.nav-link.active {
     background-color: #f00;
 }
 
-button i {
+.actions button i {
     padding-left: 0.5rem;
 }
 
@@ -280,16 +280,18 @@ section.deletable {
 }
 
 .deletebtn {
+    padding: 0;
+    border: 0;
     color: #ffcccb;
     position: absolute;
-    right: -0.75rem;
-    top: -1rem;
+    right: -0.7rem;
+    top: -1.1rem;
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 10;
-    background-color: #fff;
-    border-radius: 50%;
+    width: 1.5rem;
     height: 1.5rem;
+    background-color: #fff;
 }
 
 .deletebtn:hover {

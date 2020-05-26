@@ -419,7 +419,7 @@ $(document).on("mouseenter", ".deletable", function () {
     //Delete button is only created if one doesn't already exist
     if (!$(this).find("deletebtn").length) {
         $(this).append(
-            `<span class="deletebtn" aria-label="delete-element"><i class='fas fa-times-circle'></i></span>`
+            `<button class="deletebtn" aria-label="delete-element"><i class='fas fa-times-circle'></i></button>`
         );
         $(this).addClass("deletable-hover");
     }
