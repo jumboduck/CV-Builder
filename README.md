@@ -108,13 +108,14 @@ Special care was put into making this cv builder an easy tool to use with intuit
 
 -   Editable text will blink when hovered
 -   Editable text background and outline will change when being edited
--   Clear and colored buttons displayed to add a new element or section, and to delete an element or section
+-   Clear and colored buttons are displayed to add a new element or section, and to delete an element or section
 -   Sections and element border change on hover to indicate section or element being accessed
 -   Validation message when content has been saved
 -   Confirmation popup when content is to be reset
 -   Clear handle icon on objects that can be sorted
 -   Cursor changes when sortable handle is hovered or grabbed
 -   Clear placeholders when sortable element is moved to indicate the new placement to the user
+-   Header changes color to emphasize theme change
 
 ---
 
@@ -133,11 +134,11 @@ The information in the user's CV can be displayed in four types of sections.
 -   **Three Column** would be used to list elements in three columns
     ![alt text](readme-files/three-col-section-example.png "Three Column Section")
 
-Sections can be added or removed, and re-organized with a drag and drop. This also applies to individual items within these sections.
+Sections can be added or removed, and re-organized with drag and drop. This also applies to individual items within these sections.
 
 ### Themes
 
-Additionally, the cv can be customized using 4 different themes that change the fonts and colors on the final product:
+Additionally, the CV can be customized using 4 different themes that change the fonts and colors on the final product:
 
 -   #### Default
 
@@ -157,9 +158,9 @@ Additionally, the cv can be customized using 4 different themes that change the 
 
 ### Save Function
 
-Any changes made to the cv or its theme can be saved to be updated at a later time.
-When saved, the content of the page generates a JSON object which is saved to local storage. The theme chosen by the user is also saved to local storage.
-Upon reload of the page, the saved data and theme are automatically displayed on the page. If no information is found in local storage, a default CV will be displayed.
+Any changes made to the CV or its theme can be saved to be updated at a later time.
+When saved, the content of the page generates a JSON object which is stored in the browser's local storage. The theme chosen by the user is also saved to local storage.
+Upon reload of the page, the saved data and theme are automatically displayed on the page. If no information is found in local storage, a default CV and theme will be displayed.
 
 ### Download as PDF
 
@@ -167,7 +168,7 @@ The CV builder uses html2pdf.js to convert the content of the CV into a PDF docu
 
 ### Reset
 
-A reset button at the bottom of the page enables the user to reset the CV's content and themes to their default values, and to clear the local storage. The user has to confirm the reset in a modal window before the content is set back to default.
+A reset button at the bottom of the page enables the user to reset the CV's content and theme to their default values. I also clears the local storage. The user has to confirm the reset in a modal window before the content is reset.
 
 ### Responsive Design
 
@@ -184,7 +185,7 @@ It was built responsively with the bootstrap framework, and uses JQuery UI Touch
 -   Javascript
 -   [JQuery](https://jquery.com/)
 -   [JQuery UI](https://jqueryui.com/): for effects on the page and the sortable function
--   JQuery UI Touch Punch: to make JQuery UI sortable function touch device friendly
+-   JQuery UI Touch Punch: to make JQuery UI's sortable function touch device friendly
 -   [html2pdf.js](https://github.com/eKoopmans/html2pdf.js): relies on HTML2canvas and jsPDF to convert the CV to a PDF file
 -   [anchorme.js](https://alexcorvi.github.io/anchorme.js/): dynamically finds urls and email addresses on the CV and converts them to anchor tags
 
@@ -192,7 +193,7 @@ It was built responsively with the bootstrap framework, and uses JQuery UI Touch
 
 ## Tools
 
--   VSCode: IDE used to create and ede code
+-   VSCode: IDE used to create and edit code
 -   Adobe Photoshop: Image editor used for section vignettes and favicon
 -   Balsamiq: Used to create wireframes
 -   [Font Awesome](https://fontawesome.com/): used for all icons throughout the site
