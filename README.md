@@ -24,7 +24,7 @@
     -   [Manual Testing](#manual-testing)
     -   [User Testing](#user-testing)
     -   [Known Bugs](#known-bugs)
--   **[Scalability](#scalability)**
+-   **[Future Features](#future-features)**
 -   **[Code Notes](#code-notes)**
 -   **[Aknowledgments](#aknowledgments)**
 
@@ -34,7 +34,7 @@
 
 CV Builder is meant to be a simple intuitive way for users to create a CV and download it as a PDF file. It gives an array of options to customize a CV's content and its appearance, giving its users the flexibility to create a document that meets their needs.
 
-![alt text](readme-files/cv-builder-displays.png "CV Builder on Many displays")
+![alt text](readme-files/cv-builder-displays.png "CV Builder on different displays")
 
 ---
 
@@ -137,10 +137,21 @@ Sections can be added or removed, and re-organized with a drag and drop. This al
 
 Additionally, the cv can be customized using 4 different themes that change the fonts and colors on the final product:
 
--   Default
--   Modern
--   Lavender
--   Deco
+-   #### Default
+
+![alt text](readme-files/theme-default-example.png "Default theme")
+
+-   #### Modern
+
+![alt text](readme-files/theme-modern-example.png "Modern theme")
+
+-   #### Lavender
+
+![alt text](readme-files/theme-lavender-example.png "Lavender theme")
+
+-   #### Deco
+
+![alt text](readme-files/theme-deco-example.png "Deco theme")
 
 ### Save Function
 
@@ -218,7 +229,7 @@ When the program was advanced enough to be usable, several users were asked to m
 
 ---
 
-## Scalability
+## Future features
 
 A number of new features will be implemented in the future.
 
@@ -227,6 +238,8 @@ A number of new features will be implemented in the future.
 -   More themes and granular customization options, such as a choice of fonts and colors.
 
 -   New types of sections should be available for use
+
+-   An interactive tutorial will be created to guide new users on how to use the platform
 
 ---
 
