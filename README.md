@@ -78,6 +78,8 @@ The live demo of the cv builder has been deployed to Github Pages and is accessi
 
 ### User Stories
 
+_Generic User / Job Seeker_
+
 -   I want to build a CV in a simple way
 -   I want to be able to save my cv to a pdf
 -   I want to be able to organize the information on my CV
