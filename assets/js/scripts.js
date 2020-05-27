@@ -19,33 +19,6 @@
         console.log(error);
     }
 
-    $(document).ready(function () {
-        $("#save-alert").hide();
-        $("#new-section-buttons").hide();
-        $("#close-section").hide();
-        printable = $("#printable");
-
-        //Fetch default CV data and display as formatted HTML
-        fetch("assets/data/defaultcv.json")
-            .then((res) => res.json())
-            .then((data) => {
-                defaultCv = data;
-                // If no saved CV has been saved, set content to default CV
-                if (!savedCv) {
-                    setContent(defaultCv);
-                }
-                // Set content to saved CV and theme
-                else {
-                    try {
-                        setContent(savedCv);
-                        changeTheme(usedTheme);
-                    } catch (error) {
-                        console.log(error);
-                    }
-                }
-            });
-    });
-
     //Display CV on page
     function setContent(cvContent) {
         let loadedCv = convertSavedData(cvContent);
@@ -116,29 +89,6 @@
             $(this).toggle();
         });
     }
-
-    //Save to local storage when save button is clicked
-    $("#save-btn").click(function () {
-        let currentCv = saveCvToArray();
-        localStorage.setItem("CV", JSON.stringify(currentCv));
-        localStorage.setItem("theme", JSON.stringify(usedTheme));
-        //Display confirmation alert when saved
-        $("#save-alert").show("blind", 100);
-        setTimeout(function () {
-            $("#save-alert").hide("blind", 100);
-        }, 8000);
-    });
-
-    $("#save-alert .close").click(function () {
-        $("#save-alert").hide("blind", 100);
-    });
-
-    //Set default content when reset button is clicked and delete local storage
-    $("#reset-btn").click(function () {
-        setContent(defaultCv);
-        changeTheme("theme-default");
-        localStorage.clear();
-    });
 
     //GENERATE HTML FOR ENTIRE SECTIONS
 
@@ -307,17 +257,6 @@ Default parameters are used when a new element is created*/
         $("#new-section-buttons").toggle("blind", "swing", 300);
     }
 
-    //When Button to add section is clicked, section type selection appears
-    $("#add-section-btn").click(toggleSectionBtns);
-
-    //Closing section type selection
-    $("#close-section").click(function () {
-        $("#new-section-buttons").toggle("blind", "swing", 300, function () {
-            $("#close-section").toggle();
-            $("#add-section-btn").toggle();
-        });
-    });
-
     //Adds a new section to the cv and ensures it is sortable and has buttons to add a new element
     function addSection(type) {
         $("#printable").append(type);
@@ -325,20 +264,6 @@ Default parameters are used when a new element is created*/
         createNewElementButton();
         makeSortable();
     }
-
-    //New sections added on click
-    $("#newsingleblock-btn").click(function () {
-        addSection(singleBlockToHtml());
-    });
-    $("#newlisting-btn").click(function () {
-        addSection(listingToHtml());
-    });
-    $("#new3col-btn").click(function () {
-        addSection(threeColToHtml());
-    });
-    $("#newinfo-btn").click(function () {
-        addSection(infoToHtml());
-    });
 
     /* Creates objects for each type of section from HTML */
 
@@ -569,17 +494,97 @@ Default parameters are used when a new element is created*/
         }
     }
 
-    //Nav links listeners
-    $("#theme-default-link").click(function () {
-        changeTheme("theme-default");
-    });
-    $("#theme-modern-link").click(function () {
-        changeTheme("theme-modern");
-    });
-    $("#theme-lavender-link").click(function () {
-        changeTheme("theme-lavender");
-    });
-    $("#theme-deco-link").click(function () {
-        changeTheme("theme-deco");
+    $(document).ready(function () {
+        $("#save-alert").hide();
+        $("#new-section-buttons").hide();
+        $("#close-section").hide();
+        printable = $("#printable");
+
+        //Nav links listeners
+        $("#theme-default-link").click(function () {
+            changeTheme("theme-default");
+        });
+        $("#theme-modern-link").click(function () {
+            changeTheme("theme-modern");
+        });
+        $("#theme-lavender-link").click(function () {
+            changeTheme("theme-lavender");
+        });
+        $("#theme-deco-link").click(function () {
+            changeTheme("theme-deco");
+        });
+
+        //New sections added on click
+        $("#newsingleblock-btn").click(function () {
+            addSection(singleBlockToHtml());
+        });
+        $("#newlisting-btn").click(function () {
+            addSection(listingToHtml());
+        });
+        $("#new3col-btn").click(function () {
+            addSection(threeColToHtml());
+        });
+        $("#newinfo-btn").click(function () {
+            addSection(infoToHtml());
+        });
+
+        //When Button to add section is clicked, section type selection appears
+        $("#add-section-btn").click(toggleSectionBtns);
+
+        //Closing section type selection
+        $("#close-section").click(function () {
+            $("#new-section-buttons").toggle(
+                "blind",
+                "swing",
+                300,
+                function () {
+                    $("#close-section").toggle();
+                    $("#add-section-btn").toggle();
+                }
+            );
+        });
+
+        //Save to local storage when save button is clicked
+        $("#save-btn").click(function () {
+            let currentCv = saveCvToArray();
+            localStorage.setItem("CV", JSON.stringify(currentCv));
+            localStorage.setItem("theme", JSON.stringify(usedTheme));
+            //Display confirmation alert when saved
+            $("#save-alert").show("blind", 100);
+            setTimeout(function () {
+                $("#save-alert").hide("blind", 100);
+            }, 8000);
+        });
+
+        $("#save-alert .close").click(function () {
+            $("#save-alert").hide("blind", 100);
+        });
+
+        //Set default content when reset button is clicked and delete local storage
+        $("#reset-btn").click(function () {
+            setContent(defaultCv);
+            changeTheme("theme-default");
+            localStorage.clear();
+        });
+
+        //Fetch default CV data and display as formatted HTML
+        fetch("assets/data/defaultcv.json")
+            .then((res) => res.json())
+            .then((data) => {
+                defaultCv = data;
+                // If no saved CV has been saved, set content to default CV
+                if (!savedCv) {
+                    setContent(defaultCv);
+                }
+                // Set content to saved CV and theme
+                else {
+                    try {
+                        setContent(savedCv);
+                        changeTheme(usedTheme);
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }
+            });
     });
 })();
