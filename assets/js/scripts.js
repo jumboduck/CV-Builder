@@ -29,7 +29,7 @@
         console.log("content updated");
     }
 
-    //Traversing JSON data, returns CV data as string of formatted HTML
+    //Traversing JSON data, returns CV data as string of formatted HTML in an array
     function convertSavedData(jsonCv) {
         return jsonCv.map(function (section) {
             switch (section.type) {
@@ -348,7 +348,7 @@ Default parameters are used when a new element is created*/
         //Delete button is only created if one doesn't already exist
         if (!$(this).find("deletebtn").length) {
             $(this).append(
-                `<button class="deletebtn" aria-label="delete-element"><i class='fas fa-times-circle'></i></button>`
+                `<button class="deletebtn" aria-label="Delete element"><i class='fas fa-times-circle'></i></button>`
             );
             $(this).addClass("deletable-hover");
         }
@@ -371,11 +371,11 @@ Default parameters are used when a new element is created*/
                 if ($(this).parents().hasClass("three-column")) {
                     //Three column section "add element" button behaves slightly differently due to bootstrap column
                     $(this).append(
-                        `<button class="add-element btn-block d-flex justify-content-center align-items-center col-md-4" aria-label="add-element"><i class="fas fa-plus-circle"></i></button>`
+                        `<button class="add-element btn-block d-flex justify-content-center align-items-center col-md-4" aria-label="Add element"><i class="fas fa-plus-circle"></i></button>`
                     );
                 } else {
                     $(this).append(
-                        `<button class="add-element btn-block text-center row"  aria-label="add-element"><i class="fas fa-plus-circle"></i></button>`
+                        `<button class="add-element btn-block text-center row"  aria-label="Add element"><i class="fas fa-plus-circle"></i></button>`
                     );
                 }
             }
@@ -578,12 +578,8 @@ Default parameters are used when a new element is created*/
                 }
                 // Set content to saved CV and theme
                 else {
-                    try {
-                        setContent(savedCv);
-                        changeTheme(usedTheme);
-                    } catch (error) {
-                        console.log(error);
-                    }
+                    setContent(savedCv);
+                    changeTheme(usedTheme);
                 }
             });
     });
