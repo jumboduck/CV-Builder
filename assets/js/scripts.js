@@ -1,7 +1,7 @@
 (function () {
     let printable;
     let themes = [
-        "default-theme",
+        "theme-default",
         "theme-modern",
         "theme-lavender",
         "theme-deco",
@@ -136,7 +136,7 @@
     //Set default content when reset button is clicked and delete local storage
     $("#reset-btn").click(function () {
         setContent(defaultCv);
-        changeTheme("default-theme");
+        changeTheme("theme-default");
         localStorage.clear();
     });
 
@@ -558,8 +558,8 @@ Default parameters are used when a new element is created*/
         $("#printable").removeClass(themeClasses).addClass(theme);
         $(".custom-header").removeClass(themeClasses).addClass(theme);
         usedTheme = theme;
-        if (theme === "default-theme") {
-            changeActiveNav($("#default-theme-link"));
+        if (theme === "theme-default") {
+            changeActiveNav($("#theme-default-link"));
         } else if (theme === "theme-modern") {
             changeActiveNav($("#theme-modern-link"));
         } else if (theme === "theme-lavender") {
@@ -570,8 +570,8 @@ Default parameters are used when a new element is created*/
     }
 
     //Nav links listeners
-    $("#default-theme-link").click(function () {
-        changeTheme("default-theme");
+    $("#theme-default-link").click(function () {
+        changeTheme("theme-default");
     });
     $("#theme-modern-link").click(function () {
         changeTheme("theme-modern");
