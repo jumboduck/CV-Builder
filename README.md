@@ -24,7 +24,7 @@
     -   [Manual Testing](#manual-testing)
     -   [User Testing](#user-testing)
     -   [Known Bugs](#known-bugs)
--   **[Future Features](#future-features)**
+-   **[Upcoming Features](#upcoming-features)**
 -   **[Code Notes](#code-notes)**
 -   **[Aknowledgments](#aknowledgments)**
 
@@ -232,15 +232,15 @@ When the program was advanced enough to be usable, several users were asked to m
 
 ---
 
-## Future features
+## Upcoming features
 
 A number of new features will be implemented in the future.
 
--   A preview of the final PDF will be seen download
+-   A preview of the final PDF will be seen before download
 
 -   More themes and granular customization options, such as a choice of fonts and colors.
 
--   New types of sections should be available for use
+-   New types of sections will be available for use
 
 -   An interactive tutorial will be created to guide new users on how to use the platform
 
