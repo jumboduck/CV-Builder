@@ -244,7 +244,7 @@ A number of new features will be implemented in the future.
 
 -   An interactive tutorial will be created to guide new users on how to use the platform
 
--   Currently, the fields that the user can edit are DIV elements with the attribute contenteditable set to "true". For the application to be more semantically accurate and accessible.
+-   Currently, the fields that the user can edit are DIV elements with the attribute contenteditable set to "true". For the application to be more semantically accurate and accessible, these will be replaced with input fields.
 
 ---
 
