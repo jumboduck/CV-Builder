@@ -412,14 +412,7 @@ section.deletable {
     background-color: #eee;
     border: 1px dashed #aaa;
     border-radius: 0.5rem;
-}
-
-section .sort-placeholder {
     margin: 0;
-}
-
-section.three-column .sort-placeholder {
-    margin: 0rem;
 }
 
 .ui-sortable-helper {
