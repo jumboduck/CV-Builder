@@ -172,7 +172,7 @@ A reset button at the bottom of the page enables the user to reset the CV's cont
 
 ### Responsive Design
 
-This application is primarily meant to be used on computer sized screens but it has been optimized to to work on mobile devices as well.
+This application is primarily meant to be used on computer sized screens but it has been optimized to work on mobile devices as well.
 It was built responsively with the bootstrap framework, and uses JQuery UI Touch Punch to ensure all functionalities work on touch enabled devices.
 
 ---
