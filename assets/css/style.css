@@ -457,18 +457,6 @@ section.deletable {
         width: 95%;
     }
 
-    .three-column .sort-placeholder {
-        flex: auto;
-        max-width: 100%;
-    }
-
-    .three-column .deletable,
-    .three-column .add-element {
-        margin: 0.1rem 0.1rem;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
     .deletable {
         padding: 0.5rem 1.5rem;
         margin: 0.2rem 0.5rem;
@@ -485,5 +473,31 @@ section.deletable {
     .info-content {
         padding-left: 0;
         margin-left: 0.6rem;
+    }
+
+    .three-column .sort-placeholder {
+        flex: 0 0 49%;
+        max-width: 100%;
+    }
+
+    .three-column .deletable,
+    .three-column .add-element {
+        margin: 0.1rem;
+        flex: 0 0 49%;
+        max-width: 49%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .three-column .sort-placeholder {
+        flex: auto;
+        max-width: 100%;
+    }
+
+    .three-column .deletable,
+    .three-column .add-element {
+        margin: 0.1rem;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
