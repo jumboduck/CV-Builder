@@ -488,4 +488,9 @@ section.three-column .sort-placeholder {
     .info-label {
         padding-left: 0;
     }
+
+    .info-content {
+        padding-left: 0;
+        margin-left: 0.6rem;
+    }
 }

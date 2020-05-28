@@ -127,11 +127,11 @@
             let newRow = createInfoItem(table.label[j], table.content[j]);
             //Table has only 1 row, open and close div tag
             if (table.label.length === 1) {
-                dataTable += `<div class="col-md-6 extendable info-table ${table.class} sortable-list">${newRow}</div>`;
+                dataTable += `<div class="col-6 extendable info-table ${table.class} sortable-list">${newRow}</div>`;
             }
             //First row of the table, open div tag, no closing div tag
             else if (j === 0) {
-                dataTable += `<div class="col-md-6 extendable info-table ${table.class} sortable-list">${newRow}`;
+                dataTable += `<div class="col-6 extendable info-table ${table.class} sortable-list">${newRow}`;
             }
             //Last row of the table, no open div tag, close div tag
             else if (j === table.label.length - 1) {
@@ -205,8 +205,8 @@ Default parameters are used when a new element is created*/
     //Create HTML for item in Info section
     function createInfoItem(label = "Label", content = "Information") {
         return `<div class="row deletable sortable">
-        <div class="col-md-4 text-left info-label" contenteditable="true">${label}</div>
-        <div contenteditable="true" class="col-md-8 info-content">${content}</div>
+        <div class="col-12 col-md-4 text-left info-label" contenteditable="true">${label}</div>
+        <div contenteditable="true" class="col-12 col-md-8 info-content">${content}</div>
     </div>`;
     }
 
